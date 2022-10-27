@@ -3,31 +3,12 @@ import { useState, useEffect } from "react";
 import useAxios from "../../../hooks/useAxios";
 import ErrorMessage from "../../common/ErrorMessage";
 import { useParams } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+/* import Button from "react-bootstrap/Button"; */
 import UpdateForm from "./UpdateForm";
 import DeletePost from "./DeletePost";
 import defaultAvatar from "../../../images/default.jpeg";
 import Dropdown from "../../common/Dropdown";
-
-function MyVerticallyCenteredModal(props) {
-  const id = props.id;
-  const title = props.title;
-  const body = props.body;
-  return (
-    <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Update post</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <UpdateForm id={id} title={title} body={body} />
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
+import ModalVertical from "../../common/ModalVertical";
 
 export default function UserProfile() {
   const [error, setError] = useState(null);
@@ -87,11 +68,12 @@ export default function UserProfile() {
               <p>{post.body}</p>
               <span>{post.owner}</span>
               <div>
-                <Button variant="primary" onClick={() => setModalShow(true)}>
+                <button variant="primary" onClick={() => setModalShow(true)}>
                   Update
-                </Button>
-
-                <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} id={post.id} title={post.title} body={post.body} />
+                </button>
+                <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Update post">
+                  <UpdateForm id={post.id} title={post.title} body={post.body} />
+                </ModalVertical>
               </div>
               <DeletePost id={post.id} />
             </div>

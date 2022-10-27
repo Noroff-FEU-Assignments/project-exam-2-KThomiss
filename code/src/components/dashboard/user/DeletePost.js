@@ -1,6 +1,6 @@
 import useAxios from "../../../hooks/useAxios";
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
+/* import Button from "react-bootstrap/Button"; */
 import { useState } from "react";
 
 export default function DeletePost({ id }) {
@@ -21,14 +21,14 @@ export default function DeletePost({ id }) {
       <Alert variant="warning" show={show}>
         <Alert.Heading>This post will be deleted forever.</Alert.Heading>
       </Alert>
-      <Button
+      <button
         onClick={() => {
           deletePost();
           setShow(true);
         }}
       >
         Delete
-      </Button>
+      </button>
     </>
   );
 }

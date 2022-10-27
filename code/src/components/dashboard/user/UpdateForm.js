@@ -7,7 +7,7 @@ import ErrorMessage from "../../common/ErrorMessage";
 
 const schema = yup.object().shape({
   title: yup.string().required(),
-  message: yup.string().required(),
+  body: yup.string().required(),
 });
 
 function UpdateForm({ id, title, body }) {
@@ -28,7 +28,7 @@ function UpdateForm({ id, title, body }) {
     setRegisterError(null);
     try {
       const response = await http.put(`posts/${id}`, data);
-      console.log("response", response);
+      console.log("response", response.data);
     } catch (error) {
       console.log(error);
     }
@@ -39,12 +39,12 @@ function UpdateForm({ id, title, body }) {
       <div>
         <label htmlFor="title">Title:</label>
         <input id="title" {...register("title")} defaultValue={title} />
-        {errors.message && <ErrorMessage>{errors.title.message}</ErrorMessage>}
+        {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
       </div>
       <div>
         <label htmlFor="message">Message:</label>
-        <textarea id="message" {...register("message")} defaultValue={body}></textarea>
-        {errors.message && <ErrorMessage>{errors.message.message}</ErrorMessage>}
+        <textarea id="message" {...register("body")} defaultValue={body}></textarea>
+        {errors.body && <ErrorMessage>{errors.body.message}</ErrorMessage>}
       </div>
       <button>Update</button>
     </form>

@@ -2,13 +2,16 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import NavProfile from "../dashboard/user/NavProfile";
+import ModalVertical from "../common/ModalVertical";
+import LoginForm from "../login/LoginForm";
 
 function OffcanvasExample() {
   const [auth, setAuth] = useContext(AuthContext);
+  const [modalShow, setModalShow] = useState(false);
   const navigate = useNavigate();
 
   const logout = () => {
@@ -36,13 +39,19 @@ function OffcanvasExample() {
               </div>
             </>
           ) : (
-            <NavLink to="/login" className="login-link">
-              Login
-            </NavLink>
+            <>
+              <Link variant="primary" onClick={() => setModalShow(true)}>
+                Login
+              </Link>
+              <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Login">
+                <LoginForm />
+                <Link to="/register">Dont have an account?</Link>
+              </ModalVertical>
+            </>
           )}
         </Nav>
       </div>
-      <Nav className="d-sm-flex-none d-md-block d-lg-none">
+      <Nav className="d-block d-lg-none">
         {[false].map((expand) => (
           <Navbar key={expand} bg="light" expand={expand} className="mb-3">
             <Container fluid>
@@ -70,9 +79,15 @@ function OffcanvasExample() {
                         </div>
                       </>
                     ) : (
-                      <NavLink to="/login" className="login-link">
-                        Login
-                      </NavLink>
+                      <>
+                        <Link variant="primary" onClick={() => setModalShow(true)}>
+                          Login
+                        </Link>
+                        <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Login">
+                          <LoginForm />
+                          <Link to="/register">Dont have an account?</Link>
+                        </ModalVertical>
+                      </>
                     )}
                   </Nav>
                 </Offcanvas.Body>

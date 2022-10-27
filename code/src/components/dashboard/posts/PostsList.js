@@ -44,7 +44,7 @@ export default function PostsList() {
     <div className="container">
       {posts.map((post) => {
         return (
-          <div key={post.id}>
+          <div key={post.id} className="post-container">
             <h2>{post.title}</h2>
             <p>{post.body}</p>
             <Link to={`/dashboard/posts/${post.id}`}>View Post</Link>

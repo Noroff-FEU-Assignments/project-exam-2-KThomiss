@@ -1,7 +1,5 @@
 import HomePage from "./components/home/HomePage";
-/* import Layout from "./components/layout/Layout"; */
-import BootstrapNav from "./components/layout/BootstrapNav";
-import LoginPage from "./components/login/LoginPage";
+import NavLayout from "./components/layout/NavLayout";
 import RegisterForm from "./components/login/RegisterForm";
 import UserProfilePage from "./components/dashboard/user/UserProfilePage";
 import DashboardPage from "./components/dashboard/DashboardPage";
@@ -17,10 +15,9 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <BootstrapNav />
+        <NavLayout />
         <Routes>
           <Route path="/" exact element={<HomePage />}></Route>
-          <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/register" element={<RegisterForm />}></Route>
           <Route path="/user/:name" element={<UserProfilePage />}></Route>
           <Route path="/dashboard" element={<DashboardPage />}></Route>
