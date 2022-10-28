@@ -8,10 +8,12 @@ import { AuthContext } from "../../context/AuthContext";
 import NavProfile from "../dashboard/user/NavProfile";
 import ModalVertical from "../common/ModalVertical";
 import LoginForm from "../login/LoginForm";
+import RegisterForm from "../login/RegisterForm";
 
 function OffcanvasExample() {
   const [auth, setAuth] = useContext(AuthContext);
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShowLog, setModalShowLog] = useState(false);
+  const [modalShowReg, setModalShowReg] = useState(false);
   const navigate = useNavigate();
 
   const logout = () => {
@@ -40,12 +42,17 @@ function OffcanvasExample() {
             </>
           ) : (
             <>
-              <Link variant="primary" onClick={() => setModalShow(true)}>
+              <Link variant="primary" onClick={() => setModalShowLog(true)}>
                 Login
               </Link>
-              <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Login">
+              <ModalVertical show={modalShowLog} onHide={() => setModalShowLog(false)} heading="Login">
                 <LoginForm />
-                <Link to="/register">Dont have an account?</Link>
+                <Link variant="primary" onClick={() => setModalShowReg(true)}>
+                  Dont have an account?
+                </Link>
+              </ModalVertical>
+              <ModalVertical heading="Register" show={modalShowReg} onHide={() => setModalShowReg(false)}>
+                <RegisterForm />
               </ModalVertical>
             </>
           )}
@@ -80,12 +87,17 @@ function OffcanvasExample() {
                       </>
                     ) : (
                       <>
-                        <Link variant="primary" onClick={() => setModalShow(true)}>
+                        <Link variant="primary" onClick={() => setModalShowLog(true)}>
                           Login
                         </Link>
-                        <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Login">
+                        <ModalVertical show={modalShowLog} onHide={() => setModalShowLog(false)} heading="Login">
                           <LoginForm />
-                          <Link to="/register">Dont have an account?</Link>
+                          <Link variant="primary" onClick={() => setModalShowReg(true)}>
+                            Dont have an account?
+                          </Link>
+                        </ModalVertical>
+                        <ModalVertical heading="Register" show={modalShowReg} onHide={() => setModalShowReg(false)}>
+                          <RegisterForm />
                         </ModalVertical>
                       </>
                     )}
@@ -101,3 +113,5 @@ function OffcanvasExample() {
 }
 
 export default OffcanvasExample;
+
+/* to="/register" */

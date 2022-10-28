@@ -1,4 +1,3 @@
-import Heading from "../layout/Heading";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -21,6 +20,7 @@ const schema = yup.object().shape({
 export default function RegisterForm() {
   const [, setSubmitting] = useState(false);
   const [registerError, setRegisterError] = useState(null);
+  const [, setMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -53,6 +53,7 @@ export default function RegisterForm() {
       console.log(json);
       if (response.ok) {
         navigate("/login");
+        setMessage("Account created");
       } else {
         setRegisterError("Account already exists"); //find a solution here
       }
@@ -66,7 +67,6 @@ export default function RegisterForm() {
 
   return (
     <div className="container">
-      <Heading title="Register your account" />
       <form onSubmit={handleSubmit(registerSubmit)}>
         {registerError && <ErrorMessage>{registerError}</ErrorMessage>}
         <div>

@@ -44,17 +44,13 @@ export default function UserProfile() {
     return <ErrorMessage />;
   }
 
-  if (profile.avatar === null) {
-    profile.avatar = defaultAvatar;
-  }
-
   return (
     <div className="container">
       <img src={profile.banner} alt="banner" className="banner" />
       <div>
         <Heading title={profile.name} />
         <Dropdown />
-        <img src={profile.avatar} alt="avatar" className="avatar user-avatar" />
+        <img alt="avatar" src={profile.avatar === undefined ? profile.avatar : defaultAvatar} className="user-avatar" />
       </div>
       <li>
         Followers: {profile._count.followers} / Following: {profile._count.following}
