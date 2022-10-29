@@ -3,10 +3,9 @@ import { useState, useEffect } from "react";
 import useAxios from "../../../hooks/useAxios";
 import ErrorMessage from "../../common/ErrorMessage";
 import { useParams } from "react-router-dom";
-/* import Button from "react-bootstrap/Button"; */
 import UpdateForm from "./UpdateForm";
 import DeletePost from "./DeletePost";
-import defaultAvatar from "../../../images/default.jpeg";
+import Avatar from "../../common/DefaultAvatar";
 import Dropdown from "../../common/Dropdown";
 import ModalVertical from "../../common/ModalVertical";
 
@@ -50,7 +49,7 @@ export default function UserProfile() {
       <div>
         <Heading title={profile.name} />
         <Dropdown />
-        <img alt="avatar" src={profile.avatar === undefined ? profile.avatar : defaultAvatar} className="user-avatar" />
+        <Avatar image={profile.avatar} class={"user-avatar"} alt={profile.name} />
       </div>
       <li>
         Followers: {profile._count.followers} / Following: {profile._count.following}
