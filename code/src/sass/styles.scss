@@ -1,0 +1,14 @@
+@import "partials/navlayout";
+@import "partials/profilePage";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: #003d3b;
+  border-radius: 5px;
+  color: white;
+}

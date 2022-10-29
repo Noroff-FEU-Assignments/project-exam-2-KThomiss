@@ -8,7 +8,7 @@ const schema = yup.object().shape({
   avatar: yup.string().required(),
 });
 
-export default function Banner({ name }) {
+export default function UpdateBanner({ name }) {
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Heading from "../../layout/Heading";
 import ErrorMessage from "../../common/ErrorMessage";
 import { Link } from "react-router-dom";
+import Avatar from "../../common/DefaultAvatar";
+import Banner from "../../common/DefaultBanner";
 
 export default function ProfilesList() {
   const [error, setError] = useState(null);
@@ -33,22 +35,33 @@ export default function ProfilesList() {
   return (
     <>
       <Heading title="User profiles" />
-      {profiles.map((profile, index) => {
-        return (
-          <div key={index}>
-            <h2>{profile.name}</h2>
-            <h3>{profile.email}</h3>
-            <div>
-              <ul>
-                <li>{profile._count.posts}</li>
-                <li>{profile._count.followers}</li>
-                <li>{profile._count.following}</li>
-              </ul>
+      <div className="profile-list-container">
+        {profiles.map((profile, index) => {
+          return (
+            <div key={index} className="profile-container">
+              <Banner image={profile.banner} class={"profile-list-banner"}>
+                <Avatar image={profile.avatar} class={"user-avatar profile-avatar"} alt={profile.name} />
+              </Banner>
+              <div className="profile-card-bottom">
+                <h2>{profile.name}</h2>
+                <span className="profile-email">{profile.email}</span>
+                <div>
+                  <ul>
+                    <li>Posts: {profile._count.posts}</li>
+                    <li>Followers: {profile._count.followers}</li>
+                    <li>Following: {profile._count.following}</li>
+                  </ul>
+                </div>
+                <Link to={`/profile/${profile.name}`} className="btn">
+                  View profile
+                </Link>
+              </div>
             </div>
-            <Link to={`/profile/${profile.name}`}>View profile</Link>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 }
+
+//style={{ backgroundImage: `url(${profile.image})` }}
