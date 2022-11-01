@@ -8,10 +8,8 @@ const getUrl = BASE_URL + "posts";
 export default function PostsList() {
   const [posts, setPosts] = useState();
   const [loading, setLoading] = useState(true);
-  // eslint-disable-next-line
   const [error, setError] = useState(null);
-  // eslint-disable-next-line
-  const [auth, setAuth] = useContext(AuthContext);
+  const [auth] = useContext(AuthContext);
 
   useEffect(() => {
     async function GetPosts() {
@@ -24,7 +22,6 @@ export default function PostsList() {
       try {
         const response = await fetch(getUrl, options);
         const json = await response.json();
-        console.log(json);
         setPosts(json);
       } catch (error) {
         console.log(error);
@@ -47,7 +44,7 @@ export default function PostsList() {
           <div key={post.id} className="post-container">
             <h2>{post.title}</h2>
             <p>{post.body}</p>
-            <Link to={`/dashboard/posts/${post.id}`}>View Post</Link>
+            <Link to={`/posts/${post.id}`}>View Post</Link>
           </div>
         );
       })}

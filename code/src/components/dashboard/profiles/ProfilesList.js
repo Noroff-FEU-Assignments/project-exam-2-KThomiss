@@ -44,15 +44,18 @@ export default function ProfilesList() {
               </Banner>
               <div className="profile-card-bottom">
                 <h2>{profile.name}</h2>
-                <span className="profile-email">{profile.email}</span>
-                <div>
-                  <ul>
-                    <li>Posts: {profile._count.posts}</li>
-                    <li>Followers: {profile._count.followers}</li>
-                    <li>Following: {profile._count.following}</li>
-                  </ul>
+                <span className="profile-email text-muted pb-2">{profile.email}</span>
+                <div className="d-flex justify-content-around text-center pb-4 pt-2">
+                  <div>
+                    <span className="count-follow">{profile._count.followers}</span>
+                    <span className="d-block text-muted">Followers</span>
+                  </div>
+                  <div>
+                    <span className="count-follow">{profile._count.following}</span>
+                    <span className="d-block text-muted">Following</span>
+                  </div>
                 </div>
-                <Link to={`/profile/${profile.name}`} className="btn">
+                <Link to={`/profile/${profile.name}`} className="btn d-block">
                   View profile
                 </Link>
               </div>

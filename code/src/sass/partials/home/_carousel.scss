@@ -1,0 +1,45 @@
+.carousel-img-container {
+  height: calc(100vh - 313px);
+  @extend .background-image;
+  background-size: contain;
+}
+
+.column-carousel-info {
+  border-left: $border;
+  border-bottom: $border;
+}
+
+.column-carousel-prevBtn {
+  border-left: $border;
+  border-bottom: $border;
+  border-right: $border;
+}
+
+.column-carousel-nextBtn {
+  border-bottom: $border;
+}
+
+.column-carousel-prevBtn button,
+.column-carousel-nextBtn button {
+  border: none;
+  width: 100px;
+  background-color: transparent;
+}
+
+.column-carousel-img,
+.column-carousel-title {
+  padding: 0;
+  border-bottom: $border;
+}
+
+.column-carousel-title {
+  padding: 5rem;
+}
+
+.column-carousel-info,
+.column-carousel-title,
+.column-carousel-prevBtn,
+.column-carousel-nextBtn {
+  @extend .center-align;
+  font-size: 2rem;
+}

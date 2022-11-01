@@ -22,7 +22,6 @@ export default function ReactPost() {
   async function submitReaction() {
     try {
       const response = await http.put(`posts/${id}/react/${symbol}`);
-      console.log(response);
       setEmoji(response);
     } catch (error) {
       console.log(error);
@@ -43,10 +42,3 @@ export default function ReactPost() {
     </form>
   );
 }
-
-/*  return (
-    <form onSubmit={handleSubmit(submitReaction)}>
-      <input {...register("test")} />
-      <button>React</button>
-    </form>
-  );*/

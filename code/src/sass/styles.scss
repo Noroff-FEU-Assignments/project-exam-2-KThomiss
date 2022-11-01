@@ -1,14 +1,6 @@
+@import "partials/variables";
+@import "partials/common";
 @import "partials/navlayout";
+@import "partials/home/carousel";
+@import "partials/userPage";
 @import "partials/profilePage";
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-.btn {
-  background-color: #003d3b;
-  border-radius: 5px;
-  color: white;
-}

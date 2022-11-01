@@ -9,6 +9,8 @@ import NavProfile from "../dashboard/user/NavProfile";
 import ModalVertical from "../common/ModalVertical";
 import LoginForm from "../login/LoginForm";
 import RegisterForm from "../login/RegisterForm";
+import logo from "../../images/toad-logo.png";
+import { ArrowRightOnRectangleIcon, Bars3Icon /* , XMarkIcon */ } from "@heroicons/react/20/solid";
 
 function OffcanvasExample() {
   const [auth, setAuth] = useContext(AuthContext);
@@ -22,51 +24,55 @@ function OffcanvasExample() {
   };
   return (
     <header>
-      <div className="desktop-container d-none d-lg-flex nav-lg">
-        <div className="logo-container">Logo</div>
-        <Nav className="desktop-nav">
-          <NavLink end to="/">
-            Home
-          </NavLink>
-          {auth ? (
-            <>
-              <div className="admin-container">
-                <NavLink to="/dashboard">Dashboard</NavLink>
-                <NavLink to="/profiles">Profiles</NavLink>
-                <NavLink to="/new-post">New post</NavLink>
-              </div>
-              <div className="user-container">
-                <NavProfile />
-                <button onClick={logout}>Log out</button>
-              </div>
-            </>
-          ) : (
-            <>
-              <Link variant="primary" onClick={() => setModalShowLog(true)}>
-                Login
+      <Nav className="desktop-nav d-none d-lg-flex nav-lg">
+        <NavLink end to="/" className="logo-container">
+          <img className="logo-img" src={logo} alt="toad" />
+          Code ToAd
+        </NavLink>
+        {auth ? (
+          <>
+            <div className="admin-container">
+              <NavLink to="/posts">Posts</NavLink>
+              <NavLink to="/profiles">Profiles</NavLink>
+              <NavLink to="/new-post">New post</NavLink>
+            </div>
+            <div className="user-container">
+              <NavProfile />
+              <button onClick={logout} className="logout-btn">
+                <ArrowRightOnRectangleIcon className="icon" />
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="visit-container">
+            <Link variant="primary" onClick={() => setModalShowLog(true)}>
+              Login
+            </Link>
+            <ModalVertical show={modalShowLog} onHide={() => setModalShowLog(false)} heading="Login">
+              <LoginForm />
+              <Link variant="primary" onClick={() => setModalShowReg(true)}>
+                Dont have an account?
               </Link>
-              <ModalVertical show={modalShowLog} onHide={() => setModalShowLog(false)} heading="Login">
-                <LoginForm />
-                <Link variant="primary" onClick={() => setModalShowReg(true)}>
-                  Dont have an account?
-                </Link>
-              </ModalVertical>
-              <ModalVertical heading="Register" show={modalShowReg} onHide={() => setModalShowReg(false)}>
-                <RegisterForm />
-              </ModalVertical>
-            </>
-          )}
-        </Nav>
-      </div>
-      <Nav className="d-block d-lg-none">
+            </ModalVertical>
+            <ModalVertical heading="Register" show={modalShowReg} onHide={() => setModalShowReg(false)}>
+              <RegisterForm />
+            </ModalVertical>
+          </div>
+        )}
+      </Nav>
+      <Nav className="d-block d-lg-none mobile-nav-wrapper">
         {[false].map((expand) => (
-          <Navbar key={expand} bg="light" expand={expand} className="mb-3">
+          <Navbar key={expand} expand={expand} className="mobile-nav p-0">
             <Container fluid>
-              <Navbar.Brand href="#">Toad</Navbar.Brand>
-              <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+              <Navbar.Brand href="#">
+                <img className="logo-img" src={logo} alt="toad" />
+              </Navbar.Brand>
+              <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
+                <Bars3Icon className="icon" />
+              </Navbar.Toggle>
               <Navbar.Offcanvas id={`offcanvasNavbar-expand-${expand}`} aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement="end">
                 <Offcanvas.Header closeButton>
-                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>Logo</Offcanvas.Title>
+                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>Code ToAd</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav className="justify-content-end flex-grow-1 pe-3">
@@ -76,13 +82,15 @@ function OffcanvasExample() {
                     {auth ? (
                       <>
                         <div className="d-flex flex-column">
-                          <NavLink to="/dashboard">Dashboard</NavLink>
+                          <NavLink to="/posts">Posts</NavLink>
                           <NavLink to="/profiles">Profiles</NavLink>
                           <NavLink to="/new-post">New post</NavLink>
                         </div>
-                        <div className="offcanvas-container">
+                        <div className="offcanvas-container d-flex">
                           <NavProfile />
-                          <button onClick={logout}>Log out</button>
+                          <button onClick={logout} className="logout-btn">
+                            <ArrowRightOnRectangleIcon className="icon" />
+                          </button>
                         </div>
                       </>
                     ) : (
@@ -113,5 +121,3 @@ function OffcanvasExample() {
 }
 
 export default OffcanvasExample;
-
-/* to="/register" */

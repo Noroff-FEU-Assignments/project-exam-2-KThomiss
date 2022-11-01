@@ -1,4 +1,9 @@
-import Heading from "../layout/Heading";
+import Carousel from "./Carousel";
+
 export default function HomePage() {
-  return <Heading title="Welcome" />;
+  return (
+    <div className="homepage-wrapper">
+      <Carousel />
+    </div>
+  );
 }

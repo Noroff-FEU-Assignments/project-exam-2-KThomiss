@@ -1,83 +1,86 @@
-.desktop-container {
-  background-color: whitesmoke;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  position: relative;
-  height: 50px;
-}
-
 .desktop-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  justify-content: space-between;
+  position: relative;
+
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: $border;
+    width: 20%;
+
+    .logo-img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .admin-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user-container {
+    border-left: $border;
+    width: 20%;
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+
+    .avatar {
+      margin: 0 auto;
+    }
+  }
 }
 
-.user-container {
-  position: absolute;
-  right: 10px;
+.logout-btn {
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  color: white;
+  align-self: flex-end;
 }
 
 .user-link {
-  padding: 0;
-  margin-right: 5px;
+  padding-bottom: 0;
+}
+
+.visit-container {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+}
+
+.mobile-nav {
+  background-color: $bg-color;
+  height: 100%;
+}
+
+.mobile-nav-wrapper {
+  height: 100%;
 }
 
 .offcanvas-container {
   margin-top: 2rem;
 }
 
-a {
-  text-decoration: none;
-  color: black;
-  padding: 10px;
+.offcanvas {
+  background-color: $bg-color;
+}
+
+//remove this and change icon
+.btn-close {
+  background-color: white;
 }
 
 .username {
   font-size: 13px;
 }
 
-.active {
-  color: darkgreen;
-  font-weight: bold;
-}
-
-.avatar {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-}
-
-.user-avatar {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-}
-
-.form-error {
-  color: red;
-}
-
-.banner {
-  width: 300px;
-  object-fit: contain;
-}
-
-.post-container {
-  border: 1px solid tomato;
-  max-width: 500px;
-  margin: 1rem auto;
-  padding: 2rem 1rem;
-  background-color: #0f5a7c;
-}
-
 .navbar-toggler {
-  background-color: none;
   border: none;
-}
-
-.navbar {
-  height: 50px;
+  width: 50px;
 }

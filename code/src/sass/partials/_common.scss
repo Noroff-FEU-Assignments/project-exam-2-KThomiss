@@ -1,0 +1,78 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bg-color;
+  color: white;
+}
+
+header {
+  height: 104px;
+  border-bottom: $border;
+}
+
+a {
+  text-decoration: none;
+  color: $clr-links;
+  padding: 10px;
+}
+
+.btn {
+  background-color: #003d3b;
+  border-radius: 5px;
+  color: white;
+}
+
+.background-image {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.center-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  color: $link-active;
+  font-weight: bold;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.banner {
+  width: 300px;
+  object-fit: contain;
+}
+
+.row,
+.col {
+  padding: 0;
+}
+
+.form-error {
+  color: red;
+}
+
+.icon {
+  color: $clr-icon;
+}
+
+.icon:hover,
+a:hover {
+  color: $clr-cta-hover;
+}
