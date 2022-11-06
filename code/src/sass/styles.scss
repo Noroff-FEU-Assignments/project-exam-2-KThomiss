@@ -1,6 +1,16 @@
 @import "partials/variables";
 @import "partials/common";
 @import "partials/navlayout";
+@import "partials/modal";
+@import "partials/forms";
+//Landing page stylings
 @import "partials/home/carousel";
+
+//Post stylings
+@import "partials/posts/posts";
+@import "partials/posts/post";
+//User stylings
 @import "partials/userPage";
-@import "partials/profilePage";
+
+//Profile stylings
+@import "partials/profiles/profiles";

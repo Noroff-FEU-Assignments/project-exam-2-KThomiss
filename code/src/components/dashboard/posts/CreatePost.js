@@ -3,18 +3,20 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ErrorMessage from "../../common/ErrorMessage";
-import { useParams } from "react-router-dom";
+/* import { useParams } from "react-router-dom"; */
 import useAxios from "../../../hooks/useAxios";
 
 const schema = yup.object().shape({
   title: yup.string().required("Please enter a title"),
-  message: yup.string().required("Please enter your message"),
+  body: yup.string().required("Please enter your message"),
+  image: yup.string().required("Please an image url"),
 });
 
 export default function CreatePost() {
-  const [submitting, setSubmitting] = useState(false);
+  const [, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
-  let { id } = useParams();
+
+  /* let { id } = useParams(); */
 
   const {
     register,
@@ -31,12 +33,14 @@ export default function CreatePost() {
     setPostError(null);
     console.log(data);
 
-    const message = data.message;
     const title = data.title;
+    const message = data.body;
+    const image = data.image;
 
     const formData = {
       title: title,
       body: message,
+      media: image,
     };
 
     try {
@@ -56,14 +60,19 @@ export default function CreatePost() {
       <div>
         <label htmlFor="title">Title:</label>
         <input type="text" id="title" {...register("title")} />
-        {errors.message && <ErrorMessage>{errors.title.message}</ErrorMessage>}
+        {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
       </div>
       <div>
-        <label htmlFor="message">Message:</label>
-        <textarea id="message" {...register("message")}></textarea>
-        {errors.message && <ErrorMessage>{errors.message.message}</ErrorMessage>}
+        <label htmlFor="body">Message:</label>
+        <textarea id="body" {...register("body")}></textarea>
+        {errors.boddy && <ErrorMessage>{errors.body.message}</ErrorMessage>}
       </div>
-      <button>Send</button>
+      <div>
+        <label htmlFor="media">Image Url:</label>
+        <input id="media" {...register("image")} />
+        {errors.image && <ErrorMessage>{errors.image.message}</ErrorMessage>}
+      </div>
+      <button className="cta">Send</button>
     </form>
   );
 }

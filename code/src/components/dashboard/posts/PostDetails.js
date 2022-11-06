@@ -5,12 +5,16 @@ import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import CommentPost from "./CommentPost";
 import ReactPost from "./ReactPost";
+import PostMedia from "../../common/PostMeida";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 
 export default function PostDetails() {
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [auth, setAuth] = useContext(AuthContext);
+  const [auth] = useContext(AuthContext);
+  const [key, setKey] = useState("comment");
 
   let { id } = useParams();
   const url = BASE_URL + `posts/${id}?_author=true&_comments=true&_reactions=true`;
@@ -36,6 +40,7 @@ export default function PostDetails() {
       }
     }
     getPostDetails();
+    // eslint-disable-next-line
   }, [url]);
 
   if (loading) {
@@ -47,28 +52,39 @@ export default function PostDetails() {
   }
 
   return (
-    <div className="container">
-      <Heading title="Post details" />
-      <div key={details.id}>
+    <div className="post-container">
+      <Heading title={details.author.name + "`s" + " " + "post"} />
+      <div className="post-inner-container">
         <h2>{details.title}</h2>
-        <p>{details.body}</p>
+        <PostMedia image={details.media} />
+        <p className="post-details-body">{details.body}</p>
+        {details.reactions.map((react, index) => {
+          return (
+            <span key={index}>
+              {react.symbol}
+              {react.count}
+            </span>
+          );
+        })}
         <div className="comment-container">
           {details.comments.map((comment) => {
             return (
               <div key={comment.id}>
-                <span>{comment.owner}: </span>
-                {comment.body}
+                <span>
+                  {comment.owner}: {comment.body}
+                </span>
               </div>
             );
           })}
-          <CommentPost />
         </div>
-        <div className="react-container">
-          {details.reactions.map((react, index) => {
-            return <div key={index}>{react.symbol}</div>;
-          })}
-          <ReactPost />
-        </div>
+        <Tabs activeKey={key} onSelect={(k) => setKey(k)} justify className="mt-3">
+          <Tab eventKey="comment" title="Comment">
+            <CommentPost />
+          </Tab>
+          <Tab eventKey="react" title="React">
+            <ReactPost />
+          </Tab>
+        </Tabs>
       </div>
     </div>
   );

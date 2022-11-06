@@ -10,7 +10,6 @@ import ErrorMessage from "../common/ErrorMessage";
 const url = BASE_URL + "auth/login";
 
 const schema = yup.object().shape({
-  name: yup.string().required("Please enter your name"),
   email: yup.string().required("Please enter your email.").email("Please enter a valid email adress."),
   password: yup.string().required("Please enter your password"),
 });
@@ -30,7 +29,7 @@ export default function LoginForm() {
   });
 
   // eslint-disable-next-line
-  const [auth, setAuth] = useContext(AuthContext);
+  const [, setAuth] = useContext(AuthContext);
 
   async function loginSubmit(data) {
     setSubmitting(true);
@@ -52,7 +51,7 @@ export default function LoginForm() {
       const json = await response.json();
       if (response.ok) {
         setAuth(json);
-        navigate("/dashboard");
+        navigate("/posts");
       } else {
         setLoginError("wrong username or password");
       }
@@ -69,11 +68,6 @@ export default function LoginForm() {
         {loginError && <ErrorMessage>{loginError}</ErrorMessage>}
         <div>
           <div>
-            <label htmlFor="name">Name:</label>
-            <input {...register("name")} id="name" />
-            {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
-          </div>
-          <div>
             <label htmlFor="email">Email:</label>
             <input {...register("email")} id="email" />
             {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
@@ -84,7 +78,7 @@ export default function LoginForm() {
             {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
           </div>
         </div>
-        <button className="form-btn">{submitting ? "Hold on" : "Log in"}</button>
+        <button className="cta">{submitting ? "Hold on" : "Log in"}</button>
       </form>
     </>
   );

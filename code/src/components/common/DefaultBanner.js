@@ -1,4 +1,4 @@
-import defaultBanner from "../../images/default-banner.jpg";
+import defaultBanner from "../../images/default-banner.png";
 
 export default function Banner(props) {
   return (

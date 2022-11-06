@@ -29,8 +29,8 @@ export default function ReactPost() {
   }
 
   return (
-    <form onSubmit={handleSubmit(submitReaction)}>
-      <select value={emoji} {...register("symbol")} onChange={(e) => setEmoji(e.target.value)}>
+    <form onSubmit={handleSubmit(submitReaction)} className="react-form">
+      <select value={emoji} {...register("symbol")} onChange={(e) => setEmoji(e.target.value)} className="react-select w-100">
         <option value="">Select an emoji</option>
         <option>😍</option>
         <option>😱</option>
@@ -38,7 +38,7 @@ export default function ReactPost() {
         <option>👋</option>
         <option>🙏</option>
       </select>
-      <button>React</button>
+      <button className="cta">React</button>
     </form>
   );
 }

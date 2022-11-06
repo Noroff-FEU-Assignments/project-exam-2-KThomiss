@@ -7,9 +7,10 @@
   gap: 20px;
 
   .profile-container {
-    width: 300px;
-    background-color: whitesmoke;
-    border-radius: 5px;
+    width: 400px;
+    background-color: $clr-dark;
+    margin-top: 2rem;
+    box-shadow: $box-shadow;
   }
 
   .profile-list-banner {
@@ -18,12 +19,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px 5px 0 0;
     @extend .background-image;
+    background-size: cover;
   }
 
   .profile-avatar {
-    border-radius: 50%;
     width: 150px;
     height: 150px;
   }
@@ -38,11 +38,11 @@
 
     .profile-email {
       border-bottom: 1px solid lightgray;
-      display: block;
     }
-  }
 
-  .count-follow {
-    color: #00353b;
+    .count-follow-text,
+    .profile-email {
+      color: $clr-text;
+    }
   }
 }

@@ -70,31 +70,41 @@ export default function RegisterForm() {
       <form onSubmit={handleSubmit(registerSubmit)}>
         {registerError && <ErrorMessage>{registerError}</ErrorMessage>}
         <div>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">
+            Name:<span className="required">*</span>
+          </label>
           <input id="name" {...register("name")} />
           {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
         </div>
         <div>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">
+            Email:<span className="required">*</span>
+          </label>
           <input id="email" {...register("email")} />
           {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">
+            Password:<span className="required">*</span>
+          </label>
           <input id="password" {...register("password")} />
           {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
         </div>
         <div>
-          <label htmlFor="avatar">Avatar:</label>
+          <label htmlFor="avatar">
+            Avatar:<span className="optional"> (optional)</span>
+          </label>
           <input id="avatar" {...register("avatar")} />
           {errors.avatar && <ErrorMessage>{errors.avatar.message}</ErrorMessage>}
         </div>
         <div>
-          <label htmlFor="banner">Banner:</label>
+          <label htmlFor="banner">
+            Banner:<span className="optional"> (optional)</span>
+          </label>
           <input id="banner" {...register("banner")} />
           {errors.banner && <ErrorMessage>{errors.banner.message}</ErrorMessage>}
         </div>
-        <button>Register</button>
+        <button className="cta">Register</button>
       </form>
     </div>
   );

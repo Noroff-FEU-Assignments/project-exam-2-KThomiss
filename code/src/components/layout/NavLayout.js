@@ -50,8 +50,9 @@ function OffcanvasExample() {
             </Link>
             <ModalVertical show={modalShowLog} onHide={() => setModalShowLog(false)} heading="Login">
               <LoginForm />
-              <Link variant="primary" onClick={() => setModalShowReg(true)}>
-                Dont have an account?
+              <p className="mb-0 mt-5">Don't have an account yet?</p>
+              <Link variant="primary" onClick={() => setModalShowReg(true)} className="cta-secondary">
+                Register
               </Link>
             </ModalVertical>
             <ModalVertical heading="Register" show={modalShowReg} onHide={() => setModalShowReg(false)}>
@@ -100,8 +101,9 @@ function OffcanvasExample() {
                         </Link>
                         <ModalVertical show={modalShowLog} onHide={() => setModalShowLog(false)} heading="Login">
                           <LoginForm />
-                          <Link variant="primary" onClick={() => setModalShowReg(true)}>
-                            Dont have an account?
+                          <p className="mb-0 mt-5">Don't have an account yet?</p>
+                          <Link variant="primary" onClick={() => setModalShowReg(true)} className="cta-secondary">
+                            Register
                           </Link>
                         </ModalVertical>
                         <ModalVertical heading="Register" show={modalShowReg} onHide={() => setModalShowReg(false)}>

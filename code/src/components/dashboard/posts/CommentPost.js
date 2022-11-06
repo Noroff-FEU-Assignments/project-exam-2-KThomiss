@@ -11,7 +11,7 @@ const schema = yup.object().shape({
 });
 
 export default function CommentOnPost() {
-  const [submitting, setSubmitting] = useState(false);
+  const [, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
   let { id } = useParams();
 
@@ -48,14 +48,13 @@ export default function CommentOnPost() {
   }
 
   return (
-    <form onSubmit={handleSubmit(postComment)}>
+    <form onSubmit={handleSubmit(postComment)} className="comment-form">
       {postError && <ErrorMessage>{postError}</ErrorMessage>}
       <div>
-        <label htmlFor="message">Your Message:</label>
-        <textarea id="message" {...register("message")}></textarea>
+        <textarea id="message" {...register("message")} className="comment-textarea w-100" rows={6}></textarea>
         {errors.message && <ErrorMessage>{errors.message.message}</ErrorMessage>}
       </div>
-      <button>Send</button>
+      <button className="cta">Send</button>
     </form>
   );
 }

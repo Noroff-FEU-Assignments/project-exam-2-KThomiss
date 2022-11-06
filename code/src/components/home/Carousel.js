@@ -2,13 +2,13 @@ import { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import image1 from "../../images/home/carousel/phone.png";
-import image2 from "../../images/home/carousel/laptop.png";
+import image2 from "../../images/home/carousel/image2.png";
 import image3 from "../../images/home/carousel/interact.png";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/20/solid";
 
 const slideImg = [
   { img: image1, title: "phone", content: "Picture 1" },
-  { img: image2, title: "laptop", content: "Picture 2" },
+  { img: image2, title: "Profiles", content: "View a list of profiles" },
   { img: image3, title: "web", content: "Picture 3" },
 ];
 
@@ -33,7 +33,7 @@ export default function Carousel() {
 
   return (
     <>
-      <Row>
+      <Row className="g-0">
         <Col xs={12} md={6} lg={8} className="column-carousel-img">
           <div style={bgImageIndex} className="carousel-img-container"></div>
         </Col>
@@ -41,7 +41,7 @@ export default function Carousel() {
           <div>{slideImg[currentIndex].content}</div>
         </Col>
       </Row>
-      <Row>
+      <Row className="g-0">
         <Col xs={12} md={6} lg={8} className="column-carousel-title">
           <div>{slideImg[currentIndex].title}</div>
         </Col>

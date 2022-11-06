@@ -1,0 +1,55 @@
+.posts-container {
+  background-color: $clr-dark;
+  max-width: 500px;
+  padding: 1rem;
+  margin: 2rem auto;
+  border: $border;
+}
+
+h2 {
+  color: $clr-heading;
+}
+
+p {
+  color: $clr-text;
+}
+
+.post-cta {
+  margin-top: 1rem;
+}
+
+.icon-comment,
+.icon-smile {
+  width: 40px;
+}
+
+.icon-smile {
+  margin-left: 20px;
+}
+
+.post-count {
+  color: $link-active;
+  font-size: 30px;
+  padding-left: 5px;
+}
+
+.btn-container {
+  height: 100%;
+  margin-top: auto;
+}
+
+.post-media {
+  background-size: cover;
+}
+
+.row-post-list {
+  position: relative;
+}
+
+.column-left.col-12 {
+  text-align: center;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background-color: $bg-color;
+}

@@ -1,14 +1,13 @@
 import Heading from "../../layout/Heading";
-import useLocalStorage from "../../../hooks/useLocalStorage";
 import PostsList from "./PostsList";
+/* import useLocalStorage from "../../../hooks/useLocalStorage"; */
 
 export default function DashboardPage() {
-  const [user] = useLocalStorage("auth");
+  /* const [user] = useLocalStorage("auth"); */
 
   return (
     <>
       <Heading title="Dashboard" />
-      <div>Welcome: {user.name}</div>
       <PostsList />
     </>
   );

@@ -18,6 +18,15 @@ a {
   text-decoration: none;
   color: $clr-links;
   padding: 10px;
+  font-size: 20px;
+}
+
+.heading {
+  border-bottom: $border;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 0;
+  color: $clr-heading;
 }
 
 .btn {
@@ -65,14 +74,47 @@ a {
 }
 
 .form-error {
-  color: red;
+  color: $clr-error;
+}
+
+.cta {
+  width: 100%;
+  display: block;
+  background-color: $clr-cta;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 10px;
+  font-size: 20px;
+  border: none;
+}
+
+.cta-secondary {
+  @extend .cta;
+  border: 2px solid $clr-cta;
+  background-color: unset;
 }
 
 .icon {
   color: $clr-icon;
 }
 
+.cta:hover {
+  background-color: $clr-cta-hover;
+  color: white;
+}
+
 .icon:hover,
+.Link:hover,
+.NavLink:hover,
 a:hover {
   color: $clr-cta-hover;
+}
+
+.required {
+  color: #cf6679;
+  margin-left: 5px;
+}
+
+.optional {
+  color: $clr-text;
 }
