@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const schema = yup.object().shape({
-  banner: yup.string().required(),
+  avatar: yup.string().required(),
 });
 
 export default function UpdateBanner({ name }) {
@@ -12,7 +12,7 @@ export default function UpdateBanner({ name }) {
     resolver: yupResolver(schema),
   });
   const http = useAxios();
-  async function updateBanner(data) {
+  async function updateAvatar(data) {
     try {
       const response = await http.put(`profiles/${name}/media`, data);
       console.log("response", response);
@@ -21,10 +21,10 @@ export default function UpdateBanner({ name }) {
     }
   }
   return (
-    <form onSubmit={handleSubmit(updateBanner)}>
+    <form onSubmit={handleSubmit(updateAvatar)}>
       <div>
-        <label htmlFor="banner">Banner:</label>
-        <input {...register("banner")} id="banner" />
+        <label htmlFor="avatar">Avatar:</label>
+        <input {...register("avatar")} id="avatar" />
       </div>
       <button>Update</button>
     </form>

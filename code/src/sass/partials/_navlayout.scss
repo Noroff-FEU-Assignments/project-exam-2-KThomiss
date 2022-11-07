@@ -1,13 +1,13 @@
 .desktop-nav {
   justify-content: space-between;
-  position: relative;
+  height: 100%;
 
   .logo-container {
-    display: flex;
+    @extend .center-align;
     flex-direction: column;
-    align-items: center;
     border-right: $border;
     width: 20%;
+    padding: 0;
 
     .logo-img {
       width: 60px;
@@ -34,6 +34,12 @@
       margin: 0 auto;
     }
   }
+
+  .user-container:hover,
+  .logo-container:hover,
+  .admin-container:hover {
+    background-color: $bg-color-active;
+  }
 }
 
 .logout-btn {
@@ -49,9 +55,10 @@
 }
 
 .visit-container {
-  position: absolute;
-  top: 50%;
-  left: 60%;
+  @extend .center-align;
+  width: 20%;
+  height: 100%;
+  border-left: $border;
 }
 
 .mobile-nav {

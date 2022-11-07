@@ -45,13 +45,12 @@ function OffcanvasExample() {
           </>
         ) : (
           <div className="visit-container">
-            <Link variant="primary" onClick={() => setModalShowLog(true)}>
-              Login
-            </Link>
+            <Link onClick={() => setModalShowLog(true)}>Login</Link>
+            <Link onClick={() => setModalShowReg(true)}>Register</Link>
             <ModalVertical show={modalShowLog} onHide={() => setModalShowLog(false)} heading="Login">
               <LoginForm />
               <p className="mb-0 mt-5">Don't have an account yet?</p>
-              <Link variant="primary" onClick={() => setModalShowReg(true)} className="cta-secondary">
+              <Link onClick={() => setModalShowReg(true)} className="cta-secondary">
                 Register
               </Link>
             </ModalVertical>
@@ -65,8 +64,10 @@ function OffcanvasExample() {
         {[false].map((expand) => (
           <Navbar key={expand} expand={expand} className="mobile-nav p-0">
             <Container fluid>
-              <Navbar.Brand href="#">
-                <img className="logo-img" src={logo} alt="toad" />
+              <Navbar.Brand href="#" className="d-flex flex-column">
+                <NavLink end to="/" className="logo-container">
+                  <img className="logo-img" src={logo} alt="toad" />
+                </NavLink>
               </Navbar.Brand>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
                 <Bars3Icon className="icon" />
@@ -96,13 +97,12 @@ function OffcanvasExample() {
                       </>
                     ) : (
                       <>
-                        <Link variant="primary" onClick={() => setModalShowLog(true)}>
-                          Login
-                        </Link>
+                        <Link onClick={() => setModalShowLog(true)}>Login</Link>
+                        <Link onClick={() => setModalShowReg(true)}>Register</Link>
                         <ModalVertical show={modalShowLog} onHide={() => setModalShowLog(false)} heading="Login">
                           <LoginForm />
                           <p className="mb-0 mt-5">Don't have an account yet?</p>
-                          <Link variant="primary" onClick={() => setModalShowReg(true)} className="cta-secondary">
+                          <Link onClick={() => setModalShowReg(true)} className="cta-secondary">
                             Register
                           </Link>
                         </ModalVertical>

@@ -6,14 +6,17 @@ import { useParams } from "react-router-dom";
 import UpdateForm from "./UpdateForm";
 import DeletePost from "./DeletePost";
 import Avatar from "../../common/DefaultAvatar";
-import Dropdown from "../../common/Dropdown";
+import Banner from "../../common/DefaultBanner";
+import Dropdown from "./Dropdown";
 import ModalVertical from "../../common/ModalVertical";
+import PostMedia from "../../common/PostMeida";
 
 export default function UserProfile() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState([]);
   const [modalShow, setModalShow] = useState(false);
+  document.title = `${profile.name} | ToAd`;
 
   let { name } = useParams();
 
@@ -44,33 +47,47 @@ export default function UserProfile() {
   }
 
   return (
-    <div className="container">
-      <img src={profile.banner} alt="banner" className="banner" />
+    <div className="user-profile-container">
       <div>
-        <Heading title={profile.name} />
-        <Dropdown />
-        <Avatar image={profile.avatar} class={"user-avatar"} alt={profile.name} />
+        <Banner image={profile.banner} class={"user-profile-banner"} />
+        <div className="user-info-container d-flex mt-4">
+          <Avatar image={profile.avatar} class={"user-avatar"} alt={profile.name} />
+          <div className="px-3 flex-grow-1">
+            <Heading title={profile.name} />
+            <span className="text-muted">{profile.email}</span>
+            <Dropdown />
+          </div>
+          <div className="d-flex flex-grow-1 justify-content-center gap-4 text-center align-self-center">
+            <div>
+              <span className="d-block count-follow-text">Followers</span>
+              <span className="count-follow post-count">{profile._count.followers}</span>
+            </div>
+            <div>
+              <span className="d-block count-follow-text">Following</span>
+              <span className="count-follow post-count">{profile._count.following}</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <li>
-        Followers: {profile._count.followers} / Following: {profile._count.following}
-      </li>
-      <li>Total posts: {profile._count.posts}</li>
       <div>
         {profile.posts.map((post, index) => {
           return (
             <div key={index}>
-              <h2>{post.title}</h2>
-              <p>{post.body}</p>
-              <span>{post.owner}</span>
-              <div>
-                <button variant="primary" onClick={() => setModalShow(true)}>
-                  Update
-                </button>
-                <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Update post">
-                  <UpdateForm id={post.id} title={post.title} body={post.body} />
-                </ModalVertical>
+              <div className="posts-container">
+                <h2>{post.title}</h2>
+                <PostMedia image={post.media} />
+                <p>{post.body}</p>
+                <span>{post.created}</span>
+                <div className="d-flex gap-5">
+                  <button variant="primary" onClick={() => setModalShow(true)} className="cta">
+                    Update
+                  </button>
+                  <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Update post">
+                    <UpdateForm id={post.id} title={post.title} body={post.body} />
+                  </ModalVertical>
+                  <DeletePost id={post.id} />
+                </div>
               </div>
-              <DeletePost id={post.id} />
             </div>
           );
         })}

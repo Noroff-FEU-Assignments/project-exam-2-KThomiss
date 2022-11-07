@@ -43,10 +43,10 @@ function UpdateForm({ id, title, body }) {
       </div>
       <div>
         <label htmlFor="message">Message:</label>
-        <textarea id="message" {...register("body")} defaultValue={body}></textarea>
+        <textarea id="message" {...register("body")} defaultValue={body} rows={6}></textarea>
         {errors.body && <ErrorMessage>{errors.body.message}</ErrorMessage>}
       </div>
-      <button>Update</button>
+      <button className="cta">Update</button>
     </form>
   );
 }

@@ -22,9 +22,6 @@ a {
 }
 
 .heading {
-  border-bottom: $border;
-  padding: 1.5rem;
-  text-align: center;
   margin-bottom: 0;
   color: $clr-heading;
 }
@@ -94,6 +91,11 @@ a {
   background-color: unset;
 }
 
+.delete {
+  border: 2px solid $clr-error;
+  color: white;
+}
+
 .icon {
   color: $clr-icon;
 }
@@ -117,4 +119,8 @@ a:hover {
 
 .optional {
   color: $clr-text;
+}
+
+.delete:hover {
+  background-color: #cf6679;
 }

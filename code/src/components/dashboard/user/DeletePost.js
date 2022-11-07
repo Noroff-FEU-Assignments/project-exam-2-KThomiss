@@ -22,6 +22,7 @@ export default function DeletePost({ id }) {
         <Alert.Heading>This post will be deleted forever.</Alert.Heading>
       </Alert>
       <button
+        className="cta-secondary delete"
         onClick={() => {
           deletePost();
           setShow(true);

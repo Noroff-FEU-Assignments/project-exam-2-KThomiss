@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import image1 from "../../images/home/carousel/phone.png";
+import image1 from "../../images/home/carousel/image1.png";
 import image2 from "../../images/home/carousel/image2.png";
 import image3 from "../../images/home/carousel/interact.png";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/20/solid";

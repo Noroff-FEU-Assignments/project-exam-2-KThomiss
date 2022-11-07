@@ -1,0 +1,36 @@
+.user-profile-container {
+  max-width: 1000px;
+  margin: 3rem auto;
+}
+
+.user-profile-banner {
+  @extend .background-image;
+  background-size: cover;
+  height: 500px;
+}
+
+.user-info-container {
+  border-bottom: $border;
+  padding: 10px 0;
+  flex-wrap: wrap;
+}
+
+.dropdown-toggle,
+.dropdown-menu.show {
+  background-color: $clr-dark;
+  border: none;
+  border-radius: 0;
+}
+
+.dropdown-item:hover {
+  background-color: $clr-dark-1;
+}
+
+.dropdown-toggle:hover {
+  background-color: $clr-cta;
+  color: black;
+}
+
+.dropdown-link {
+  color: $clr-text;
+}

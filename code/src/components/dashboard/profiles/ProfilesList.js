@@ -1,6 +1,5 @@
 import useAxios from "../../../hooks/useAxios";
 import { useEffect, useState } from "react";
-import Heading from "../../layout/Heading";
 import ErrorMessage from "../../common/ErrorMessage";
 import { Link } from "react-router-dom";
 import Avatar from "../../common/DefaultAvatar";
@@ -35,7 +34,6 @@ export default function ProfilesList() {
 
   return (
     <>
-      <Heading title="User profiles" />
       <div className="profile-list-container">
         {profiles.map((profile, index) => {
           return (
