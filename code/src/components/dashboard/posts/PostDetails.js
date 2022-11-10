@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../../constants/api";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
+/* import { UpdateContext } from "../../../context/UpdateContext"; */
 import CommentPost from "./CommentPost";
 import ReactPost from "./ReactPost";
 import PostMedia from "../../common/PostMeida";
@@ -14,10 +15,14 @@ export default function PostDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [auth] = useContext(AuthContext);
+  /* const { addComment } = useContext(UpdateContext); */
+
   const [key, setKey] = useState("comment");
 
   let { id } = useParams();
   const url = BASE_URL + `posts/${id}?_author=true&_comments=true&_reactions=true`;
+
+  /* console.log(action.payload.comment); */
 
   useEffect(() => {
     async function getPostDetails() {
