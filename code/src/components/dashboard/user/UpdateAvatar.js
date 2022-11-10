@@ -15,7 +15,7 @@ export default function UpdateBanner({ name }) {
   async function updateAvatar(data) {
     try {
       const response = await http.put(`profiles/${name}/media`, data);
-      console.log("response", response);
+      console.log("response", response.data);
     } catch (error) {
       console.log(error);
     }

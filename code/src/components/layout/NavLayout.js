@@ -12,7 +12,7 @@ import RegisterForm from "../login/RegisterForm";
 import logo from "../../images/toad-logo.png";
 import { ArrowRightOnRectangleIcon, Bars3Icon /* , XMarkIcon */ } from "@heroicons/react/20/solid";
 
-function OffcanvasExample() {
+export default function NavLayout() {
   const [auth, setAuth] = useContext(AuthContext);
   const [modalShowLog, setModalShowLog] = useState(false);
   const [modalShowReg, setModalShowReg] = useState(false);
@@ -64,7 +64,7 @@ function OffcanvasExample() {
         {[false].map((expand) => (
           <Navbar key={expand} expand={expand} className="mobile-nav p-0">
             <Container fluid>
-              <Navbar.Brand href="#" className="d-flex flex-column">
+              <Navbar.Brand className="d-flex flex-column">
                 <NavLink end to="/" className="logo-container">
                   <img className="logo-img" src={logo} alt="toad" />
                 </NavLink>
@@ -121,5 +121,3 @@ function OffcanvasExample() {
     </header>
   );
 }
-
-export default OffcanvasExample;

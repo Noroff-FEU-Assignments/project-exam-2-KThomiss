@@ -87,7 +87,7 @@ export default function RegisterForm() {
           <label htmlFor="password">
             Password:<span className="required">*</span>
           </label>
-          <input id="password" {...register("password")} />
+          <input id="password" {...register("password")} type="password" />
           {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
         </div>
         <div>

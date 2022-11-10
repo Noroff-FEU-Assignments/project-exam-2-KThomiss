@@ -74,7 +74,7 @@ export default function LoginForm() {
           </div>
           <div>
             <label htmlFor="password">Password:</label>
-            <input {...register("password")} id="password" />
+            <input {...register("password")} id="password" type="password" />
             {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
           </div>
         </div>

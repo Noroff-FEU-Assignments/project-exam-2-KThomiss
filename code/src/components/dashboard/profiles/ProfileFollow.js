@@ -14,5 +14,9 @@ export default function ProfileFollow() {
       console.log(error);
     }
   }
-  return <button onClick={submitFollow}>Follow</button>;
+  return (
+    <button onClick={submitFollow} className="cta">
+      Follow
+    </button>
+  );
 }

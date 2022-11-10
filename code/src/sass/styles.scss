@@ -14,3 +14,13 @@
 
 //Profile stylings
 @import "partials/profiles/profiles";
+
+.follow-feed {
+  cursor: pointer;
+  padding: 10px;
+}
+.follow-feed:hover {
+  background-color: $clr-dark;
+  border: $border;
+  margin: -2px;
+}

@@ -14,5 +14,9 @@ export default function ProfileUnfollow() {
       console.log(error);
     }
   }
-  return <button onClick={submitUnfollow}>Unfollow</button>;
+  return (
+    <button onClick={submitUnfollow} className="cta-secondary delete">
+      Unfollow
+    </button>
+  );
 }

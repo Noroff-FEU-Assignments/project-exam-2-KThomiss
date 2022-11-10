@@ -23,6 +23,7 @@ function App() {
           <Route path="/profiles" element={<ProfilesPage />}></Route>
           <Route path="/profile/:name" element={<ProfileDetails />}></Route>
           <Route path="/new-post" element={<CreatePost />}></Route>
+          <Route path="*" element={<HomePage />}></Route>
         </Routes>
       </Router>
     </AuthProvider>
