@@ -5,8 +5,6 @@ function updateReducer(state, action) {
         ...state,
         comments: [action.payload, ...state.comments], //or the other way around ref two examples
       };
-    case "GET_REQUEST":
-      return {};
     default:
       return state;
   }

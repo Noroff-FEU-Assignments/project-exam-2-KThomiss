@@ -1,11 +1,11 @@
-import { useState, useContext } from "react";
+import { useState /* , useContext */ } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ErrorMessage from "../../common/ErrorMessage";
 import { useParams } from "react-router-dom";
 import useAxios from "../../../hooks/useAxios";
-import { UpdateContext } from "../../../context/UpdateContext";
+/* import { UpdateContext } from "../../../context/UpdateContext"; */
 
 const schema = yup.object().shape({
   message: yup.string().required("Please enter your message"),
@@ -14,7 +14,7 @@ const schema = yup.object().shape({
 export default function CommentOnPost() {
   const [, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
-  const { state, addComment } = useContext(UpdateContext);
+  /*   const { addComment } = useContext(UpdateContext); */
   let { id } = useParams();
 
   const {
@@ -41,8 +41,7 @@ export default function CommentOnPost() {
     try {
       const response = await http.post(`posts/${id}/comment`, JSON.stringify(formData));
       console.log(response.data);
-      addComment(response.data);
-      console.log(state);
+      /* addComment(formData); */
     } catch (error) {
       console.log("error", error);
       setPostError(error.toString());

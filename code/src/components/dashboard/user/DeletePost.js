@@ -1,6 +1,5 @@
 import useAxios from "../../../hooks/useAxios";
-import Alert from "react-bootstrap/Alert";
-/* import Button from "react-bootstrap/Button"; */
+import ModalVertical from "../../common/ModalVertical";
 import { useState } from "react";
 
 export default function DeletePost({ id }) {
@@ -18,18 +17,19 @@ export default function DeletePost({ id }) {
 
   return (
     <>
-      <Alert variant="warning" show={show}>
-        <Alert.Heading>This post will be deleted forever.</Alert.Heading>
-      </Alert>
-      <button
-        className="cta-secondary delete"
-        onClick={() => {
-          deletePost();
-          setShow(true);
-        }}
-      >
+      <button className="cta-secondary delete" onClick={() => setShow(true)}>
         Delete
       </button>
+      <ModalVertical show={show} onHide={() => setShow(false)} heading="Are you sure you want to delete this post?">
+        <div className="d-flex gap-5">
+          <button className="cta-secondary delete" onClick={() => deletePost()}>
+            Delete
+          </button>
+          <button className="cta-secondary" onClick={() => setShow(false)}>
+            Cancel
+          </button>
+        </div>
+      </ModalVertical>
     </>
   );
 }

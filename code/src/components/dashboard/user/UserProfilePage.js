@@ -16,6 +16,7 @@ export default function UserProfile() {
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState([]);
   const [modalShow, setModalShow] = useState(false);
+  const [modalData, setModalData] = useState({});
   document.title = `${profile.name} | ToAd`;
 
   let { name } = useParams();
@@ -26,7 +27,7 @@ export default function UserProfile() {
     async function getProfile() {
       try {
         const response = await http.get(`profiles/${name}?_posts=true&_following=true&_followers=true`);
-        console.log(response.data);
+        /* console.log(response.data); */
         setProfile(response.data);
       } catch (error) {
         setError(error.toString());
@@ -79,12 +80,15 @@ export default function UserProfile() {
                 <p>{post.body}</p>
                 <span>{post.created}</span>
                 <div className="d-flex gap-5">
-                  <button variant="primary" onClick={() => setModalShow(true)} className="cta">
+                  <button
+                    className="cta"
+                    onClick={() => {
+                      setModalData(post);
+                      setModalShow(true);
+                    }}
+                  >
                     Update
                   </button>
-                  <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Update post">
-                    <UpdateForm id={post.id} title={post.title} body={post.body} />
-                  </ModalVertical>
                   <DeletePost id={post.id} />
                 </div>
               </div>
@@ -92,6 +96,9 @@ export default function UserProfile() {
           );
         })}
       </div>
+      <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Update post">
+        <UpdateForm id={modalData.id} title={modalData.title} body={modalData.body} />
+      </ModalVertical>
     </div>
   );
 }
