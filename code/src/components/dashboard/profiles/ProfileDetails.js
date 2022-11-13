@@ -56,7 +56,7 @@ export default function ProfileDetails() {
   };
 
   return (
-    <div className="user-profile-container m-5">
+    <div className="user-profile-container container">
       <div>
         <Banner image={profile.banner} class={"user-profile-banner"} />
         <div className="user-info-container d-flex mt-4">

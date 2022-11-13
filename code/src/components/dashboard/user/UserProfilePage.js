@@ -2,7 +2,7 @@ import Heading from "../../layout/Heading";
 import { useState, useEffect } from "react";
 import useAxios from "../../../hooks/useAxios";
 import ErrorMessage from "../../common/ErrorMessage";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import UpdateForm from "./UpdateForm";
 import DeletePost from "./DeletePost";
 import Avatar from "../../common/DefaultAvatar";
@@ -10,6 +10,8 @@ import Banner from "../../common/DefaultBanner";
 import Dropdown from "./Dropdown";
 import ModalVertical from "../../common/ModalVertical";
 import PostMedia from "../../common/PostMeida";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function UserProfile() {
   const [error, setError] = useState(null);
@@ -27,7 +29,7 @@ export default function UserProfile() {
     async function getProfile() {
       try {
         const response = await http.get(`profiles/${name}?_posts=true&_following=true&_followers=true`);
-        /* console.log(response.data); */
+        console.log(response.data);
         setProfile(response.data);
       } catch (error) {
         setError(error.toString());
@@ -47,6 +49,15 @@ export default function UserProfile() {
     return <ErrorMessage />;
   }
 
+  const showFollowers = () => {
+    const followerContainer = document.querySelector(".followers-container");
+    followerContainer.classList.toggle("d-none");
+  };
+  const showFollowing = () => {
+    const followerContainer = document.querySelector(".following-container");
+    followerContainer.classList.toggle("d-none");
+  };
+
   return (
     <div className="user-profile-container">
       <div>
@@ -59,43 +70,67 @@ export default function UserProfile() {
             <Dropdown />
           </div>
           <div className="d-flex flex-grow-1 justify-content-center gap-4 text-center align-self-center">
-            <div>
+            <div onClick={showFollowers} className="follow-feed">
               <span className="d-block count-follow-text">Followers</span>
               <span className="count-follow post-count">{profile._count.followers}</span>
             </div>
-            <div>
+            <div onClick={showFollowing} className="follow-feed">
               <span className="d-block count-follow-text">Following</span>
               <span className="count-follow post-count">{profile._count.following}</span>
             </div>
           </div>
         </div>
       </div>
-      <div>
-        {profile.posts.map((post, index) => {
-          return (
-            <div key={index}>
-              <div className="posts-container">
-                <h2>{post.title}</h2>
-                <PostMedia image={post.media} />
-                <p>{post.body}</p>
-                <span>{post.created}</span>
-                <div className="d-flex gap-5">
-                  <button
-                    className="cta"
-                    onClick={() => {
-                      setModalData(post);
-                      setModalShow(true);
-                    }}
-                  >
-                    Update
-                  </button>
-                  <DeletePost id={post.id} />
+      <Row>
+        <Col className="d-none posts-container followers-container">
+          <h3 className="text-center">Followers</h3>
+          {profile.followers.map((follow) => {
+            return (
+              <Link to={`/profile/${follow.name}`} key={follow.name}>
+                <Avatar image={follow.avatar} class={"user-avatar"} />
+                <div>{follow.name}</div>
+              </Link>
+            );
+          })}
+        </Col>
+        <Col className="d-none posts-container following-container">
+          <h3 className="text-center">Following</h3>
+          {profile.following.map((follow) => {
+            return (
+              <Link to={`/profile/${follow.name}`} key={follow.name}>
+                <Avatar image={follow.avatar} class={"user-avatar"} />
+                <div>{follow.name}</div>
+              </Link>
+            );
+          })}
+        </Col>
+        <Col>
+          {profile.posts.map((post, index) => {
+            return (
+              <div key={index}>
+                <div className="posts-container">
+                  <h2>{post.title}</h2>
+                  <PostMedia image={post.media} />
+                  <p>{post.body}</p>
+                  <span>{post.created}</span>
+                  <div className="d-flex gap-5">
+                    <button
+                      className="cta"
+                      onClick={() => {
+                        setModalData(post);
+                        setModalShow(true);
+                      }}
+                    >
+                      Update
+                    </button>
+                    <DeletePost id={post.id} />
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </Col>
+      </Row>
       <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Update post">
         <UpdateForm id={modalData.id} title={modalData.title} body={modalData.body} />
       </ModalVertical>

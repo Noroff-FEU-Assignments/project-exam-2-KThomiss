@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../../constants/api";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
-/* import { UpdateContext } from "../../../context/UpdateContext"; */
+import { UpdateContext } from "../../../context/UpdateContext";
 import CommentPost from "./CommentPost";
 import ReactPost from "./ReactPost";
 import PostMedia from "../../common/PostMeida";
@@ -15,14 +15,11 @@ export default function PostDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [auth] = useContext(AuthContext);
-  /* const { addComment } = useContext(UpdateContext); */
-
+  const { addComment } = useContext(UpdateContext);
   const [key, setKey] = useState("comment");
 
   let { id } = useParams();
   const url = BASE_URL + `posts/${id}?_author=true&_comments=true&_reactions=true`;
-
-  /* console.log(action.payload.comment); */
 
   useEffect(() => {
     async function getPostDetails() {
@@ -37,6 +34,7 @@ export default function PostDetails() {
         const json = await response.json();
         console.log(json);
         setDetails(json);
+        addComment(json.comments);
       } catch (error) {
         setError(error.toString());
         console.log(error);
@@ -57,7 +55,7 @@ export default function PostDetails() {
   }
 
   return (
-    <div className="post-container">
+    <div className="post-container container">
       <Heading title={`${details.author.name}'s post`} />
       <div className="post-inner-container">
         <h2>{details.title}</h2>
@@ -94,3 +92,13 @@ export default function PostDetails() {
     </div>
   );
 }
+
+/*          {details.comments.map((comment) => {
+            return (
+              <div key={comment.id}>
+                <span>
+                  {comment.owner}: {comment.body}
+                </span>
+              </div>
+            );
+          })}*/

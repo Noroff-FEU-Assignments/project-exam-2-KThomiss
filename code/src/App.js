@@ -7,14 +7,14 @@ import ProfilesPage from "./components/dashboard/profiles/ProfilesPage";
 import ProfileDetails from "./components/dashboard/profiles/ProfileDetails";
 import CreatePost from "./components/dashboard/posts/CreatePost";
 import { AuthProvider } from "./context/AuthContext";
-import { UpdateProvider } from "./context/UpdateContext";
+import { UpdateContextProvider } from "./context/UpdateContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./sass/styles.scss";
 
 function App() {
   return (
     <AuthProvider>
-      <UpdateProvider>
+      <UpdateContextProvider>
         <Router>
           <NavLayout />
           <Routes>
@@ -28,7 +28,7 @@ function App() {
             <Route path="*" element={<HomePage />}></Route>
           </Routes>
         </Router>
-      </UpdateProvider>
+      </UpdateContextProvider>
     </AuthProvider>
   );
 }

@@ -1,12 +1,12 @@
-function updateReducer(state, action) {
+function UpdateReducer(state, action) {
   switch (action.type) {
     case "ADD_COMMENT":
       return {
         ...state,
-        comments: [action.payload, ...state.comments], //or the other way around ref two examples
+        comments: [action.payload, ...state.comments],
       };
     default:
       return state;
   }
 }
-export default updateReducer;
+export default UpdateReducer;

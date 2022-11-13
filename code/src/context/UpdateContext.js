@@ -7,10 +7,11 @@ const initialState = {
 
 export const UpdateContext = createContext(initialState);
 
-export const UpdateProvider = ({ children }) => {
+export const UpdateContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UpdateReducer, initialState);
 
   function addComment(comment) {
+    console.log(comment);
     dispatch({
       type: "ADD_COMMENT",
       payload: comment,

@@ -36,6 +36,7 @@ export default function PostsList() {
       }
     }
     GetPosts();
+    // eslint-disable-next-line
   }, []);
 
   if (loading) return <div>Loading posts...</div>;
@@ -43,35 +44,37 @@ export default function PostsList() {
   if (error) return <div>Error</div>;
 
   return (
-    <Row className="row-post-list">
-      <Col xs={12} md={2} className="column-left">
-        Search and tags
-      </Col>
-      <Col md={8} className="column-middle">
-        <div className="postlist-container">
-          {posts.map((post) => {
-            return (
-              <div key={post.id} className="posts-container">
-                <h2>{post.title}</h2>
-                <PostMedia image={post.media} />
-                <p>{post.body}</p>
-                <span>{post.created}</span>
-                <div className="d-flex flex-end">
-                  <ChatBubbleBottomCenterTextIcon className="icon icon-comment" />
-                  <span className="post-count">{post._count.comments}</span>
-                  <FaceSmileIcon className="icon icon-smile" />
-                  <span className="post-count">{post._count.reactions}</span>
+    <div className="container">
+      <Row className="row-post-list">
+        <Col xs={12} md={2} className="column-left">
+          Search and tags
+        </Col>
+        <Col md={8} className="column-middle">
+          <div className="postlist-container">
+            {posts.map((post) => {
+              return (
+                <div key={post.id} className="posts-container">
+                  <h2>{post.title}</h2>
+                  <PostMedia image={post.media} />
+                  <p>{post.body}</p>
+                  <span>{post.created}</span>
+                  <div className="d-flex flex-end">
+                    <ChatBubbleBottomCenterTextIcon className="icon icon-comment" />
+                    <span className="post-count">{post._count.comments}</span>
+                    <FaceSmileIcon className="icon icon-smile" />
+                    <span className="post-count">{post._count.reactions}</span>
+                  </div>
+                  <div className="btn-container">
+                    <Link to={`/posts/${post.id}`} className="cta post-cta">
+                      View Post
+                    </Link>
+                  </div>
                 </div>
-                <div className="btn-container">
-                  <Link to={`/posts/${post.id}`} className="cta post-cta">
-                    View Post
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </Col>
-    </Row>
+              );
+            })}
+          </div>
+        </Col>
+      </Row>
+    </div>
   );
 }

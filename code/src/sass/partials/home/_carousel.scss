@@ -1,3 +1,7 @@
+.carousel-container {
+  color: $clr-text;
+}
+
 .carousel-img-container {
   height: calc(100vh - 313px);
   @extend .background-image;
@@ -7,6 +11,7 @@
 .column-carousel-info {
   border-left: $border;
   border-bottom: $border;
+  padding: 0 1rem;
 }
 
 .column-carousel-prevBtn {
@@ -42,4 +47,10 @@
 .column-carousel-nextBtn {
   @extend .center-align;
   font-size: 2rem;
+}
+
+@media (max-width: 767px) {
+  .carousel-img-container {
+    height: calc(100vh - 456px);
+  }
 }

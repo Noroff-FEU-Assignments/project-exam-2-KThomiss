@@ -34,7 +34,7 @@ export default function ProfilesList() {
 
   return (
     <>
-      <div className="profile-list-container">
+      <div className="profile-list-container container">
         {profiles.map((profile, index) => {
           return (
             <div key={index} className="profile-container">
