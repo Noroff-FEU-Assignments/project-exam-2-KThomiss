@@ -26,7 +26,7 @@ export default function UpdateBanner({ name }) {
         <label htmlFor="avatar">Avatar:</label>
         <input {...register("avatar")} id="avatar" />
       </div>
-      <button>Update</button>
+      <button className="cta">Update</button>
     </form>
   );
 }

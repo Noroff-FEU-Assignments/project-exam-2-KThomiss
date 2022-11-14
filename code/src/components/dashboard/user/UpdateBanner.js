@@ -26,7 +26,7 @@ export default function UpdateBanner({ name }) {
         <label htmlFor="banner">Banner:</label>
         <input {...register("banner")} id="banner" />
       </div>
-      <button>Update</button>
+      <button className="cta">Update</button>
     </form>
   );
 }

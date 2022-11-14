@@ -44,10 +44,10 @@ export default function PostsList() {
   if (error) return <div>Error</div>;
 
   return (
-    <div className="container">
+    <div className="container post-list-container">
       <Row className="row-post-list">
-        <Col xs={12} md={2} className="column-left">
-          Search and tags
+        <Col xs={12} md={2} className="column-left sticky-md-top">
+          Searchbar and tags
         </Col>
         <Col md={8} className="column-middle">
           <div className="postlist-container">

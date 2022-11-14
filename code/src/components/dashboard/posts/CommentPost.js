@@ -14,7 +14,7 @@ const schema = yup.object().shape({
 export default function CommentOnPost() {
   const [, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
-  const { addComment } = useContext(UpdateContext);
+  const { setComments } = useContext(UpdateContext);
   let { id } = useParams();
 
   const {
@@ -40,7 +40,7 @@ export default function CommentOnPost() {
     try {
       const response = await http.post(`posts/${id}/comment`, JSON.stringify(formData));
       console.log(response);
-      addComment(formData);
+      setComments((prevState) => [...prevState, formData]);
     } catch (error) {
       console.log("error", error);
       setPostError(error.toString());

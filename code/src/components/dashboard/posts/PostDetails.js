@@ -15,7 +15,7 @@ export default function PostDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [auth] = useContext(AuthContext);
-  const { addComment } = useContext(UpdateContext);
+  const { comments, setComments } = useContext(UpdateContext);
   const [key, setKey] = useState("comment");
 
   let { id } = useParams();
@@ -34,7 +34,7 @@ export default function PostDetails() {
         const json = await response.json();
         console.log(json);
         setDetails(json);
-        addComment(json.comments);
+        setComments(json.comments);
       } catch (error) {
         setError(error.toString());
         console.log(error);
@@ -70,9 +70,9 @@ export default function PostDetails() {
           );
         })}
         <div className="comment-container">
-          {details.comments.map((comment) => {
+          {comments.map((comment, index) => {
             return (
-              <div key={comment.id}>
+              <div key={index}>
                 <span>
                   {comment.owner}: {comment.body}
                 </span>

@@ -42,14 +42,25 @@ p {
   background-size: cover;
 }
 
-.row-post-list {
-  position: relative;
-}
-
-.column-left.col-12 {
+/* .column-left.col-12 {
   text-align: center;
   position: sticky;
   top: 0px;
   z-index: 1;
   background-color: $bg-color;
+} */
+
+/* .post-list-container {
+  margin-left: 200px;
+  position: relative;
+} */
+
+/* .column-left {
+  position: fixed;
+  background-color: red;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
 }
+ */
