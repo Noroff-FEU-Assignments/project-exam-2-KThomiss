@@ -26,15 +26,15 @@ export default function Carousel() {
   return (
     <div className="carousel-container">
       <Row className="g-0">
-        <Col xs={12} sm={12} md={6} lg={8} className="column-carousel-img">
+        <Col md={12} lg={7} className="column-carousel-img">
           <div style={bgImageIndex} className="carousel-img-container"></div>
         </Col>
         <Col className="column-carousel-info">
           <div>{slideImg[currentIndex].content}</div>
         </Col>
       </Row>
-      <Row className="g-0">
-        <Col xs={12} sm={12} md={6} lg={8} className="column-carousel-title">
+      <Row className="g-0 mobile-row">
+        <Col xs={12} md={6} lg={7} className="column-carousel-title">
           <div>{slideImg[currentIndex].title}</div>
         </Col>
         <Col className="column-carousel-prevBtn">

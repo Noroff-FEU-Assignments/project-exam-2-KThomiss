@@ -7,6 +7,14 @@
 body {
   background-color: $bg-color;
   color: white;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
 }
 
 header {
