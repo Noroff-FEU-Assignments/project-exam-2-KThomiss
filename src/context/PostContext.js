@@ -6,7 +6,7 @@ import postReducer, { initialState } from "./postReducer";
 
 const PostContext = createContext(initialState);
 
-const postUrl = BASE_URL + "posts";
+const postUrl = BASE_URL + "posts?_author=true&_comments=true&_reactions=true";
 
 export const PostProvider = ({ children }) => {
   const [state, dispatch] = useReducer(postReducer, initialState);
@@ -23,6 +23,7 @@ export const PostProvider = ({ children }) => {
       };
       try {
         const response = await fetch(postUrl, options);
+        console.log("postlist", response);
         if (response.ok) {
           const json = await response.json();
           setPosts(json);

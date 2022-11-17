@@ -70,6 +70,10 @@
     border-bottom: $border;
   }
 
+  .column-carousel-prevBtn {
+    border-left: none;
+  }
+
   .column-carousel-info {
     padding: 0 1rem;
   }

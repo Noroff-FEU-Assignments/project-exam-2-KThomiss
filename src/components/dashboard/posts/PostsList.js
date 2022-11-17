@@ -4,6 +4,7 @@ import PostMedia from "../../common/PostMeida";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { ChatBubbleBottomCenterTextIcon, FaceSmileIcon } from "@heroicons/react/20/solid";
+import moment from "moment";
 
 export default function PostsList() {
   const { state } = useStore();
@@ -32,7 +33,10 @@ export default function PostsList() {
                   <h2>{post.title}</h2>
                   <PostMedia image={post.media} />
                   <p>{post.body}</p>
-                  <span>{post.created}</span>
+                  <div className="d-flex gap-2">
+                    <span className="text-muted">{post.author.name}:</span>
+                    <span className="text-muted">{moment(post.created).format("DD MMM YY")}</span>
+                  </div>
                   <div className="d-flex flex-end">
                     <ChatBubbleBottomCenterTextIcon className="icon icon-comment" />
                     <span className="post-count">{post._count.comments}</span>
