@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import ErrorMessage from "../../common/ErrorMessage";
 import useAxios from "../../../hooks/useAxios";
 import Heading from "../../layout/Heading";
+import useStore from "../../../context/PostContext";
 
 const schema = yup.object().shape({
   title: yup.string().required("Please enter a title"),
@@ -15,12 +16,17 @@ const schema = yup.object().shape({
 export default function CreatePost() {
   const [, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
+  const [message, setMessage] = useState("");
+  const { state, addPost } = useStore();
   document.title = "New Post | ToAd";
+
+  console.log("posts", state);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -30,7 +36,8 @@ export default function CreatePost() {
   async function postComment(data) {
     setSubmitting(true);
     setPostError(null);
-    console.log(data);
+    setMessage("Post submitted");
+    reset();
 
     const title = data.title;
     const message = data.body;
@@ -45,6 +52,9 @@ export default function CreatePost() {
     try {
       const response = await http.post(`posts`, JSON.stringify(formData));
       console.log(response.data);
+      if (response.status === 200 || response.status === 201) {
+        addPost(response.data);
+      }
     } catch (error) {
       console.log("error", error);
       setPostError(error.toString());
@@ -74,6 +84,7 @@ export default function CreatePost() {
           {errors.image && <ErrorMessage>{errors.image.message}</ErrorMessage>}
         </div>
         <button className="cta">Post</button>
+        {isSubmitSuccessful && <span className="success">{message}</span>}
       </form>
     </>
   );

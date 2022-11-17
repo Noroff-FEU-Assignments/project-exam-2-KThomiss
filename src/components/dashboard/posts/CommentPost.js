@@ -1,11 +1,11 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ErrorMessage from "../../common/ErrorMessage";
 import { useParams } from "react-router-dom";
 import useAxios from "../../../hooks/useAxios";
-import { UpdateContext } from "../../../context/UpdateContext";
+import useStore from "../../../context/PostContext";
 
 const schema = yup.object().shape({
   message: yup.string().required("Please enter your message"),
@@ -14,12 +14,13 @@ const schema = yup.object().shape({
 export default function CommentOnPost() {
   const [, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
-  const { setComments } = useContext(UpdateContext);
   let { id } = useParams();
+  const { addComment } = useStore();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -28,8 +29,9 @@ export default function CommentOnPost() {
   const http = useAxios();
 
   async function postComment(data) {
-    setSubmitting(true);
-    setPostError(null);
+    setSubmitting(true); /////////////////////
+    setPostError(null); //do I need these?
+    reset();
 
     const message = data.message;
 
@@ -39,8 +41,9 @@ export default function CommentOnPost() {
 
     try {
       const response = await http.post(`posts/${id}/comment`, JSON.stringify(formData));
-      console.log(response);
-      setComments((prevState) => [...prevState, formData]);
+      if (response.status === 200 || response.status === 201) {
+        addComment(response.data);
+      }
     } catch (error) {
       console.log("error", error);
       setPostError(error.toString());

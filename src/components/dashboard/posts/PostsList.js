@@ -1,47 +1,22 @@
-import { BASE_URL } from "../../../constants/api";
-import { useEffect, useState, useContext } from "react";
-import { AuthContext } from "../../../context/AuthContext";
+import { useStore } from "../../../context/PostContext";
 import { Link } from "react-router-dom";
 import PostMedia from "../../common/PostMeida";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { ChatBubbleBottomCenterTextIcon, FaceSmileIcon } from "@heroicons/react/20/solid";
 
-const getUrl = BASE_URL + "posts";
-
 export default function PostsList() {
-  const [posts, setPosts] = useState();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [auth] = useContext(AuthContext);
+  const { state } = useStore();
 
-  useEffect(() => {
-    async function GetPosts() {
-      const options = {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${auth.accessToken}`,
-        },
-      };
-      try {
-        const response = await fetch(getUrl, options);
-        const json = await response.json();
-        console.log(json);
-        setPosts(json);
-      } catch (error) {
-        console.log(error);
-        setError(error.toString());
-      } finally {
-        setLoading(false);
-      }
-    }
-    GetPosts();
-    // eslint-disable-next-line
-  }, []);
+  console.log("state", state);
 
-  if (loading) return <div>Loading posts...</div>;
+  if (state.loading) {
+    return <div>Loading...</div>;
+  }
 
-  if (error) return <div>Error</div>;
+  if (state.error) {
+    return <div>{state.error}</div>;
+  }
 
   return (
     <div className="container post-list-container">
@@ -51,7 +26,7 @@ export default function PostsList() {
         </Col>
         <Col md={8} className="column-middle">
           <div className="postlist-container">
-            {posts.map((post) => {
+            {state.posts.map((post) => {
               return (
                 <div key={post.id} className="posts-container">
                   <h2>{post.title}</h2>
