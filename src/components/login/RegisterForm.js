@@ -20,14 +20,14 @@ const schema = yup.object().shape({
 export default function RegisterForm() {
   const [, setSubmitting] = useState(false);
   const [registerError, setRegisterError] = useState(null);
-  const [, setMessage] = useState("");
+  const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -52,7 +52,7 @@ export default function RegisterForm() {
       const json = await response.json();
       console.log(json);
       if (response.ok) {
-        navigate("/login");
+        navigate("/"); //update this to open login modal or direct to homepage
         setMessage("Account created");
       } else {
         setRegisterError("Account already exists"); //find a solution here
@@ -105,6 +105,7 @@ export default function RegisterForm() {
           {errors.banner && <ErrorMessage>{errors.banner.message}</ErrorMessage>}
         </div>
         <button className="cta">Register</button>
+        {isSubmitSuccessful && <span className="success">{message}</span>}
       </form>
     </div>
   );
