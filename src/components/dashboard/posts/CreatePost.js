@@ -18,7 +18,6 @@ export default function CreatePost() {
   const [postError, setPostError] = useState(null);
   const [message, setMessage] = useState("");
   const { state, addPost } = useStore();
-  document.title = "New Post | ToAd";
 
   console.log("posts", state);
 
