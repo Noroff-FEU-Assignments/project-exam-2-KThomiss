@@ -5,7 +5,7 @@ import PostPage from "./components/dashboard/posts/PostPage";
 import PostDetails from "./components/dashboard/posts/PostDetails";
 import ProfilesPage from "./components/dashboard/profiles/ProfilesPage";
 import ProfileDetails from "./components/dashboard/profiles/ProfileDetails";
-import CreatePost from "./components/dashboard/posts/CreatePost";
+import FollowersPage from "./components/dashboard/followers/FollowersPage";
 import { AuthProvider } from "./context/AuthContext";
 import { PostProvider } from "./context/PostContext";
 import { ThemeContextProvider } from "./context/ThemeContext";
@@ -30,7 +30,7 @@ function App() {
                 <Route path="/posts/:id" element={<PostDetails />}></Route>
                 <Route path="/profiles" element={<ProfilesPage />}></Route>
                 <Route path="/profile/:name" element={<ProfileDetails />}></Route>
-                <Route path="/new-post" element={<CreatePost />}></Route>
+                <Route path="/followers" element={<FollowersPage />}></Route>
                 <Route path="*" element={<HomePage />}></Route>
               </Routes>
             </Router>

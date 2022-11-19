@@ -34,7 +34,7 @@ export default function NavLayout() {
             <div className="admin-container">
               <NavLink to="/posts">Posts</NavLink>
               <NavLink to="/profiles">Profiles</NavLink>
-              <NavLink to="/new-post">New post</NavLink>
+              <NavLink to="/followers">Followers</NavLink>
             </div>
             <div className="user-container">
               <NavProfile />
@@ -86,7 +86,7 @@ export default function NavLayout() {
                         <div className="d-flex flex-column">
                           <NavLink to="/posts">Posts</NavLink>
                           <NavLink to="/profiles">Profiles</NavLink>
-                          <NavLink to="/new-post">New post</NavLink>
+                          <NavLink to="/followers">Followers</NavLink>
                         </div>
                         <div className="offcanvas-container d-flex">
                           <NavProfile />

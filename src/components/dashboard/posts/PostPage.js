@@ -8,17 +8,19 @@ export default function PostPage() {
   const [modalShowPost, setModalShowPost] = useState(false);
   document.title = `Posts | ToAd`;
   return (
-    <>
-      <div className="container">
-        <button onClick={() => setModalShowPost(true)} className="cta-secondary">
+    <div className="container posts-page-container">
+      <div className="post-intro-container">
+        <Heading title="Post-wall" />
+        <h2>Look through the posts below or create your own.</h2>
+        <button onClick={() => setModalShowPost(true)} className="cta-secondary create-new-btn">
           Create new post
         </button>
         <ModalVertical show={modalShowPost} onHide={() => setModalShowPost(false)} heading="Your Post">
           <CreatePost />
         </ModalVertical>
       </div>
-      <Heading title="Posts" />
+
       <PostsList />
-    </>
+    </div>
   );
 }

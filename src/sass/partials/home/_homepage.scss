@@ -1,0 +1,30 @@
+.posts-page-container {
+  position: relative;
+}
+
+.post-intro-container {
+  max-width: 800px;
+  margin: 0 auto;
+  border-bottom: $border;
+  padding: 1rem;
+
+  position: sticky;
+  top: 0;
+  background-color: $bg-color;
+
+  h1 {
+    font-size: 50px;
+    margin-top: 1rem;
+    text-align: start;
+  }
+
+  h2 {
+    color: $clr-text;
+    max-width: 400px;
+    font-size: 25px;
+  }
+
+  .create-new-btn {
+    max-width: 200px;
+  }
+}
