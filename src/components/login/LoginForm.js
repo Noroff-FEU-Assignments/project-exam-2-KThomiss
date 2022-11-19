@@ -51,7 +51,7 @@ export default function LoginForm() {
       const json = await response.json();
       if (response.ok) {
         setAuth(json);
-        navigate("/posts");
+        navigate("/");
       } else {
         setLoginError("wrong username or password");
       }

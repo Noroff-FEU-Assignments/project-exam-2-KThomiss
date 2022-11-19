@@ -23,7 +23,6 @@ export const PostProvider = ({ children }) => {
       };
       try {
         const response = await fetch(postUrl, options);
-        console.log("postlist", response);
         if (response.ok) {
           const json = await response.json();
           setPosts(json);

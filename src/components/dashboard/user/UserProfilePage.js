@@ -59,7 +59,7 @@ export default function UserProfile() {
   };
 
   return (
-    <div className="user-profile-container">
+    <div className="container user-profile-container">
       <div>
         <Banner image={profile.banner} class={"user-profile-banner"} />
         <div className="user-info-container d-flex mt-4">
@@ -81,7 +81,7 @@ export default function UserProfile() {
           </div>
         </div>
       </div>
-      <Row>
+      <Row className="m-1">
         <Col className="d-none posts-container followers-container">
           <h3 className="text-center">Followers</h3>
           {profile.followers.map((follow) => {
