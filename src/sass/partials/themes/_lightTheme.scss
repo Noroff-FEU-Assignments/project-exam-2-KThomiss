@@ -224,3 +224,34 @@
     color: white;
   }
 }
+
+.offcanvas.light {
+  background-color: $bg-color-light;
+
+  a {
+    color: $clr-links-light;
+  }
+
+  a:hover {
+    color: $clr-cta-light-hover;
+  }
+
+  .active {
+    color: $clr-link-light-active;
+  }
+
+  .icon,
+  .btn-close {
+    color: $clr-icon-light;
+  }
+
+  .offcanvas-header {
+    background-color: $clr-light;
+    border-bottom: $border-light;
+    color: $clr-heading-light;
+  }
+
+  .user-container {
+    border-top: $border-light;
+  }
+}

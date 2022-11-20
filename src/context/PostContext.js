@@ -87,7 +87,6 @@ export const PostProvider = ({ children }) => {
   };
 
   const addPost = (post) => {
-    //await API call to return to get new id, then:
     dispatch({
       type: "ADD_POST",
       payload: post,
@@ -95,7 +94,6 @@ export const PostProvider = ({ children }) => {
   };
 
   const removePost = (postId) => {
-    // do API call
     dispatch({
       type: "REMOVE_POST",
       payload: postId,

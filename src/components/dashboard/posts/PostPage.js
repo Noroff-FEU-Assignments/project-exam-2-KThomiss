@@ -8,7 +8,7 @@ export default function PostPage() {
   const [modalShowPost, setModalShowPost] = useState(false);
   document.title = `Posts | ToAd`;
   return (
-    <div className="theme-page-container">
+    <div className="theme-page-container mx-3">
       <div className="post-intro-container">
         <Heading title="Post-wall" />
         <h2>Look through the posts below or create your own.</h2>

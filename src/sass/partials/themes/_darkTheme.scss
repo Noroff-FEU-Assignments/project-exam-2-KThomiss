@@ -229,3 +229,34 @@
     color: white;
   }
 }
+
+.offcanvas.dark {
+  background-color: $bg-color-dark;
+
+  a {
+    color: $clr-links-dark;
+  }
+
+  a:hover {
+    color: $clr-cta-dark-hover;
+  }
+
+  .active {
+    color: $clr-link-dark-active;
+  }
+
+  .icon,
+  .btn-close {
+    color: $clr-icon-dark;
+  }
+
+  .offcanvas-header {
+    background-color: $clr-dark;
+    border-bottom: $border-dark;
+    color: $clr-heading-dark;
+  }
+
+  .user-container {
+    border-top: $border-dark;
+  }
+}

@@ -27,7 +27,6 @@
 
     display: flex;
     justify-content: center;
-    position: relative;
 
     .avatar {
       margin: 0 auto;
@@ -41,12 +40,6 @@
   border: none;
   width: 50px;
   align-self: flex-end;
-}
-
-.theme-btn {
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 .user-link {
@@ -74,7 +67,18 @@
   font-size: 13px;
 }
 
-.navbar-toggler {
+.nav-toggler {
   border: none;
-  width: 50px;
+  background-color: inherit;
+}
+
+@media (max-width: 767px) {
+  .user-container {
+    position: relative;
+  }
+
+  .theme-btn {
+    position: absolute;
+    right: 0;
+  }
 }
