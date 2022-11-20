@@ -5,9 +5,11 @@
 }
 
 body {
-  background-color: $bg-color;
-  color: white;
   font-family: "Space Grotesk", sans-serif;
+}
+
+.theme-container {
+  min-height: 100vh;
 }
 
 h1,
@@ -17,27 +19,15 @@ h3 {
   text-transform: uppercase;
 }
 
-header {
-  height: 104px;
-  border-bottom: $border;
-}
-
 a {
   text-decoration: none;
-  color: $clr-links;
   padding: 10px;
   font-size: 20px;
 }
 
 .heading {
   margin-bottom: 0;
-  color: $clr-heading;
-}
-
-.btn {
-  background-color: #003d3b;
-  border-radius: 5px;
-  color: white;
+  padding-top: 3rem;
 }
 
 .background-image {
@@ -52,7 +42,6 @@ a {
 }
 
 .active {
-  color: $link-active;
   font-weight: bold;
 }
 
@@ -78,14 +67,9 @@ a {
   padding: 0;
 }
 
-.form-error {
-  color: $clr-error;
-}
-
 .cta {
   width: 100%;
   display: block;
-  background-color: $clr-cta;
   text-align: center;
   padding: 10px 0;
   margin-top: 10px;
@@ -95,41 +79,7 @@ a {
 
 .cta-secondary {
   @extend .cta;
-  border: 2px solid $clr-cta;
-  background-color: unset;
-  color: white;
 }
-
-.delete {
-  border: 2px solid $clr-error;
-  color: white;
-}
-
-.icon {
-  color: $clr-icon;
-}
-
-.cta:hover {
-  background-color: $clr-cta-hover;
-  color: white;
-}
-
-.icon:hover,
-.Link:hover,
-.NavLink:hover,
-a:hover {
-  color: $clr-cta-hover;
-}
-
 .required {
-  color: #cf6679;
   margin-left: 5px;
-}
-
-.optional {
-  color: $clr-text;
-}
-
-.delete:hover {
-  background-color: #cf6679;
 }

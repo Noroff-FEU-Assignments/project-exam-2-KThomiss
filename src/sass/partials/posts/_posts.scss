@@ -1,17 +1,35 @@
+.posts-page-container {
+  position: relative;
+}
+
+.post-intro-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+
+  h1 {
+    font-size: 50px;
+    margin-top: 1rem;
+    text-align: start;
+  }
+
+  h2 {
+    max-width: 400px;
+    font-size: 25px;
+  }
+
+  .create-new-btn {
+    max-width: 200px;
+  }
+}
+
 .posts-container {
-  background-color: $clr-dark;
   max-width: 800px;
   padding: 1rem;
   margin: 2rem auto;
-  border: $border;
-}
-
-h2 {
-  color: $clr-heading;
-}
-
-p {
-  color: $clr-text;
 }
 
 .post-cta {
@@ -20,7 +38,7 @@ p {
 
 .icon-comment,
 .icon-smile {
-  width: 40px;
+  width: 30px;
 }
 
 .icon-smile {
@@ -28,8 +46,7 @@ p {
 }
 
 .post-count {
-  color: $link-active;
-  font-size: 30px;
+  font-size: 25px;
   padding-left: 5px;
 }
 
@@ -41,26 +58,3 @@ p {
 .post-media {
   background-size: cover;
 }
-
-/* .column-left.col-12 {
-  text-align: center;
-  position: sticky;
-  top: 0px;
-  z-index: 1;
-  background-color: $bg-color;
-} */
-
-/* .post-list-container {
-  margin-left: 200px;
-  position: relative;
-} */
-
-/* .column-left {
-  position: fixed;
-  background-color: red;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 200px;
-}
- */

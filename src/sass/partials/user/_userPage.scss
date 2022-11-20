@@ -1,36 +1,23 @@
 .user-profile-container {
   max-width: 1000px;
-  margin: 3rem auto;
+  margin: 0 auto;
+  padding-top: 3rem;
 }
 
 .user-profile-banner {
   @extend .background-image;
   background-size: cover;
   height: 500px;
+  margin-top: 3rem;
 }
 
 .user-info-container {
-  border-bottom: $border;
-  padding: 10px 0;
+  padding: 10px;
   flex-wrap: wrap;
 }
 
 .dropdown-toggle,
 .dropdown-menu.show {
-  background-color: $clr-dark;
   border: none;
   border-radius: 0;
-}
-
-.dropdown-item:hover {
-  background-color: $clr-dark-1;
-}
-
-.dropdown-toggle:hover {
-  background-color: $clr-cta;
-  color: black;
-}
-
-.dropdown-link {
-  color: $clr-text;
 }

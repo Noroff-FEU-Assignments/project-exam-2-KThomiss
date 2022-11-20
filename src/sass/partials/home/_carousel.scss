@@ -1,23 +1,11 @@
-.carousel-container {
-  color: $clr-text;
-}
-
 .carousel-img-container {
   height: calc(100vh - 313px);
   @extend .background-image;
   background-size: contain;
-  border-bottom: $border;
 }
 
 .column-carousel-info {
-  border-left: $border;
-  border-bottom: $border;
   padding: 0 5rem;
-}
-
-.column-carousel-prevBtn {
-  border-left: $border;
-  border-right: $border;
 }
 
 .column-carousel-prevBtn button,
@@ -64,10 +52,6 @@
 @media (max-width: 767px) {
   .carousel-img-container {
     height: calc(100vh - 444px);
-  }
-
-  .column-carousel-title {
-    border-bottom: $border;
   }
 
   .column-carousel-prevBtn {

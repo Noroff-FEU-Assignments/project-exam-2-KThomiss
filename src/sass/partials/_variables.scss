@@ -1,15 +1,33 @@
-$bg-color: #191a1c;
-$bg-color-active: #1b1c1f;
+//Dark Theme Colors
+$bg-color-dark: #191a1c;
 $clr-dark: #232427;
 $clr-dark-1: #303437;
-$clr-heading: #d2dcde;
-$clr-text: #a2a7ab;
-$clr-links: #fff;
-$clr-cta: #58cbf6;
-$clr-cta-hover: #1ea6d9;
-$clr-icon: #626b70;
-$clr-error: #fd9798;
-$link-active: #88fbff;
+$clr-heading-dark: #d2dcde;
+$clr-text-dark: #a2a7ab;
+$clr-links-dark: #fdfdfd;
+$clr-link-dark-active: #88fbff;
+$clr-cta-dark: #58cbf6;
+$clr-cta-dark-hover: #1ea6d9;
+$clr-icon-dark: #626b70;
+$clr-error-dark: #fd9798;
+$clr-delete-dark-hover: #cf6679;
 
-$border: 2px solid #303437;
-$box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
+$border-dark: 2px solid #303437;
+$box-shadow-dark: 0px 3px 15px rgba(0, 0, 0, 0.5);
+
+//Light Theme Colors
+$bg-color-light: #dfe9eb;
+$clr-light: #d7e4e6;
+$clr-light-1: #d1dadf;
+$clr-heading-light: #002132;
+$clr-text-light: #355562;
+$clr-links-light: #191a1c;
+$clr-link-light-active: #1ea6d9;
+$clr-cta-light: #1ea6d9;
+$clr-cta-light-hover: #58cbf6;
+$clr-icon-light: #355562;
+$clr-error-light: #da2225;
+$clr-delete-light-hover: #eb2b2e;
+
+$border-light: 2px solid #b8b8b8;
+$box-shadow-light: 0px 3px 15px rgba(0, 0, 0, 0.5);

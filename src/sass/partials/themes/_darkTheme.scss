@@ -1,0 +1,231 @@
+.theme-container.dark {
+  background-color: $bg-color-dark;
+  header {
+    background-color: $bg-color-dark;
+    border-bottom: $border-dark;
+  }
+
+  .logo-container {
+    border-right: $border-dark;
+  }
+
+  .user-container,
+  .visit-container {
+    border-left: $border-dark;
+  }
+
+  .theme-page-container {
+    background-color: $bg-color-dark;
+    color: white;
+  }
+
+  .heading {
+    color: $clr-heading-dark;
+  }
+
+  p,
+  h2 {
+    color: $clr-text-dark;
+  }
+
+  a {
+    color: $clr-links-dark;
+  }
+
+  .active {
+    color: $clr-link-dark-active;
+  }
+
+  .btn {
+    background-color: $clr-cta-dark;
+    color: black;
+  }
+
+  .cta {
+    background-color: $clr-cta-dark;
+  }
+
+  .cta-secondary {
+    border: 2px solid $clr-cta-dark;
+    background-color: unset;
+    color: white;
+  }
+
+  .delete {
+    border: 2px solid $clr-error-dark;
+    color: white;
+  }
+
+  .btn:hover,
+  .cta:hover {
+    background-color: $clr-cta-dark-hover;
+    color: white;
+  }
+  .delete:hover {
+    background-color: $clr-delete-dark-hover;
+  }
+
+  .icon {
+    color: $clr-icon-dark;
+  }
+
+  .icon:hover,
+  .Link:hover,
+  .NavLink:hover,
+  a:hover {
+    color: $clr-cta-dark-hover;
+  }
+
+  .post-count {
+    color: $clr-link-dark-active;
+  }
+
+  .form-error {
+    color: $clr-error-dark;
+  }
+
+  .posts-container,
+  .profile-card-bottom {
+    background-color: $clr-dark;
+  }
+
+  .posts-container {
+    border: $border-dark;
+  }
+
+  .post-inner-container {
+    background-color: $clr-dark;
+  }
+
+  .comment-container {
+    background-color: $clr-dark-1;
+  }
+
+  .nav-tabs {
+    .nav-link,
+    .nav-link.active {
+      background-color: $bg-color-dark;
+      color: $clr-text-dark;
+    }
+
+    .nav-link.active {
+      border: 1px solid $clr-cta-dark;
+    }
+
+    .nav-link:hover {
+      background-color: $clr-dark-1;
+      border: 1px solid $clr-cta-dark;
+      color: $clr-cta-dark-hover;
+    }
+  }
+
+  .comment-form,
+  .react-form {
+    background-color: $bg-color-dark;
+  }
+
+  .react-select,
+  .comment-textarea {
+    background-color: $clr-dark-1;
+    color: $clr-text-dark;
+  }
+
+  .user-info-container,
+  .post-intro-container {
+    border-bottom: $border-dark;
+  }
+
+  .dropdown-toggle,
+  .dropdown-menu.show {
+    background-color: $clr-dark;
+    border: none;
+    border-radius: 0;
+  }
+
+  .dropdown-item:hover {
+    background-color: $clr-dark-1;
+  }
+
+  .dropdown-toggle:hover {
+    background-color: $clr-cta-dark;
+    color: black;
+  }
+
+  .dropdown-link {
+    color: $clr-text-dark;
+  }
+
+  input,
+  textarea {
+    background-color: $clr-dark-1;
+    color: white;
+  }
+
+  .carousel-img-container {
+    border-bottom: $border-dark;
+  }
+
+  .column-carousel-info {
+    border-left: $border-dark;
+    border-bottom: $border-dark;
+  }
+
+  .column-carousel-prevBtn {
+    border-left: $border-dark;
+    border-right: $border-dark;
+  }
+
+  @media (max-width: 767px) {
+    .column-carousel-title {
+      border-bottom: $border-dark;
+    }
+  }
+
+  .profile-email {
+    border-bottom: 1px solid $border-dark;
+  }
+
+  .count-follow-text,
+  .profile-email {
+    color: $clr-text-dark;
+  }
+}
+
+.modal.dark {
+  .modal-content {
+    background-color: $clr-dark;
+    border: $border-dark;
+    color: $clr-text-dark;
+
+    .modal-header {
+      color: $clr-cta-dark;
+      border-bottom: $border-dark;
+    }
+  }
+
+  .cta {
+    background-color: $clr-cta-dark;
+  }
+
+  p {
+    color: $clr-text-dark;
+  }
+
+  .cta:hover {
+    background-color: $clr-cta-dark-hover;
+    color: white;
+  }
+
+  .cta-secondary {
+    border: 2px solid $clr-cta-dark;
+    background-color: unset;
+    color: white;
+  }
+
+  input,
+  textarea {
+    background-color: $clr-dark-1;
+    border: none;
+    color: white;
+  }
+}

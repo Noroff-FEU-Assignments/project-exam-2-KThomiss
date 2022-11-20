@@ -1,0 +1,226 @@
+.theme-container.light {
+  background-color: $bg-color-light;
+
+  header {
+    background-color: $clr-light;
+    border-bottom: $border-light;
+  }
+
+  .logo-container {
+    border-right: $border-light;
+  }
+
+  .user-container,
+  .visit-container {
+    border-left: $border-light;
+  }
+
+  .theme-page-container {
+    background-color: $bg-color-light;
+    color: black;
+  }
+
+  .heading {
+    color: $clr-heading-light;
+  }
+
+  p,
+  h2 {
+    color: $clr-text-light;
+  }
+
+  a {
+    color: $clr-links-light;
+  }
+
+  .active {
+    color: $clr-link-light-active;
+  }
+
+  .btn {
+    background-color: $clr-cta-light;
+    color: white;
+  }
+
+  .cta {
+    background-color: $clr-cta-light;
+  }
+
+  .cta-secondary {
+    border: 2px solid $clr-cta-light;
+    background-color: unset;
+    color: $clr-links-light;
+  }
+
+  .delete {
+    border: 2px solid $clr-error-light;
+    color: $clr-links-light;
+  }
+
+  .btn:hover,
+  .cta:hover {
+    background-color: $clr-cta-light-hover;
+    color: black;
+  }
+  .delete:hover {
+    background-color: $clr-delete-light-hover;
+  }
+
+  .icon {
+    color: $clr-icon-light;
+  }
+
+  .icon:hover,
+  .Link:hover,
+  .NavLink:hover,
+  a:hover {
+    color: $clr-cta-light-hover;
+  }
+
+  .post-count {
+    color: $clr-link-light-active;
+  }
+
+  .form-error {
+    color: $clr-error-light;
+  }
+
+  .posts-container,
+  .profile-card-bottom {
+    background-color: $clr-light;
+  }
+
+  .posts-container {
+    border: $border-light;
+  }
+
+  .post-inner-container {
+    background-color: $clr-light;
+  }
+
+  .comment-container {
+    background-color: $clr-light-1;
+  }
+
+  .nav-tabs {
+    .nav-link,
+    .nav-link.active {
+      background-color: $bg-color-light;
+      color: $clr-text-light;
+    }
+
+    .nav-link.active {
+      border: 1px solid $clr-cta-light;
+    }
+
+    .nav-link:hover {
+      background-color: $clr-light-1;
+      border: 1px solid $clr-cta-light;
+      color: $clr-cta-light-hover;
+    }
+  }
+
+  .comment-form,
+  .react-form {
+    background-color: $bg-color-light;
+  }
+
+  .react-select,
+  .comment-textarea {
+    background-color: $clr-light-1;
+    color: $clr-text-light;
+  }
+
+  .user-info-container,
+  .post-intro-container {
+    border-bottom: $border-light;
+  }
+
+  .dropdown-item:hover {
+    background-color: $clr-light-1;
+  }
+
+  .dropdown-toggle:hover {
+    background-color: $clr-cta-light;
+    color: black;
+  }
+
+  .dropdown-link {
+    color: $clr-text-light;
+  }
+
+  input,
+  textarea {
+    background-color: $clr-light-1;
+    color: black;
+  }
+
+  .carousel-img-container {
+    border-bottom: $border-light;
+  }
+
+  .column-carousel-info {
+    border-left: $border-light;
+    border-bottom: $border-light;
+  }
+
+  .column-carousel-prevBtn {
+    border-left: $border-light;
+    border-right: $border-light;
+  }
+
+  @media (max-width: 767px) {
+    .column-carousel-title {
+      border-bottom: $border-light;
+    }
+  }
+
+  .profile-email {
+    border-bottom: 1px solid $border-light;
+  }
+
+  .count-follow-text,
+  .profile-email {
+    color: $clr-text-light;
+  }
+}
+
+.modal.light {
+  .modal-content {
+    background-color: $clr-light;
+    border: $border-light;
+    color: $clr-text-light;
+
+    .modal-header {
+      color: $clr-heading-light;
+      border-bottom: $border-light;
+    }
+  }
+
+  .cta {
+    background-color: $clr-cta-light;
+    color: black;
+  }
+
+  .cta:hover {
+    background-color: $clr-cta-light-hover;
+    color: black;
+  }
+
+  p {
+    color: $clr-text-light;
+  }
+
+  .cta-secondary {
+    border: 2px solid $clr-cta-light;
+    background-color: unset;
+    color: $clr-links-light;
+  }
+
+  input,
+  textarea {
+    background-color: $clr-light-1;
+    border: none;
+    color: white;
+  }
+}

@@ -4,6 +4,9 @@
 @import "partials/navlayout";
 @import "partials/modal";
 @import "partials/forms";
+//Themes
+@import "partials/themes/darkTheme";
+@import "partials/themes/lightTheme";
 //Landing page stylings
 @import "partials/home/homepage";
 @import "partials/home/carousel";
@@ -16,13 +19,3 @@
 
 //Profile stylings
 @import "partials/profiles/profiles";
-
-.follow-feed {
-  cursor: pointer;
-  padding: 10px;
-}
-.follow-feed:hover {
-  background-color: $clr-dark;
-  border: $border;
-  margin: -2px;
-}

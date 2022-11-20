@@ -1,8 +1,11 @@
 import Modal from "react-bootstrap/Modal";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export default function ModalVertical(props) {
+  const { theme } = useContext(ThemeContext);
   return (
-    <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+    <Modal {...props} className={theme} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">{props.heading}</Modal.Title>
       </Modal.Header>

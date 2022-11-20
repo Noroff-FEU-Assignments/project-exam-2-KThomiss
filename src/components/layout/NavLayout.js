@@ -10,7 +10,8 @@ import ModalVertical from "../common/ModalVertical";
 import LoginForm from "../login/LoginForm";
 import RegisterForm from "../login/RegisterForm";
 import logo from "../../images/toad-logo.png";
-import { ArrowRightOnRectangleIcon, Bars3Icon /* , XMarkIcon */ } from "@heroicons/react/20/solid";
+import { ArrowRightOnRectangleIcon, Bars3Icon } from "@heroicons/react/20/solid";
+import ThemeToggler from "./ThemeToggler";
 
 export default function NavLayout() {
   const [auth, setAuth] = useContext(AuthContext);
@@ -41,6 +42,7 @@ export default function NavLayout() {
               <button onClick={logout} className="logout-btn">
                 <ArrowRightOnRectangleIcon className="icon" />
               </button>
+              <ThemeToggler />
             </div>
           </>
         ) : (
@@ -57,6 +59,7 @@ export default function NavLayout() {
             <ModalVertical heading="Register" show={modalShowReg} onHide={() => setModalShowReg(false)}>
               <RegisterForm />
             </ModalVertical>
+            <ThemeToggler />
           </div>
         )}
       </Nav>
@@ -93,6 +96,7 @@ export default function NavLayout() {
                           <button onClick={logout} className="logout-btn">
                             <ArrowRightOnRectangleIcon className="icon" />
                           </button>
+                          <ThemeToggler />
                         </div>
                       </>
                     ) : (
@@ -109,6 +113,7 @@ export default function NavLayout() {
                         <ModalVertical heading="Register" show={modalShowReg} onHide={() => setModalShowReg(false)}>
                           <RegisterForm />
                         </ModalVertical>
+                        <ThemeToggler />
                       </>
                     )}
                   </Nav>

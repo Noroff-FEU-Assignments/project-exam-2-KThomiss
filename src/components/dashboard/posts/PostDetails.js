@@ -57,10 +57,9 @@ export default function PostDetails() {
   if (error) {
     return <div>Error: An error occured with the API call</div>; //add error component
   }
-  console.log("details", state.details);
 
   return (
-    <div className="post-container container">
+    <div className="post-container">
       <Heading title={`${state.details.author.name}'s post`} />
       <div className="post-inner-container">
         <h2>{state.details.title}</h2>
@@ -78,9 +77,9 @@ export default function PostDetails() {
           {state.comments.map((comment) => {
             return (
               <div key={comment.id}>
-                <span>
+                <p className="p-2">
                   {comment.owner}: {comment.body}
-                </span>
+                </p>
               </div>
             );
           })}

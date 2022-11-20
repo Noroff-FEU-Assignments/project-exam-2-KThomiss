@@ -5,7 +5,6 @@
   .logo-container {
     @extend .center-align;
     flex-direction: column;
-    border-right: $border;
     width: 20%;
     padding: 0;
 
@@ -23,31 +22,31 @@
   }
 
   .user-container {
-    border-left: $border;
     width: 20%;
     padding: 10px;
 
     display: flex;
     justify-content: center;
+    position: relative;
 
     .avatar {
       margin: 0 auto;
     }
   }
-
-  .user-container:hover,
-  .logo-container:hover,
-  .admin-container:hover {
-    background-color: $bg-color-active;
-  }
 }
 
-.logout-btn {
-  background-color: transparent;
+.logout-btn,
+.theme-btn {
+  background-color: inherit;
   border: none;
-  width: 40px;
-  color: white;
+  width: 50px;
   align-self: flex-end;
+}
+
+.theme-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .user-link {
@@ -57,12 +56,9 @@
 .visit-container {
   @extend .center-align;
   width: 20%;
-  height: 100%;
-  border-left: $border;
 }
 
 .mobile-nav {
-  background-color: $bg-color;
   height: 100%;
 }
 
@@ -72,15 +68,6 @@
 
 .offcanvas-container {
   margin-top: 2rem;
-}
-
-.offcanvas {
-  background-color: $bg-color;
-}
-
-//remove this and change icon
-.btn-close {
-  background-color: white;
 }
 
 .username {

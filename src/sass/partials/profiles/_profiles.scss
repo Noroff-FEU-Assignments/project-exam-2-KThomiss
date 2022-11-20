@@ -8,9 +8,7 @@
 
   .profile-container {
     width: 400px;
-    background-color: $clr-dark;
     margin-top: 2rem;
-    box-shadow: $box-shadow;
   }
 
   .profile-list-banner {
@@ -38,11 +36,8 @@
   }
 }
 
-.profile-email {
-  border-bottom: 1px solid lightgray;
-}
-
-.count-follow-text,
-.profile-email {
-  color: $clr-text;
+.profiles-intro-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 3rem;
 }

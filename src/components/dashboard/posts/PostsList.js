@@ -18,33 +18,31 @@ export default function PostsList() {
   }
 
   return (
-    <div className="container post-list-container">
-      <div className="postlist-container">
-        {state.posts.map((post) => {
-          return (
-            <div key={post.id} className="posts-container">
-              <h2>{post.title}</h2>
-              <PostMedia image={post.media} />
-              <p>{post.body}</p>
-              <div className="d-flex gap-2">
-                <span className="text-muted">{post.author.name}:</span>
-                <span className="text-muted">{moment(post.created).format("DD MMM YY")}</span>
-              </div>
-              <div className="d-flex flex-end">
-                <ChatBubbleBottomCenterTextIcon className="icon icon-comment" />
-                <span className="post-count">{post._count.comments}</span>
-                <FaceSmileIcon className="icon icon-smile" />
-                <span className="post-count">{post._count.reactions}</span>
-              </div>
-              <div className="btn-container">
-                <Link to={`/posts/${post.id}`} className="cta post-cta">
-                  View Post
-                </Link>
-              </div>
+    <div className="postlist-container">
+      {state.posts.map((post) => {
+        return (
+          <div key={post.id} className="posts-container">
+            <h2>{post.title}</h2>
+            <PostMedia image={post.media} />
+            <p>{post.body}</p>
+            <div className="d-flex gap-2">
+              <span className="text-muted">{post.author.name}:</span>
+              <span className="text-muted">{moment(post.created).format("DD MMM YY")}</span>
             </div>
-          );
-        })}
-      </div>
+            <div className="d-flex flex-end">
+              <ChatBubbleBottomCenterTextIcon className="icon icon-comment" />
+              <span className="post-count">{post._count.comments}</span>
+              <FaceSmileIcon className="icon icon-smile" />
+              <span className="post-count">{post._count.reactions}</span>
+            </div>
+            <div className="btn-container">
+              <Link to={`/posts/${post.id}`} className="cta post-cta">
+                View Post
+              </Link>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
