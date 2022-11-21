@@ -1,3 +1,7 @@
+header {
+  height: 92px;
+}
+
 .desktop-nav {
   justify-content: space-between;
   height: 100%;
@@ -25,8 +29,7 @@
     width: 20%;
     padding: 10px;
 
-    display: flex;
-    justify-content: center;
+    @extend .center-align;
 
     .avatar {
       margin: 0 auto;
@@ -43,7 +46,7 @@
 }
 
 .user-link {
-  padding-bottom: 0;
+  padding: 0 10px;
 }
 
 .visit-container {
@@ -83,17 +86,16 @@
 
 @media (max-width: 1050px) {
   .desktop-nav {
-    .logo-container {
+    .logo-container,
+    .user-container,
+    .visit-container {
       width: 31%;
+      font-size: 15px;
 
       .logo-img {
         width: 40px;
         height: 40px;
       }
-    }
-
-    .user-container {
-      width: 31%;
 
       .user-link {
         padding: 0;

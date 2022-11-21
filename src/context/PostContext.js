@@ -37,6 +37,13 @@ export const PostProvider = ({ children }) => {
     // eslint-disable-next-line
   }, []);
 
+  const setUser = (user) => {
+    dispatch({
+      type: "SET_USER",
+      payload: user,
+    });
+  };
+
   const setPosts = (posts) => {
     dispatch({
       type: "SET_POSTS",

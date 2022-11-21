@@ -37,7 +37,6 @@ export default function RegisterForm() {
   async function registerSubmit(data) {
     setSubmitting(true);
     setRegisterError(null);
-    console.log(data);
 
     const formData = JSON.stringify(data);
 

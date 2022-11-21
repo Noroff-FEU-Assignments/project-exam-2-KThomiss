@@ -6,7 +6,6 @@ import PostDetailsPage from "./components/dashboard/posts/PostDetailsPage";
 import ProfilesPage from "./components/dashboard/profiles/ProfilesPage";
 import ProfileDetailsPage from "./components/dashboard/profiles/ProfileDetailsPage";
 import FollowingPage from "./components/dashboard/following/FollowingPage";
-import { AuthProvider } from "./context/AuthContext";
 import { PostProvider } from "./context/PostContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useContext } from "react";
@@ -17,25 +16,23 @@ function App() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <AuthProvider>
+    <PostProvider>
       <div className={`theme-container ${theme}`}>
-        <PostProvider>
-          <Router>
-            <NavLayout />
-            <Routes>
-              <Route path="/" exact element={<HomePage />}></Route>
-              <Route path="/user/:name" element={<UserProfilePage />}></Route>
-              <Route path="/posts" element={<PostPage />}></Route>
-              <Route path="/posts/:id" element={<PostDetailsPage />}></Route>
-              <Route path="/profiles" element={<ProfilesPage />}></Route>
-              <Route path="/profile/:name" element={<ProfileDetailsPage />}></Route>
-              <Route path="/following" element={<FollowingPage />}></Route>
-              <Route path="*" element={<HomePage />}></Route>
-            </Routes>
-          </Router>
-        </PostProvider>
+        <Router>
+          <NavLayout />
+          <Routes>
+            <Route path="/" exact element={<HomePage />}></Route>
+            <Route path="/user/:name" element={<UserProfilePage />}></Route>
+            <Route path="/posts" element={<PostPage />}></Route>
+            <Route path="/posts/:id" element={<PostDetailsPage />}></Route>
+            <Route path="/profiles" element={<ProfilesPage />}></Route>
+            <Route path="/profile/:name" element={<ProfileDetailsPage />}></Route>
+            <Route path="/following" element={<FollowingPage />}></Route>
+            <Route path="*" element={<HomePage />}></Route>
+          </Routes>
+        </Router>
       </div>
-    </AuthProvider>
+    </PostProvider>
   );
 }
 

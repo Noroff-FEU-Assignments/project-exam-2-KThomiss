@@ -26,12 +26,6 @@ const postReducer = (state, action) => {
         loading: false,
       };
 
-    case "ADD_POST":
-      return {
-        ...state,
-        posts: [...state.posts, payload],
-      };
-
     case "POST_DETAILS":
       return {
         ...state,
@@ -60,6 +54,11 @@ const postReducer = (state, action) => {
         ...state,
         reactions: [...state.reactions, payload],
         //add to existing if it is already there?
+      };
+    case "ADD_POST":
+      return {
+        ...state,
+        posts: [...state.posts, payload],
       };
 
     case "REMOVE_POST":

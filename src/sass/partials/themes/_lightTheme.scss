@@ -213,6 +213,11 @@
     color: $clr-text-light;
   }
 
+  .success {
+    color: $clr-success-light;
+    font-weight: bold;
+  }
+
   .cta-secondary {
     border: 2px solid $clr-cta-light;
     background-color: unset;
