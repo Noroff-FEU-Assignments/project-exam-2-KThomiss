@@ -8,23 +8,52 @@
   @extend .background-image;
   background-size: cover;
   height: 500px;
-  margin-top: 3rem;
 }
 
 .user-info-container {
   padding: 10px 0;
   flex-wrap: wrap;
-
-  .user-avatar {
-    align-self: flex-end;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-  }
+}
+.user-avatar {
+  align-self: flex-end;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .dropdown-toggle,
 .dropdown-menu.show {
   border: none;
   border-radius: 0;
+}
+
+@media (max-width: 655px) {
+  .following-container {
+    padding-top: 1rem;
+  }
+
+  .user-profile-banner {
+    height: 300px;
+  }
+
+  .user-avatar {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 486px) {
+  .user-info-container {
+    .heading {
+      padding-top: 10px;
+    }
+    .user-info {
+      margin-left: 0 !important;
+    }
+  }
+
+  .following-container {
+    padding-top: 1rem;
+    flex-grow: 0 !important;
+  }
 }

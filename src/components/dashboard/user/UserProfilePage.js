@@ -64,12 +64,12 @@ export default function UserProfile() {
         <Banner image={profile.banner} class={"user-profile-banner"} />
         <div className="user-info-container d-flex mt-4">
           <Avatar image={profile.avatar} class={"user-avatar"} alt={profile.name} />
-          <div className="px-3 flex-grow-1">
+          <div className="flex-grow-1 mx-2 user-info">
             <Heading title={profile.name} />
-            <span className="text-muted">{profile.email}</span>
+            <span>{profile.email}</span>
             <Dropdown />
           </div>
-          <div className="d-flex flex-grow-1 justify-content-center gap-4 text-center align-self-center">
+          <div className="following-container d-flex flex-grow-1 justify-content-center gap-4 text-center align-self-center">
             <div onClick={showFollowers} className="follow-feed">
               <span className="d-block count-follow-text">Followers</span>
               <span className="count-follow post-count">{profile._count.followers}</span>
@@ -107,8 +107,8 @@ export default function UserProfile() {
         <Col>
           {profile.posts.map((post, index) => {
             return (
-              <div key={index} className="content-container">
-                <div className="posts-container">
+              <div key={index} className="posts-container content-container">
+                <div>
                   <h2>{post.title}</h2>
                   <PostMedia image={post.media} />
                   <p>{post.body}</p>
