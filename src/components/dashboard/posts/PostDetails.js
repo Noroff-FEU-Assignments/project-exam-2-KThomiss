@@ -61,7 +61,7 @@ export default function PostDetails() {
   return (
     <div className="post-container">
       <Heading title={`${state.details.author.name}'s post`} />
-      <div className="post-inner-container">
+      <div className="post-inner-container content-container">
         <h2>{state.details.title}</h2>
         <PostMedia image={state.details.media} />
         <p className="post-details-body">{state.details.body}</p>

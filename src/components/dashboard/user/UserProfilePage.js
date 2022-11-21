@@ -59,8 +59,8 @@ export default function UserProfile() {
   };
 
   return (
-    <div className="theme-page-container user-profile-container mx-3">
-      <div>
+    <div className="theme-page-container px-3">
+      <div className="user-profile-container">
         <Banner image={profile.banner} class={"user-profile-banner"} />
         <div className="user-info-container d-flex mt-4">
           <Avatar image={profile.avatar} class={"user-avatar"} alt={profile.name} />
@@ -107,7 +107,7 @@ export default function UserProfile() {
         <Col>
           {profile.posts.map((post, index) => {
             return (
-              <div key={index}>
+              <div key={index} className="content-container">
                 <div className="posts-container">
                   <h2>{post.title}</h2>
                   <PostMedia image={post.media} />

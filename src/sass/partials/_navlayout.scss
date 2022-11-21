@@ -9,8 +9,8 @@
     padding: 0;
 
     .logo-img {
-      width: 60px;
-      height: 60px;
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -72,13 +72,43 @@
   background-color: inherit;
 }
 
-@media (max-width: 767px) {
-  .user-container {
-    position: relative;
-  }
+.container-fluid {
+  padding-left: 0;
 
-  .theme-btn {
-    position: absolute;
-    right: 0;
+  .logo-container {
+    width: 20%;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1050px) {
+  .desktop-nav {
+    .logo-container {
+      width: 30%;
+
+      .logo-img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .user-container {
+      width: 30%;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .container-fluid {
+    .logo-container {
+      width: 40%;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .container-fluid {
+    .logo-container {
+      width: 40%;
+    }
   }
 }

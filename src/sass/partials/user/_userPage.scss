@@ -12,8 +12,15 @@
 }
 
 .user-info-container {
-  padding: 10px;
+  padding: 10px 0;
   flex-wrap: wrap;
+
+  .user-avatar {
+    align-self: flex-end;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
 }
 
 .dropdown-toggle,

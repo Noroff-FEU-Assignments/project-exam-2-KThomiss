@@ -84,17 +84,10 @@
     color: $clr-error-dark;
   }
 
-  .posts-container,
-  .profile-card-bottom {
+  .content-container {
     background-color: $clr-dark;
-  }
-
-  .posts-container {
     border: $border-dark;
-  }
-
-  .post-inner-container {
-    background-color: $clr-dark;
+    box-shadow: $box-shadow-dark;
   }
 
   .comment-container {
@@ -137,7 +130,7 @@
 
   .dropdown-toggle,
   .dropdown-menu.show {
-    background-color: $clr-dark;
+    background-color: $clr-dark-1;
     border: none;
     border-radius: 0;
   }
@@ -175,9 +168,18 @@
     border-right: $border-dark;
   }
 
+  @media (max-width: 991px) {
+    .column-carousel-info {
+      border-left: none;
+    }
+  }
+
   @media (max-width: 767px) {
     .column-carousel-title {
       border-bottom: $border-dark;
+    }
+    .column-carousel-prevBtn {
+      border-left: none;
     }
   }
 

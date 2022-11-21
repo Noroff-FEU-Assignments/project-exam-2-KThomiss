@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import Avatar from "../../common/DefaultAvatar";
+import Avatar from "../common/DefaultAvatar";
+
 export default function UserProfile() {
   const user = JSON.parse(localStorage.getItem("auth"));
 

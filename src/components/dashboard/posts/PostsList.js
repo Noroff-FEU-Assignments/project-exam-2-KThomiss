@@ -21,7 +21,7 @@ export default function PostsList() {
     <div className="postlist-container">
       {state.posts.map((post) => {
         return (
-          <div key={post.id} className="posts-container">
+          <div key={post.id} className="posts-container content-container">
             <h2>{post.title}</h2>
             <PostMedia image={post.media} />
             <p>{post.body}</p>

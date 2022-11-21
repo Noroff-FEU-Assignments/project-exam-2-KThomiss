@@ -85,17 +85,10 @@
     color: $clr-error-light;
   }
 
-  .posts-container,
-  .profile-card-bottom {
+  .content-container {
     background-color: $clr-light;
-  }
-
-  .posts-container {
     border: $border-light;
-  }
-
-  .post-inner-container {
-    background-color: $clr-light;
+    box-shadow: $box-shadow-light;
   }
 
   .comment-container {
@@ -169,9 +162,18 @@
     border-right: $border-light;
   }
 
+  @media (max-width: 991px) {
+    .column-carousel-info {
+      border-left: none;
+    }
+  }
+
   @media (max-width: 767px) {
     .column-carousel-title {
       border-bottom: $border-light;
+    }
+    .column-carousel-prevBtn {
+      border-left: none;
     }
   }
 

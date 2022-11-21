@@ -11,8 +11,12 @@
 .column-carousel-prevBtn button,
 .column-carousel-nextBtn button {
   border: none;
+  background-color: inherit;
+}
+
+.column-carousel-prevBtn .icon,
+.column-carousel-nextBtn .icon {
   width: 100px;
-  background-color: transparent;
 }
 
 .column-carousel-img,
@@ -41,7 +45,6 @@
     height: 200px;
     font-size: 18px;
     padding: 0 10rem;
-    border-left: none;
   }
 
   .column-carousel-title {
@@ -51,14 +54,19 @@
 
 @media (max-width: 767px) {
   .carousel-img-container {
-    height: calc(100vh - 444px);
-  }
-
-  .column-carousel-prevBtn {
-    border-left: none;
+    height: calc(100vh - 437px);
   }
 
   .column-carousel-info {
     padding: 0 1rem;
+  }
+
+  .column-carousel-title {
+    height: 70px;
+  }
+
+  .column-carousel-prevBtn .icon,
+  .column-carousel-nextBtn .icon {
+    width: 75px;
   }
 }

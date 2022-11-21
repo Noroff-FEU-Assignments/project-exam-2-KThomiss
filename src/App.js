@@ -5,7 +5,7 @@ import PostPage from "./components/dashboard/posts/PostPage";
 import PostDetailsPage from "./components/dashboard/posts/PostDetailsPage";
 import ProfilesPage from "./components/dashboard/profiles/ProfilesPage";
 import ProfileDetailsPage from "./components/dashboard/profiles/ProfileDetailsPage";
-import FollowersPage from "./components/dashboard/followers/FollowersPage";
+import FollowingPage from "./components/dashboard/following/FollowingPage";
 import { AuthProvider } from "./context/AuthContext";
 import { PostProvider } from "./context/PostContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -29,7 +29,7 @@ function App() {
               <Route path="/posts/:id" element={<PostDetailsPage />}></Route>
               <Route path="/profiles" element={<ProfilesPage />}></Route>
               <Route path="/profile/:name" element={<ProfileDetailsPage />}></Route>
-              <Route path="/followers" element={<FollowersPage />}></Route>
+              <Route path="/following" element={<FollowingPage />}></Route>
               <Route path="*" element={<HomePage />}></Route>
             </Routes>
           </Router>

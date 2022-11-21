@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import NavProfile from "../dashboard/user/NavProfile";
+import NavProfile from "./NavProfile";
 import ModalVertical from "../common/ModalVertical";
 import LoginForm from "../login/LoginForm";
 import RegisterForm from "../login/RegisterForm";
@@ -35,7 +35,7 @@ export default function NavLayout() {
             <div className="admin-container">
               <NavLink to="/posts">Posts</NavLink>
               <NavLink to="/profiles">Profiles</NavLink>
-              <NavLink to="/followers">Followers</NavLink>
+              <NavLink to="/following">Following</NavLink>
             </div>
             <div className="user-container">
               <NavProfile />
@@ -66,9 +66,9 @@ export default function NavLayout() {
       <Nav className="d-block d-md-none mobile-nav-wrapper">
         <Navbar className="mobile-nav p-0">
           <Container fluid>
-            <Navbar.Brand className="d-flex flex-column">
-              <NavLink end to="/" className="logo-container">
-                <img className="logo-img" src={logo} alt="toad" />
+            <Navbar.Brand className="d-flex flex-column logo-container">
+              <NavLink end to="/">
+                <img className="logo-img" src={logo} alt="ToAd logo" />
               </NavLink>
             </Navbar.Brand>
             <Navbar.Toggle>
@@ -84,7 +84,7 @@ export default function NavLayout() {
                     <div className="admin-container d-flex flex-column">
                       <NavLink to="/posts">Posts</NavLink>
                       <NavLink to="/profiles">Profiles</NavLink>
-                      <NavLink to="/followers">Followers</NavLink>
+                      <NavLink to="/following">Following</NavLink>
                     </div>
                     <div className="user-container offcanvas-container d-flex">
                       <NavProfile />

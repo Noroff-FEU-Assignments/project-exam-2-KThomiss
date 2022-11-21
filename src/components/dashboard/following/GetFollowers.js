@@ -41,28 +41,26 @@ export default function GetFollowers() {
   }
 
   return (
-    <>
-      <div>
-        {followers.map((follow) => {
-          return (
-            <div key={follow.id} className="posts-container">
-              <h2>{follow.title}</h2>
-              <PostMedia image={follow.media} />
-              <p>{follow.body}</p>
-              <div className="d-flex gap-2">
-                <span className="text-muted">{follow.author.name}:</span>
-                <span className="text-muted">{moment(follow.created).format("DD MMM YY")}</span>
-              </div>
-              <div className="d-flex flex-end">
-                <ChatBubbleBottomCenterTextIcon className="icon icon-comment" />
-                <span className="post-count">{follow._count.comments}</span>
-                <FaceSmileIcon className="icon icon-smile" />
-                <span className="post-count">{follow._count.reactions}</span>
-              </div>
+    <div className="following-container">
+      {followers.map((follow) => {
+        return (
+          <div key={follow.id} className="posts-container content-container">
+            <h2>{follow.title}</h2>
+            <PostMedia image={follow.media} />
+            <p>{follow.body}</p>
+            <div className="d-flex gap-2">
+              <span className="text-muted">{follow.author.name}:</span>
+              <span className="text-muted">{moment(follow.created).format("DD MMM YY")}</span>
             </div>
-          );
-        })}
-      </div>
-    </>
+            <div className="d-flex flex-end">
+              <ChatBubbleBottomCenterTextIcon className="icon icon-comment" />
+              <span className="post-count">{follow._count.comments}</span>
+              <FaceSmileIcon className="icon icon-smile" />
+              <span className="post-count">{follow._count.reactions}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }

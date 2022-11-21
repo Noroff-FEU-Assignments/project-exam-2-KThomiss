@@ -1,10 +1,10 @@
 import Heading from "../../layout/Heading";
 import GetFollowers from "./GetFollowers";
 
-export default function FollowersPage() {
+export default function FollowingPage() {
   return (
     <div className="theme-page-container mx-3">
-      <Heading title="Follower feed"></Heading>
+      <Heading title="Following" />
       <GetFollowers />
     </div>
   );
