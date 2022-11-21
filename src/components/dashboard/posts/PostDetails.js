@@ -59,7 +59,7 @@ export default function PostDetails() {
   }
 
   return (
-    <div className="post-container">
+    <div className="post-container my-5">
       <Heading title={`${state.details.author.name}'s post`} />
       <div className="post-inner-container content-container">
         <h2>{state.details.title}</h2>

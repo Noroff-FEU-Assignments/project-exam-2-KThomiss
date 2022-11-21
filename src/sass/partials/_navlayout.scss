@@ -84,15 +84,20 @@
 @media (max-width: 1050px) {
   .desktop-nav {
     .logo-container {
-      width: 30%;
+      width: 31%;
 
       .logo-img {
         width: 40px;
         height: 40px;
       }
     }
+
     .user-container {
-      width: 30%;
+      width: 31%;
+
+      .user-link {
+        padding: 0;
+      }
     }
   }
 }
