@@ -16,8 +16,9 @@ export default function ProfilesList() {
     async function getProfiles() {
       try {
         const response = await http.get("profiles/");
-        console.log("response", response);
-        setProfiles(response.data);
+        if (response.status === 200) {
+          setProfiles(response.data);
+        }
       } catch (error) {
         setError(error.toString());
       } finally {
