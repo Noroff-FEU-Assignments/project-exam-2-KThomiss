@@ -5,14 +5,13 @@ import { ChatBubbleBottomCenterTextIcon, FaceSmileIcon } from "@heroicons/react/
 import moment from "moment";
 
 export default function GetFollowers() {
-  const http = useAxios();
-
   const [followers, setFollowers] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const http = useAxios();
   useEffect(() => {
-    const fetchFollowers = async () => {
+    async function fetchFollowers() {
       try {
         const response = await http.get("posts/following?_author=true&_comments=true&_reactions=true");
         console.log(response);
@@ -24,8 +23,9 @@ export default function GetFollowers() {
       } finally {
         setLoading(false);
       }
-    };
+    }
     fetchFollowers();
+    // eslint-disable-next-line
   }, []);
 
   if (loading) {
