@@ -1,3 +1,4 @@
+import Heading from "../../layout/Heading";
 import { useState, useEffect } from "react";
 import useAxios from "../../../hooks/useAxios";
 import PostMedia from "../../common/PostMeida";
@@ -40,7 +41,8 @@ export default function GetFollowers() {
   }
 
   return (
-    <div className="following-container">
+    <div className="posts-container following-container">
+      <Heading title="Following" />
       {followers.map((follow) => {
         return (
           <div key={follow.id} className="posts-container content-container mt-5">
