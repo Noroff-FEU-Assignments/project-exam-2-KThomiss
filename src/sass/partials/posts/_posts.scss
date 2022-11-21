@@ -58,3 +58,23 @@
 .post-media {
   background-size: cover;
 }
+
+@media (max-width: 550px) {
+  .post-intro-container {
+    padding: 10px;
+    h1 {
+      font-size: 25px;
+      margin-top: 1rem;
+    }
+
+    h2 {
+      max-width: 400px;
+      font-size: 20px;
+    }
+
+    .create-new-btn {
+      max-width: 180px;
+      padding: 5px 5px;
+    }
+  }
+}

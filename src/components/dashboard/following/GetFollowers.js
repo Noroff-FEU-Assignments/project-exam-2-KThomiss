@@ -14,7 +14,6 @@ export default function GetFollowers() {
     async function fetchFollowers() {
       try {
         const response = await http.get("posts/following?_author=true&_comments=true&_reactions=true");
-        console.log(response);
         if (response.status === 200) {
           setFollowers(response.data);
         }

@@ -4,17 +4,20 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import NavProfile from "./NavProfile";
 import ModalVertical from "../common/ModalVertical";
 import LoginForm from "../login/LoginForm";
 import RegisterForm from "../login/RegisterForm";
-import logo from "../../images/toad-logo.png";
+import logoLight from "../../images/logo/toad-logo-light.png";
+import logoDark from "../../images/logo/toad-logo-dark.png";
 import { ArrowRightOnRectangleIcon, Bars3Icon } from "@heroicons/react/20/solid";
 import ThemeToggler from "./ThemeToggler";
 import NavOffcanvas from "./Offcanvas";
 
 export default function NavLayout() {
   const [auth, setAuth] = useContext(AuthContext);
+  const { theme } = useContext(ThemeContext);
   const [modalShowLog, setModalShowLog] = useState(false);
   const [modalShowReg, setModalShowReg] = useState(false);
   const navigate = useNavigate();
@@ -27,7 +30,7 @@ export default function NavLayout() {
     <header>
       <Nav className="desktop-nav d-none d-md-flex nav-lg">
         <NavLink end to="/" className="logo-container">
-          <img className="logo-img" src={logo} alt="toad" />
+          <img className="logo-img" src={theme === "dark" ? logoDark : logoLight} alt="toad" />
           Code ToAd
         </NavLink>
         {auth ? (
@@ -68,7 +71,7 @@ export default function NavLayout() {
           <Container fluid>
             <Navbar.Brand className="d-flex flex-column logo-container">
               <NavLink end to="/">
-                <img className="logo-img" src={logo} alt="ToAd logo" />
+                <img className="logo-img" src={theme === "dark" ? logoDark : logoLight} alt="toad" />
               </NavLink>
             </Navbar.Brand>
             <Navbar.Toggle>

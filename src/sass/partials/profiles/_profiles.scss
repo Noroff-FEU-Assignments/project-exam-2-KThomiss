@@ -19,6 +19,10 @@
     align-items: center;
     @extend .background-image;
     background-size: cover;
+
+    .user-avatar {
+      align-self: center;
+    }
   }
 
   .profile-avatar {
