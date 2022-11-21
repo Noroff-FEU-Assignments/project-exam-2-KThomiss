@@ -76,7 +76,7 @@ export default function UserProfile() {
       <div className="m-1">
         {profile.posts.map((post, index) => {
           return (
-            <div key={index} className="posts-container content-container">
+            <div key={index} className="posts-container content-container mt-4">
               <div>
                 <h2>{post.title}</h2>
                 <PostMedia image={post.media} />
