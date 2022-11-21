@@ -54,7 +54,7 @@ export default function UserProfile() {
     <div className="theme-page-container px-3">
       <div className="user-profile-container">
         <Banner image={banner.banner} class={"user-profile-banner"} />
-        <div className="user-info-container d-flex mt-4">
+        <div className="user-info-container d-flex mt-4 mb-5">
           <Avatar image={avatar.avatar} class={"user-avatar"} alt={profile.name} />
           <div className="flex-grow-1 mx-2 user-info">
             <Heading title={profile.name} />

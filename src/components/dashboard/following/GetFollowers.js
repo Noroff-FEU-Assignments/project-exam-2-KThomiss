@@ -43,7 +43,7 @@ export default function GetFollowers() {
     <div className="following-container">
       {followers.map((follow) => {
         return (
-          <div key={follow.id} className="posts-container content-container">
+          <div key={follow.id} className="posts-container content-container mt-5">
             <h2>{follow.title}</h2>
             <PostMedia image={follow.media} />
             <p>{follow.body}</p>
