@@ -1,5 +1,6 @@
 import Heading from "../../layout/Heading";
 import { useState, useEffect } from "react";
+import moment from "moment";
 import useAxios from "../../../hooks/useAxios";
 import ErrorMessage from "../../common/ErrorMessage";
 import { useParams } from "react-router-dom";
@@ -81,7 +82,7 @@ export default function UserProfile() {
                 <h2>{post.title}</h2>
                 <PostMedia image={post.media} />
                 <p>{post.body}</p>
-                <span>{post.created}</span>
+                <span>Published: {moment(post.created).format("DD MMM YY")}</span>
                 <div className="d-flex gap-5">
                   <button
                     className="cta"
