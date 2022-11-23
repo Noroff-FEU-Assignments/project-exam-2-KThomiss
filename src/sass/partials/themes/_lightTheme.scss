@@ -37,13 +37,10 @@
     color: $clr-link-light-active;
   }
 
+  .cta,
   .btn {
     background-color: $clr-cta-light;
     color: white;
-  }
-
-  .cta {
-    background-color: $clr-cta-light;
   }
 
   .cta-secondary {
@@ -60,7 +57,7 @@
   .btn:hover,
   .cta:hover {
     background-color: $clr-cta-light-hover;
-    color: black;
+    color: white;
   }
   .delete:hover {
     background-color: $clr-delete-light-hover;
@@ -83,6 +80,10 @@
 
   .form-error {
     color: $clr-error-light;
+  }
+
+  .success {
+    color: $clr-success-light;
   }
 
   .content-container {
