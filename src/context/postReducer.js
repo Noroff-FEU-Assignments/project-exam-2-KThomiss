@@ -19,6 +19,18 @@ const postReducer = (state, action) => {
         error: null,
       };
 
+    case "ADD_POST":
+      return {
+        ...state,
+        posts: [...state.posts, payload],
+      };
+
+    case "REMOVE_POST":
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post.id !== payload),
+      };
+
     case "SET_ERROR":
       return {
         ...state,
@@ -53,18 +65,6 @@ const postReducer = (state, action) => {
       return {
         ...state,
         reactions: [...state.reactions, payload],
-        //add to existing if it is already there?
-      };
-    case "ADD_POST":
-      return {
-        ...state,
-        posts: [...state.posts, payload],
-      };
-
-    case "REMOVE_POST":
-      return {
-        ...state,
-        posts: state.posts.filter((post) => post.id !== payload),
       };
 
     default:

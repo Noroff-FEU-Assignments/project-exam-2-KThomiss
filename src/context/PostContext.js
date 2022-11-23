@@ -51,6 +51,13 @@ export const PostProvider = ({ children }) => {
     });
   };
 
+  const addPost = (post) => {
+    dispatch({
+      type: "ADD_POST",
+      payload: post,
+    });
+  };
+
   const setDetails = (details) => {
     dispatch({
       type: "POST_DETAILS",
@@ -86,13 +93,6 @@ export const PostProvider = ({ children }) => {
     });
   };
 
-  const addPost = (post) => {
-    dispatch({
-      type: "ADD_POST",
-      payload: post,
-    });
-  };
-
   const removePost = (postId) => {
     dispatch({
       type: "REMOVE_POST",
@@ -100,7 +100,7 @@ export const PostProvider = ({ children }) => {
     });
   };
 
-  return <PostContext.Provider value={{ state, setDetails, setComments, addComment, setReactions, addReaction, addPost, removePost }}>{children}</PostContext.Provider>;
+  return <PostContext.Provider value={{ state, addPost, removePost, setDetails, setComments, addComment, setReactions, addReaction }}>{children}</PostContext.Provider>;
 };
 
 export const useStore = () => useContext(PostContext);

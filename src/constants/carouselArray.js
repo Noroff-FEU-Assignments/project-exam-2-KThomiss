@@ -13,5 +13,5 @@ export const slideImg = [
     content: "View a list of profiles, find someone you are looking for, view their profile and see what they have published and give them a follow if you like what they write.",
   },
   { img: image4, title: "Interact", content: "Interact with your fellow Toads and comment, react and share with each other what inspire you or get inspired by others." },
-  { img: image5, title: "Responsive and ready to go!", content: "Where ever you may be, the app can be used on all devices." },
+  { img: image5, title: "Ready to go!", content: "Where ever you may be, the app can be used on all devices." },
 ];

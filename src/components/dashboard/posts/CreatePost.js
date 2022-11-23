@@ -10,7 +10,7 @@ import useStore from "../../../context/PostContext";
 const schema = yup.object().shape({
   title: yup.string().required("Please enter a title"),
   body: yup.string().required("Please enter your message"),
-  image: yup.string().required("Please an image url"),
+  image: yup.string(),
 });
 
 export default function CreatePost() {
@@ -49,8 +49,7 @@ export default function CreatePost() {
     };
 
     try {
-      const response = await http.post(`posts`, JSON.stringify(formData));
-      console.log(response.data);
+      const response = await http.post(`posts?_author=true&_comments=true&_reactions=true`, JSON.stringify(formData));
       if (response.status === 200 || response.status === 201) {
         addPost(response.data);
       }

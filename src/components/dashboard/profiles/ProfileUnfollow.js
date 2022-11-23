@@ -1,7 +1,11 @@
 import { useParams } from "react-router-dom";
 import useAxios from "../../../hooks/useAxios";
+/* import { useState } from "react";
+import ErrorMessage from "../../common/ErrorMessage"; */
 
 export default function ProfileUnfollow() {
+  /*   const [message, setMessage] = useState("");
+  const [error, setError] = useState(null); */
   let { name } = useParams();
 
   const http = useAxios();
@@ -20,3 +24,5 @@ export default function ProfileUnfollow() {
     </button>
   );
 }
+
+/*      <div>{error ? <ErrorMessage>{error.response.data.errors[0].message}</ErrorMessage> : <span className="success">{message}</span>}</div>*/

@@ -7,8 +7,6 @@ import moment from "moment";
 export default function PostsList() {
   const { state } = useStore();
 
-  console.log("state", state);
-
   if (state.loading) {
     return <div>Loading...</div>;
   }
