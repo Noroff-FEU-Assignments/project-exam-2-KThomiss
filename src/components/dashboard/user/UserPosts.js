@@ -13,7 +13,7 @@ export default function UserPosts() {
   const [modalData, setModalData] = useState({});
 
   return (
-    <div className="p-1 user-posts-container">
+    <div className="p-1 user-posts-container m-auto">
       <Heading size={2} title="Posts" />
       {state.userPosts.map((post, index) => {
         return (

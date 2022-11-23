@@ -35,7 +35,7 @@ export default function CreatePost() {
   async function postComment(data) {
     setSubmitting(true);
     setPostError(null);
-    setMessage("Post submitted");
+
     reset();
 
     const title = data.title;
@@ -52,6 +52,7 @@ export default function CreatePost() {
       const response = await http.post(`posts?_author=true&_comments=true&_reactions=true`, JSON.stringify(formData));
       if (response.status === 200 || response.status === 201) {
         addPost(response.data);
+        setMessage("Post submitted");
       }
     } catch (error) {
       console.log("error", error);
@@ -74,7 +75,7 @@ export default function CreatePost() {
         <div>
           <label htmlFor="body">Message:</label>
           <textarea id="body" {...register("body")} rows={6}></textarea>
-          {errors.boddy && <ErrorMessage>{errors.body.message}</ErrorMessage>}
+          {errors.body && <ErrorMessage>{errors.body.message}</ErrorMessage>}
         </div>
         <div>
           <label htmlFor="media">Image Url:</label>

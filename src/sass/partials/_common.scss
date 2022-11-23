@@ -13,6 +13,12 @@ body {
   transition: all 0.3s;
 }
 
+.intro-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
 .postlist-container,
 .profile-list-container,
 .following-container,
@@ -25,6 +31,10 @@ h2,
 h3 {
   font-family: "Space Grotesk", sans-serif;
   text-transform: uppercase;
+}
+
+p {
+  overflow-wrap: break-word;
 }
 
 a {
@@ -83,3 +93,8 @@ a {
 .icon {
   width: 30px;
 }
+
+/* .row,
+.col {
+  padding: 0;
+} */

@@ -8,6 +8,10 @@ import { useParams } from "react-router-dom";
 import Banner from "../../common/DefaultBanner";
 import Avatar from "../../common/DefaultAvatar";
 import PostMedia from "../../common/PostMeida";
+import UserFollowing from "../user/UserFollowing";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import moment from "moment";
 
 export default function ProfileDetails() {
   const [error, setError] = useState(null);
@@ -22,8 +26,9 @@ export default function ProfileDetails() {
     async function getProfile() {
       try {
         const response = await http.get(`profiles/${name}?_posts=true&_following=true&_followers=true`);
-        console.log("response", response);
-        setProfile(response.data);
+        if (response.status === 200) {
+          setProfile(response.data);
+        }
       } catch (error) {
         setError(error.toString());
       } finally {
@@ -68,20 +73,26 @@ export default function ProfileDetails() {
         <Follow />
         <Unfollow />
       </div>
-      <div>
-        {profile.posts.map((post, index) => {
-          return (
-            <div key={index}>
-              <div className="posts-container">
-                <h2>{post.title}</h2>
-                <PostMedia image={post.media} />
-                <p>{post.body}</p>
-                <span>{post.created}</span>
+      <Row className="mt-4 gap-5 width">
+        <Col>
+          <UserFollowing profile={profile} />
+        </Col>
+        <Col sm={12} md={6}>
+          <Heading size={2} title="Posts" />
+          {profile.posts.map((post, index) => {
+            return (
+              <div key={index}>
+                <div className="posts-container content-container">
+                  <h2>{post.title}</h2>
+                  <PostMedia image={post.media} />
+                  <p>{post.body}</p>
+                  <span className="text-muted">Created: {moment(post.created).format("DD MMM YY")}</span>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </Col>
+      </Row>
     </div>
   );
 }

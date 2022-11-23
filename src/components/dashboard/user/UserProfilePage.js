@@ -79,7 +79,7 @@ export default function UserProfile() {
           <Col>
             <UserFollowing profile={profile} />
           </Col>
-          <Col sm={12} md={7} className="d-flex justify-content-end">
+          <Col sm={12} md={7}>
             <UserPosts />
           </Col>
         </Row>

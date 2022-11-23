@@ -3,16 +3,12 @@
 }
 
 .post-intro-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
+  background-color: inherit;
   position: sticky;
   top: 0;
-  background-color: inherit;
 
   h1 {
     font-size: 50px;
-    margin-top: 1rem;
     text-align: start;
   }
 
@@ -20,14 +16,13 @@
     max-width: 400px;
     font-size: 25px;
   }
-
   .create-new-btn {
     max-width: 200px;
   }
 }
 
 .posts-container {
-  max-width: 800px;
+  max-width: 500px;
   padding: 1rem;
   margin: 0 auto;
 }

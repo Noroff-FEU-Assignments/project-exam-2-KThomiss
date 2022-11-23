@@ -27,7 +27,7 @@ export default function NavLayout() {
     navigate("/");
   };
   return (
-    <header>
+    <header id="top">
       <Nav className="desktop-nav d-none d-md-flex nav-lg">
         <NavLink end to="/" className="logo-container">
           <img className="logo-img" src={theme === "dark" ? logoDark : logoLight} alt="toad" />

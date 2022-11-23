@@ -77,8 +77,8 @@ export default function PostDetails() {
           {state.comments.map((comment) => {
             return (
               <div key={comment.id}>
-                <p className="p-2">
-                  {comment.owner}: {comment.body}
+                <p className="p-1 m-1">
+                  <b>{comment.owner}:</b> {comment.body}
                 </p>
               </div>
             );
