@@ -11,6 +11,7 @@ import Banner from "../../common/DefaultBanner";
 import Dropdown from "./Dropdown";
 import ModalVertical from "../../common/ModalVertical";
 import PostMedia from "../../common/PostMeida";
+import { useStore } from "../../../context/PostContext";
 
 export default function UserProfile() {
   const [error, setError] = useState(null);
@@ -20,6 +21,7 @@ export default function UserProfile() {
   const [modalData, setModalData] = useState({});
   const [avatar, setAvatar] = useState();
   const [banner, setBanner] = useState();
+  const { state, setUserPosts } = useStore();
   document.title = `${profile.name} | ToAd`;
 
   let { name } = useParams();
@@ -30,9 +32,12 @@ export default function UserProfile() {
     async function getProfile() {
       try {
         const response = await http.get(`profiles/${name}?_posts=true&_following=true&_followers=true`);
-        setProfile(response.data);
-        setAvatar(response.data);
-        setBanner(response.data);
+        if (response.status === 200) {
+          setProfile(response.data);
+          setAvatar(response.data);
+          setBanner(response.data);
+          setUserPosts(response.data.posts);
+        }
       } catch (error) {
         setError(error.toString());
       } finally {
@@ -75,7 +80,7 @@ export default function UserProfile() {
         </div>
       </div>
       <div className="m-1">
-        {profile.posts.map((post, index) => {
+        {state.userPosts.map((post, index) => {
           return (
             <div key={index} className="posts-container content-container mt-4">
               <div>

@@ -58,6 +58,20 @@ export const PostProvider = ({ children }) => {
     });
   };
 
+  const setUserPosts = (userPost) => {
+    dispatch({
+      type: "SET_USER_POSTS",
+      payload: userPost,
+    });
+  };
+
+  const removeUserPost = (postId) => {
+    dispatch({
+      type: "REMOVE_USER_POST",
+      payload: postId,
+    });
+  };
+
   const setDetails = (details) => {
     dispatch({
       type: "POST_DETAILS",
@@ -93,14 +107,7 @@ export const PostProvider = ({ children }) => {
     });
   };
 
-  const removePost = (postId) => {
-    dispatch({
-      type: "REMOVE_POST",
-      payload: postId,
-    });
-  };
-
-  return <PostContext.Provider value={{ state, addPost, removePost, setDetails, setComments, addComment, setReactions, addReaction }}>{children}</PostContext.Provider>;
+  return <PostContext.Provider value={{ state, addPost, setUserPosts, removeUserPost, setDetails, setComments, addComment, setReactions, addReaction }}>{children}</PostContext.Provider>;
 };
 
 export const useStore = () => useContext(PostContext);

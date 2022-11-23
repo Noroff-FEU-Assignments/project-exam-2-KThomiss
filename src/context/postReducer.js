@@ -5,6 +5,7 @@ export const initialState = {
   details: null,
   comments: [],
   reactions: [],
+  userPosts: [],
 };
 
 const postReducer = (state, action) => {
@@ -25,10 +26,16 @@ const postReducer = (state, action) => {
         posts: [...state.posts, payload],
       };
 
-    case "REMOVE_POST":
+    case "SET_USER_POSTS":
       return {
         ...state,
-        posts: state.posts.filter((post) => post.id !== payload),
+        userPosts: payload,
+      };
+
+    case "REMOVE_USER_POST":
+      return {
+        ...state,
+        userPosts: state.userPosts.filter((post) => post.id !== payload),
       };
 
     case "SET_ERROR":
