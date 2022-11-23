@@ -10,8 +10,14 @@ body {
 
 .theme-container {
   min-height: 100vh;
-  padding-bottom: 3rem;
   transition: all 0.3s;
+}
+
+.postlist-container,
+.profile-list-container,
+.following-container,
+.user-profile-container {
+  padding-bottom: 3rem;
 }
 
 h1,

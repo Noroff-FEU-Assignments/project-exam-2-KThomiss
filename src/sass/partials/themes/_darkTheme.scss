@@ -132,7 +132,6 @@
     border-bottom: $border-dark;
   }
 
-  .dropdown-toggle,
   .dropdown-menu.show {
     background-color: $clr-dark-1;
     border: none;
@@ -197,6 +196,10 @@
   }
   .tab-content {
     background-color: $clr-dark;
+  }
+
+  .follow-profile:hover {
+    background-color: $clr-dark-1;
   }
 }
 

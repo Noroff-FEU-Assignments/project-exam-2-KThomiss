@@ -21,7 +21,7 @@ export default function UserFollowing({ profile }) {
           <Tab eventKey="followers" title="Followers">
             {profile.followers.map((follow, index) => {
               return (
-                <div key={index}>
+                <div key={index} className="follow-profile">
                   <Link to={`/profile/${follow.name}`} className="d-flex align-items-end gap-2">
                     <Avatar image={follow.avatar} class={"following-avatar"} />
                     <span>{follow.name}</span>
@@ -33,8 +33,8 @@ export default function UserFollowing({ profile }) {
           <Tab eventKey="following" title="Following">
             {profile.following.map((following, index) => {
               return (
-                <div key={index} className="d-flex align-items-end gap-2">
-                  <Link to={`/profile/${following.name}`}>
+                <div key={index} className="follow-profile">
+                  <Link to={`/profile/${following.name}`} className="d-flex align-items-end gap-2">
                     <Avatar image={following.avatar} class={"following-avatar"} />
                     <span>{following.name}</span>
                   </Link>
