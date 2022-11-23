@@ -1,27 +1,24 @@
 import Heading from "../../layout/Heading";
+import UserPosts from "./UserPosts";
+import UserFollowing from "./UserFollowing";
 import { useState, useEffect } from "react";
-import moment from "moment";
 import useAxios from "../../../hooks/useAxios";
 import ErrorMessage from "../../common/ErrorMessage";
 import { useParams } from "react-router-dom";
-import UpdateForm from "./UpdateForm";
-import DeletePost from "./DeletePost";
 import Avatar from "../../common/DefaultAvatar";
 import Banner from "../../common/DefaultBanner";
 import Dropdown from "./Dropdown";
-import ModalVertical from "../../common/ModalVertical";
-import PostMedia from "../../common/PostMeida";
 import { useStore } from "../../../context/PostContext";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function UserProfile() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState([]);
-  const [modalShow, setModalShow] = useState(false);
-  const [modalData, setModalData] = useState({});
   const [avatar, setAvatar] = useState();
   const [banner, setBanner] = useState();
-  const { state, setUserPosts } = useStore();
+  const { setUserPosts } = useStore();
   document.title = `${profile.name} | ToAd`;
 
   let { name } = useParams();
@@ -78,36 +75,15 @@ export default function UserProfile() {
             </div>
           </div>
         </div>
+        <Row>
+          <Col>
+            <UserFollowing profile={profile} />
+          </Col>
+          <Col sm={12} md={7} className="d-flex justify-content-end">
+            <UserPosts />
+          </Col>
+        </Row>
       </div>
-      <div className="m-1">
-        {state.userPosts.map((post, index) => {
-          return (
-            <div key={index} className="posts-container content-container mt-4">
-              <div>
-                <h2>{post.title}</h2>
-                <PostMedia image={post.media} />
-                <p>{post.body}</p>
-                <span>Published: {moment(post.created).format("DD MMM YY")}</span>
-                <div className="d-flex gap-5">
-                  <button
-                    className="cta"
-                    onClick={() => {
-                      setModalData(post);
-                      setModalShow(true);
-                    }}
-                  >
-                    Update
-                  </button>
-                  <DeletePost id={post.id} />
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <ModalVertical show={modalShow} onHide={() => setModalShow(false)} heading="Update post">
-        <UpdateForm id={modalData.id} title={modalData.title} body={modalData.body} />
-      </ModalVertical>
     </div>
   );
 }

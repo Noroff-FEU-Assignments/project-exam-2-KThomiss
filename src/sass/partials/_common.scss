@@ -10,6 +10,7 @@ body {
 
 .theme-container {
   min-height: 100vh;
+  padding-bottom: 3rem;
   transition: all 0.3s;
 }
 
@@ -55,11 +56,6 @@ a {
   width: 300px;
   object-fit: contain;
 }
-
-/* .row,
-.col {
-  padding: 0;
-} */
 
 .cta {
   width: 100%;
