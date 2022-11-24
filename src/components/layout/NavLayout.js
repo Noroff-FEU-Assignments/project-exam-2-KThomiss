@@ -76,7 +76,7 @@ export default function NavLayout() {
         <Navbar className="mobile-nav p-0">
           <Container fluid>
             <Navbar.Brand className="d-flex flex-column logo-container">
-              <NavLink end to="/">
+              <NavLink end to="/" className="link-logo">
                 <img className="logo-img" src={theme === "dark" ? logoDark : logoLight} alt="toad" />
               </NavLink>
             </Navbar.Brand>

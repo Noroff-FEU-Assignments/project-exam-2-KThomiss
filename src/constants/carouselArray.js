@@ -1,4 +1,4 @@
-import image1 from "../images/home/carousel/getStartedTablet.png";
+import image1 from "../images/home/carousel/getStarted.png";
 import image2 from "../images/home/carousel/posts.png";
 import image3 from "../images/home/carousel/profiles.png";
 import image4 from "../images/home/carousel/interactWeb.png";

@@ -84,7 +84,8 @@ header {
 }
 
 @media (max-width: 1050px) {
-  .desktop-nav {
+  .desktop-nav,
+  .mobile-nav {
     .logo-container,
     .user-container,
     .visit-container {
@@ -99,6 +100,10 @@ header {
       .user-link {
         padding: 0;
       }
+    }
+    .logo-container {
+      height: 90px;
+      justify-content: center;
     }
   }
 }
