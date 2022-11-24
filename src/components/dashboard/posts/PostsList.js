@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import PostMedia from "../../common/PostMeida";
 import { ChatBubbleBottomCenterTextIcon, FaceSmileIcon } from "@heroicons/react/20/solid";
 import moment from "moment";
+import Loading from "../../common/LoadingIndicator";
 
 export default function PostsList() {
   const { state } = useStore();
 
   if (state.loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (state.error) {

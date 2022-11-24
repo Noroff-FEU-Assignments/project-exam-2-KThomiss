@@ -4,6 +4,7 @@ import ErrorMessage from "../../common/ErrorMessage";
 import { Link } from "react-router-dom";
 import Avatar from "../../common/DefaultAvatar";
 import Banner from "../../common/DefaultBanner";
+import Loading from "../../common/LoadingIndicator";
 
 export default function ProfilesList() {
   const [error, setError] = useState(null);
@@ -22,14 +23,14 @@ export default function ProfilesList() {
       } catch (error) {
         setError(error.toString());
       } finally {
-        setLoading(false);
+        setLoading(true);
       }
     }
     getProfiles();
     // eslint-disable-next-line
   }, []);
 
-  if (loading) return <div>Loading posts...</div>;
+  if (loading) return <Loading />;
 
   if (error) return <ErrorMessage />;
 

@@ -28,7 +28,6 @@ export default function ReactPost() {
     reset();
     try {
       const response = await http.put(`posts/${id}/react/${symbol}`);
-      console.log("response", response);
       if (response.status === 200 || response.status === 201) {
         addReaction(response.data);
       }
@@ -38,8 +37,6 @@ export default function ReactPost() {
       setSubmitting(false);
     }
   }
-
-  /* console.log("reactions", state.reactions); */
 
   return (
     <form onSubmit={handleSubmit(submitReaction)} className="react-form">

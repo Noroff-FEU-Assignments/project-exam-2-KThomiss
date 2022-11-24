@@ -9,6 +9,7 @@ import { BASE_URL } from "../../../constants/api";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import { useStore } from "../../../context/PostContext";
+import Loading from "../../common/LoadingIndicator";
 
 export default function PostDetails() {
   const { state, setDetails, setComments, setReactions } = useStore();
@@ -51,7 +52,7 @@ export default function PostDetails() {
   }, [url]);
 
   if (loading) {
-    return <div>Loading...</div>; //add loading indicator
+    return <Loading />;
   }
 
   if (error) {

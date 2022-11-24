@@ -36,11 +36,6 @@
     color: $clr-link-dark-active;
   }
 
-  .btn {
-    background-color: $clr-cta-dark;
-    color: black;
-  }
-
   .cta {
     background-color: $clr-cta-dark;
   }
@@ -56,10 +51,14 @@
     color: white;
   }
 
-  .btn:hover,
-  .cta:hover {
+  .dropdown-toggle {
+    background-color: $clr-cta-dark;
+    color: black;
+  }
+
+  .cta:hover,
+  .dropdown-toggle:hover {
     background-color: $clr-cta-dark-hover;
-    color: white;
   }
   .delete:hover {
     background-color: $clr-delete-dark-hover;
@@ -140,12 +139,7 @@
   }
 
   .dropdown-item:hover {
-    background-color: $clr-dark-1;
-  }
-
-  .dropdown-toggle:hover {
-    background-color: $clr-cta-dark;
-    color: black;
+    background-color: $clr-dark;
   }
 
   .dropdown-link {
@@ -205,6 +199,10 @@
 
   .user-info-container {
     border-bottom: $border-dark;
+  }
+
+  .loader {
+    color: $clr-cta-dark;
   }
 }
 

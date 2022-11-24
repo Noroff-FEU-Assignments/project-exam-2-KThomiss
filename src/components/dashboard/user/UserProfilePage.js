@@ -11,6 +11,7 @@ import Dropdown from "./Dropdown";
 import { useStore } from "../../../context/PostContext";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Loading from "../../common/LoadingIndicator";
 
 export default function UserProfile() {
   const [error, setError] = useState(null);
@@ -46,7 +47,7 @@ export default function UserProfile() {
   }, []);
 
   if (loading) {
-    return <div>...Loading</div>;
+    return <Loading />;
   }
 
   if (error) {

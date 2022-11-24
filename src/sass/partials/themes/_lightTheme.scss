@@ -135,11 +135,6 @@
     background-color: $clr-light-1;
   }
 
-  .dropdown-toggle:hover {
-    background-color: $clr-cta-light;
-    color: black;
-  }
-
   .dropdown-link {
     color: $clr-text-light;
   }
@@ -198,6 +193,10 @@
   .user-info-container {
     border-bottom: $border-light;
   }
+
+  .loader {
+    color: $clr-cta-light;
+  }
 }
 
 .modal.light {
@@ -214,12 +213,12 @@
 
   .cta {
     background-color: $clr-cta-light;
-    color: black;
+    color: white;
   }
 
-  .cta:hover {
+  .cta:hover,
+  .dropdown-toggle:hover {
     background-color: $clr-cta-light-hover;
-    color: black;
   }
 
   p {

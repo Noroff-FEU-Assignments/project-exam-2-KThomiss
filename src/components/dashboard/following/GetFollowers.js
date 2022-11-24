@@ -4,6 +4,7 @@ import PostMedia from "../../common/PostMeida";
 import { ChatBubbleBottomCenterTextIcon, FaceSmileIcon } from "@heroicons/react/20/solid";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import Loading from "../../common/LoadingIndicator";
 
 export default function GetFollowers() {
   const [followers, setFollowers] = useState();
@@ -29,7 +30,7 @@ export default function GetFollowers() {
   }, []);
 
   if (loading) {
-    return <div>...Loading</div>;
+    return <Loading />;
   }
 
   if (error) {

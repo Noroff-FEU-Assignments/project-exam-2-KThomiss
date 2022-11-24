@@ -13,6 +13,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import moment from "moment";
 import { EyeIcon } from "@heroicons/react/20/solid";
+import Loading from "../../common/LoadingIndicator";
 
 export default function ProfileDetails() {
   const [error, setError] = useState(null);
@@ -41,7 +42,7 @@ export default function ProfileDetails() {
   }, []);
 
   if (loading) {
-    return <div>...Loading</div>;
+    return <Loading />;
   }
 
   if (error) {

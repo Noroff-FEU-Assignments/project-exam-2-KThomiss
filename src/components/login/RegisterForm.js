@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-/* import { useNavigate } from "react-router-dom"; */
 import { BASE_URL } from "../../constants/api";
 import ErrorMessage from "../common/ErrorMessage";
 
@@ -21,7 +20,6 @@ export default function RegisterForm({ setLogShow, setRegShow }) {
   const [, setSubmitting] = useState(false);
   const [registerError, setRegisterError] = useState(null);
   const [message, setMessage] = useState("");
-  /* const navigate = useNavigate(); */
 
   const {
     register,
@@ -49,7 +47,6 @@ export default function RegisterForm({ setLogShow, setRegShow }) {
       const json = await response.json();
       console.log(json);
       if (response.ok) {
-        /* navigate("/");  */
         setMessage("Account created");
       } else {
         setRegisterError("Account already exists");

@@ -11,39 +11,34 @@ const schema = yup.object().shape({
 });
 
 function UpdateForm({ id, title, body }) {
-  const [, setUpdating] = useState(false);
-  const [updated, setUpdated] = useState(false);
-  const [updateError, setUpdateError] = useState(null);
-  const http = useAxios();
+  const [error, setError] = useState(null);
+  const [message, setMessage] = useState("");
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
+  const http = useAxios();
   async function updateYourPost(data) {
-    setUpdating(true);
-    setUpdated(false);
-    setUpdateError(null);
-
     try {
       const response = await http.put(`posts/${id}`, data);
-      console.log("response", response.data);
+      if (response.status === 200) {
+        console.log(response);
+        setMessage("Post updated.");
+      }
     } catch (error) {
       console.log(error);
-      setUpdateError(error.toString());
-    } finally {
-      setUpdated(true);
+      setError(error.toString());
     }
   }
 
   return (
     <form onSubmit={handleSubmit(updateYourPost)}>
-      {updated && <div className="success">The post was updated</div>}
-      {updateError && <ErrorMessage>{updateError}</ErrorMessage>}
+      {error && <ErrorMessage>{error}</ErrorMessage>}
       <div>
         <label htmlFor="title">Title:</label>
         <input id="title" {...register("title")} defaultValue={title} />
@@ -55,6 +50,7 @@ function UpdateForm({ id, title, body }) {
         {errors.body && <ErrorMessage>{errors.body.message}</ErrorMessage>}
       </div>
       <button className="cta">Update</button>
+      {isSubmitSuccessful && <span className="success">{message}</span>}
     </form>
   );
 }
