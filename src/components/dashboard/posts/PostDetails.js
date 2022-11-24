@@ -58,8 +58,6 @@ export default function PostDetails() {
     return <div>Error: An error occured with the API call</div>; //add error component
   }
 
-  console.log(state.comments);
-
   return (
     <div className="post-container my-5">
       <Heading title={`${state.details.author.name}'s post`} />

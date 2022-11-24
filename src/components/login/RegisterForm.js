@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
+/* import { useNavigate } from "react-router-dom"; */
 import { BASE_URL } from "../../constants/api";
 import ErrorMessage from "../common/ErrorMessage";
 
@@ -17,12 +17,11 @@ const schema = yup.object().shape({
   banner: yup.string(),
 });
 
-export default function RegisterForm() {
+export default function RegisterForm({ setLogShow, setRegShow }) {
   const [, setSubmitting] = useState(false);
   const [registerError, setRegisterError] = useState(null);
   const [message, setMessage] = useState("");
-
-  const navigate = useNavigate();
+  /* const navigate = useNavigate(); */
 
   const {
     register,
@@ -37,7 +36,6 @@ export default function RegisterForm() {
   async function registerSubmit(data) {
     setSubmitting(true);
     setRegisterError(null);
-
     const formData = JSON.stringify(data);
 
     const options = {
@@ -51,10 +49,10 @@ export default function RegisterForm() {
       const json = await response.json();
       console.log(json);
       if (response.ok) {
-        navigate("/"); //update this to open login modal or direct to homepage
+        /* navigate("/");  */
         setMessage("Account created");
       } else {
-        setRegisterError("Account already exists"); //find a solution here
+        setRegisterError("Account already exists");
       }
     } catch (error) {
       console.log("error", error);
@@ -105,6 +103,18 @@ export default function RegisterForm() {
         </div>
         <button className="cta">Register</button>
         {isSubmitSuccessful && <span className="success">{message}</span>}
+        {isSubmitSuccessful && (
+          <button
+            type="button"
+            className="cta-secondary"
+            onClick={() => {
+              setLogShow(true);
+              setRegShow(false);
+            }}
+          >
+            Login
+          </button>
+        )}
       </form>
     </div>
   );

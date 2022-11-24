@@ -55,12 +55,18 @@ export default function NavLayout() {
             <ModalVertical show={modalShowLog} onHide={() => setModalShowLog(false)} heading="Login">
               <LoginForm />
               <p className="mb-0 mt-5">Don't have an account yet?</p>
-              <Link onClick={() => setModalShowReg(true)} className="cta-secondary">
+              <Link
+                onClick={() => {
+                  setModalShowReg(true);
+                  setModalShowLog(false);
+                }}
+                className="cta-secondary"
+              >
                 Register
               </Link>
             </ModalVertical>
             <ModalVertical heading="Register" show={modalShowReg} onHide={() => setModalShowReg(false)}>
-              <RegisterForm />
+              <RegisterForm setRegShow={setModalShowReg} setLogShow={setModalShowLog} />
             </ModalVertical>
             <ThemeToggler />
           </div>
@@ -109,7 +115,7 @@ export default function NavLayout() {
                       </Link>
                     </ModalVertical>
                     <ModalVertical heading="Register" show={modalShowReg} onHide={() => setModalShowReg(false)}>
-                      <RegisterForm />
+                      <RegisterForm setRegShow={setModalShowReg} setLogShow={setModalShowLog} />
                     </ModalVertical>
                     <ThemeToggler />
                   </>
