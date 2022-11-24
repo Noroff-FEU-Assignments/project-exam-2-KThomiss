@@ -6,6 +6,8 @@ import DeletePost from "./DeletePost";
 import UpdatePost from "./UpdatePost";
 import PostMedia from "../../common/PostMeida";
 import ModalVertical from "../../common/ModalVertical";
+import { Link } from "react-router-dom";
+import { EyeIcon } from "@heroicons/react/20/solid";
 
 export default function UserPosts() {
   const { state } = useStore();
@@ -19,7 +21,12 @@ export default function UserPosts() {
         return (
           <div key={index} className="posts-container content-container mt-4">
             <div>
-              <h2>{post.title}</h2>
+              <div className="d-flex justify-content-between align-items-center">
+                <Heading size={3} title={post.title} />
+                <Link to={`/posts/${post.id}`}>
+                  <EyeIcon className="icon-sm" />
+                </Link>
+              </div>
               <PostMedia image={post.media} />
               <p>{post.body}</p>
               <span>Published: {moment(post.created).format("DD MMM YY")}</span>

@@ -3,6 +3,7 @@ import useAxios from "../../../hooks/useAxios";
 import PostMedia from "../../common/PostMeida";
 import { ChatBubbleBottomCenterTextIcon, FaceSmileIcon } from "@heroicons/react/20/solid";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 export default function GetFollowers() {
   const [followers, setFollowers] = useState();
@@ -36,7 +37,7 @@ export default function GetFollowers() {
   }
 
   if (followers.length === 0) {
-    return <div>No followers yet</div>;
+    return <div>No followers yet</div>; //update this with link and styling
   }
 
   return (
@@ -56,6 +57,11 @@ export default function GetFollowers() {
               <span className="post-count">{follow._count.comments}</span>
               <FaceSmileIcon className="icon icon-smile" />
               <span className="post-count">{follow._count.reactions}</span>
+            </div>
+            <div className="btn-container">
+              <Link to={`/posts/${follow.id}`} className="cta post-cta">
+                View Post
+              </Link>
             </div>
           </div>
         );

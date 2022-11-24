@@ -4,7 +4,7 @@ import Heading from "../../layout/Heading";
 import { useState, useEffect } from "react";
 import useAxios from "../../../hooks/useAxios";
 import ErrorMessage from "../../common/ErrorMessage";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Banner from "../../common/DefaultBanner";
 import Avatar from "../../common/DefaultAvatar";
 import PostMedia from "../../common/PostMeida";
@@ -12,6 +12,7 @@ import UserFollowing from "../user/UserFollowing";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import moment from "moment";
+import { EyeIcon } from "@heroicons/react/20/solid";
 
 export default function ProfileDetails() {
   const [error, setError] = useState(null);
@@ -83,7 +84,12 @@ export default function ProfileDetails() {
             return (
               <div key={index}>
                 <div className="posts-container content-container">
-                  <h2>{post.title}</h2>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <Heading size={3} title={post.title} />
+                    <Link to={`/posts/${post.id}`}>
+                      <EyeIcon className="icon-sm" />
+                    </Link>
+                  </div>
                   <PostMedia image={post.media} />
                   <p>{post.body}</p>
                   <span className="text-muted">Created: {moment(post.created).format("DD MMM YY")}</span>

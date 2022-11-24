@@ -4,7 +4,7 @@ import ReactPost from "./ReactPost";
 import PostMedia from "../../common/PostMeida";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { BASE_URL } from "../../../constants/api";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
@@ -58,6 +58,8 @@ export default function PostDetails() {
     return <div>Error: An error occured with the API call</div>; //add error component
   }
 
+  console.log(state.comments);
+
   return (
     <div className="post-container my-5">
       <Heading title={`${state.details.author.name}'s post`} />
@@ -78,7 +80,10 @@ export default function PostDetails() {
             return (
               <div key={comment.id}>
                 <p className="p-1 m-1">
-                  <b>{comment.owner}:</b> {comment.body}
+                  <Link className="post-comment" to={`/profile/${comment.owner}`}>
+                    {comment.owner}:
+                  </Link>
+                  {comment.body}
                 </p>
               </div>
             );

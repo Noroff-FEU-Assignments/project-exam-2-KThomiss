@@ -65,11 +65,13 @@
     background-color: $clr-delete-dark-hover;
   }
 
-  .icon {
+  .icon,
+  .icon-sm {
     color: $clr-icon-dark;
   }
 
   .icon:hover,
+  .icon-sm:hover,
   .Link:hover,
   .NavLink:hover,
   a:hover {
@@ -200,6 +202,10 @@
   .follow-profile:hover {
     background-color: $clr-dark-1;
   }
+
+  .user-info-container {
+    border-bottom: $border-dark;
+  }
 }
 
 .modal.dark {
@@ -261,6 +267,7 @@
   }
 
   .icon,
+  .icon-sm,
   .btn-close {
     color: $clr-icon-dark;
   }

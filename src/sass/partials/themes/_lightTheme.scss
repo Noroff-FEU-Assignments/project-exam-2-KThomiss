@@ -63,11 +63,13 @@
     background-color: $clr-delete-light-hover;
   }
 
-  .icon {
+  .icon,
+  .icon-sm {
     color: $clr-icon-light;
   }
 
   .icon:hover,
+  .icon-sm:hover,
   .Link:hover,
   .NavLink:hover,
   a:hover {
@@ -192,6 +194,10 @@
   .follow-profile:hover {
     background-color: $clr-light-1;
   }
+
+  .user-info-container {
+    border-bottom: $border-light;
+  }
 }
 
 .modal.light {
@@ -255,6 +261,7 @@
   }
 
   .icon,
+  .icon-sm,
   .btn-close {
     color: $clr-icon-light;
   }
