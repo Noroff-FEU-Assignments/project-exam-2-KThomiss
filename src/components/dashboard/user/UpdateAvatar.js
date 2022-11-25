@@ -3,12 +3,13 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const schema = yup.object().shape({
   avatar: yup.string().required(),
 });
 
-export default function UpdateBanner({ name, avatar }) {
+export default function UpdateAvatar({ name, avatar }) {
   const [message, setMessage] = useState();
   const {
     register,
@@ -41,3 +42,8 @@ export default function UpdateBanner({ name, avatar }) {
     </form>
   );
 }
+
+UpdateAvatar.propTypes = {
+  name: PropTypes.string.isRequired,
+  avatar: PropTypes.func.isRequired,
+};

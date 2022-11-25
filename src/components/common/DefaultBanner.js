@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import defaultBanner from "../../images/common/default-banner.png";
 
 export default function Banner(props) {
@@ -7,3 +8,9 @@ export default function Banner(props) {
     </div>
   );
 }
+
+Banner.propTypes = {
+  class: PropTypes.string,
+  image: PropTypes.string,
+  alt: PropTypes.string,
+};

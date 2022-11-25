@@ -19,7 +19,6 @@ export default function ProfilesList() {
       try {
         const response = await http.get("profiles/");
         if (response.status === 200) {
-          console.log(response);
           setProfiles(response.data);
         }
       } catch (error) {
@@ -34,7 +33,7 @@ export default function ProfilesList() {
 
   if (loading) return <Loading />;
 
-  if (error) return <ErrorMessage />;
+  if (error) return <ErrorMessage>{error}</ErrorMessage>;
 
   return (
     <div className="profile-list-container">

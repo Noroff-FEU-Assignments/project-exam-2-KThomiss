@@ -37,6 +37,7 @@ export default function UserProfile() {
           setUserPosts(response.data.posts);
         }
       } catch (error) {
+        console.log("error", error);
         setError(error.toString());
       } finally {
         setLoading(false);
@@ -51,7 +52,7 @@ export default function UserProfile() {
   }
 
   if (error) {
-    return <ErrorMessage />;
+    return <ErrorMessage>{error}</ErrorMessage>;
   }
 
   return (

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/20/solid";
+import PropTypes from "prop-types";
 
 export default function UserFollowing({ profile }) {
   const [key, setKey] = useState("followers");
@@ -47,3 +48,7 @@ export default function UserFollowing({ profile }) {
     </div>
   );
 }
+
+UserFollowing.propTypes = {
+  profile: PropTypes.object.isRequired,
+};

@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BASE_URL } from "../../constants/api";
 import ErrorMessage from "../common/ErrorMessage";
+import PropTypes from "prop-types";
 
 const nameRegex = /^[a-zA-Z0-9_]+$/;
 const emailRegex = /^\w+([-+.']\w+)*@?(stud.noroff.no|noroff.no)$/;
@@ -116,3 +117,8 @@ export default function RegisterForm({ setLogShow, setRegShow }) {
     </div>
   );
 }
+
+RegisterForm.propTypes = {
+  setLogShow: PropTypes.func.isRequired,
+  setRegShow: PropTypes.func.isRequired,
+};

@@ -1,6 +1,7 @@
 import { createContext, useReducer, useContext, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
 import { BASE_URL } from "../constants/api";
+import PropTypes from "prop-types";
 
 import postReducer, { initialState } from "./postReducer";
 
@@ -113,3 +114,7 @@ export const PostProvider = ({ children }) => {
 export const useStore = () => useContext(PostContext);
 
 export default useStore;
+
+PostProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const schema = yup.object().shape({
   banner: yup.string().required(),
@@ -17,6 +18,7 @@ export default function UpdateBanner({ name, banner }) {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
   const http = useAxios();
   async function updateBanner(data) {
     try {
@@ -40,3 +42,8 @@ export default function UpdateBanner({ name, banner }) {
     </form>
   );
 }
+
+UpdateBanner.propTypes = {
+  name: PropTypes.string.isRequired,
+  banner: PropTypes.func.isRequired,
+};

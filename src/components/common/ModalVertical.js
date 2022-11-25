@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Modal from "react-bootstrap/Modal";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
@@ -13,3 +14,8 @@ export default function ModalVertical(props) {
     </Modal>
   );
 }
+
+ModalVertical.propTypes = {
+  heading: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};

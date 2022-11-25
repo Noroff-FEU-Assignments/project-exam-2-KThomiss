@@ -2,6 +2,7 @@ import useAxios from "../../../hooks/useAxios";
 import ModalVertical from "../../common/ModalVertical";
 import { useState } from "react";
 import { useStore } from "../../../context/PostContext";
+import PropTypes from "prop-types";
 
 export default function DeletePost({ id }) {
   const http = useAxios();
@@ -38,3 +39,7 @@ export default function DeletePost({ id }) {
     </>
   );
 }
+
+DeletePost.propTypes = {
+  id: PropTypes.number.isRequired,
+};

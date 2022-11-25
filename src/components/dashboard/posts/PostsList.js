@@ -4,6 +4,7 @@ import PostMedia from "../../common/PostMeida";
 import { ChatBubbleBottomCenterTextIcon, FaceSmileIcon } from "@heroicons/react/20/solid";
 import moment from "moment";
 import Loading from "../../common/LoadingIndicator";
+import ErrorMessage from "../../common/ErrorMessage";
 
 export default function PostsList() {
   const { state } = useStore();
@@ -13,7 +14,7 @@ export default function PostsList() {
   }
 
   if (state.error) {
-    return <div>{state.error}</div>;
+    return <ErrorMessage>{state.error}</ErrorMessage>;
   }
 
   return (

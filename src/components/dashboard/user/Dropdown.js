@@ -4,6 +4,7 @@ import UpdateAvatar from "./UpdateAvatar";
 import ModalVertical from "../../common/ModalVertical";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function DropdownMenu(props) {
   const [modalShowBanner, setModalShowBanner] = useState(false);
@@ -37,3 +38,8 @@ export default function DropdownMenu(props) {
     </Dropdown>
   );
 }
+
+DropdownMenu.propTypes = {
+  banner: PropTypes.func.isRequired,
+  avatar: PropTypes.func.isRequired,
+};

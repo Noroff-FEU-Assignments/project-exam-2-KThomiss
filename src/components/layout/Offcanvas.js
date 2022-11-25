@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Bars3Icon } from "@heroicons/react/20/solid";
 import { ThemeContext } from "../../context/ThemeContext";
+import PropTypes from "prop-types";
 
 export default function NavOffcanvas(props) {
   const [show, setShow] = useState(false);
@@ -24,3 +25,8 @@ export default function NavOffcanvas(props) {
     </>
   );
 }
+
+NavOffcanvas.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};

@@ -10,6 +10,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import { useStore } from "../../../context/PostContext";
 import Loading from "../../common/LoadingIndicator";
+import ErrorMessage from "../../common/ErrorMessage";
 
 export default function PostDetails() {
   const { state, setDetails, setComments, setReactions } = useStore();
@@ -56,7 +57,7 @@ export default function PostDetails() {
   }
 
   if (error) {
-    return <div>Error: An error occured with the API call</div>; //add error component
+    return <ErrorMessage>{error}</ErrorMessage>;
   }
 
   return (
@@ -68,10 +69,10 @@ export default function PostDetails() {
         <p className="post-details-body">{state.details.body}</p>
         {state.reactions.map((react, index) => {
           return (
-            <>
-              <span key={index}>{react.symbol}</span>
+            <div key={index}>
+              <span>{react.symbol}</span>
               <span>{react.count === 1 ? null : react.count}</span>
-            </>
+            </div>
           );
         })}
         <div className="comment-container">

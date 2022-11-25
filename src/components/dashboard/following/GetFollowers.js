@@ -5,6 +5,7 @@ import { ChatBubbleBottomCenterTextIcon, FaceSmileIcon } from "@heroicons/react/
 import moment from "moment";
 import { Link } from "react-router-dom";
 import Loading from "../../common/LoadingIndicator";
+import ErrorMessage from "../../common/ErrorMessage";
 
 export default function GetFollowers() {
   const [followers, setFollowers] = useState();
@@ -20,6 +21,7 @@ export default function GetFollowers() {
           setFollowers(response.data);
         }
       } catch (error) {
+        console.log(error);
         setError(error.toString());
       } finally {
         setLoading(false);
@@ -34,7 +36,7 @@ export default function GetFollowers() {
   }
 
   if (error) {
-    return <div>...Error occured</div>;
+    return <ErrorMessage>{error}</ErrorMessage>;
   }
 
   if (followers.length === 0) {

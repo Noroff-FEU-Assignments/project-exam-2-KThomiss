@@ -4,13 +4,14 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ErrorMessage from "../../common/ErrorMessage";
+import PropTypes from "prop-types";
 
 const schema = yup.object().shape({
   title: yup.string().required(),
   body: yup.string().required(),
 });
 
-function UpdateForm({ id, title, body }) {
+export default function UpdateForm({ id, title, body }) {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
 
@@ -55,4 +56,8 @@ function UpdateForm({ id, title, body }) {
   );
 }
 
-export default UpdateForm;
+UpdateForm.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  body: PropTypes.string,
+};

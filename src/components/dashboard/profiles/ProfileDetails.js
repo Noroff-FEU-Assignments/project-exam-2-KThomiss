@@ -46,7 +46,7 @@ export default function ProfileDetails() {
   }
 
   if (error) {
-    return <ErrorMessage>An error occured</ErrorMessage>;
+    return <ErrorMessage>{error}</ErrorMessage>;
   }
 
   return (
