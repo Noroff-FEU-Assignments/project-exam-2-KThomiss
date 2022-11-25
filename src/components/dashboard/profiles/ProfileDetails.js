@@ -35,7 +35,6 @@ export default function ProfileDetails() {
       try {
         const response = await http.get(`profiles/${name}?_posts=true&_following=true&_followers=true`);
         if (response.status === 200) {
-          console.log(response.data);
           setProfile(response.data);
           setFollowers(response.data.followers);
           setCountFollowers(response.data._count.followers);
