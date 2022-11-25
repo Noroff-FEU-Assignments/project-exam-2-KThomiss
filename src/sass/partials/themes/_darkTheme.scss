@@ -38,6 +38,7 @@
 
   .cta {
     background-color: $clr-cta-dark;
+    color: black;
   }
 
   .cta-secondary {
@@ -59,6 +60,7 @@
   .cta:hover,
   .dropdown-toggle:hover {
     background-color: $clr-cta-dark-hover;
+    color: black;
   }
   .delete:hover {
     background-color: $clr-delete-dark-hover;

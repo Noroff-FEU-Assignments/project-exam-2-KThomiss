@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import ErrorMessage from "../../common/ErrorMessage";
 import { Link } from "react-router-dom";
 import Avatar from "../../common/DefaultAvatar";
-import Banner from "../../common/DefaultBanner";
+import Heading from "../../layout/Heading";
+/* import Banner from "../../common/DefaultBanner"; */
 import Loading from "../../common/LoadingIndicator";
 
 export default function ProfilesList() {
@@ -18,12 +19,13 @@ export default function ProfilesList() {
       try {
         const response = await http.get("profiles/");
         if (response.status === 200) {
+          console.log(response);
           setProfiles(response.data);
         }
       } catch (error) {
         setError(error.toString());
       } finally {
-        setLoading(true);
+        setLoading(false);
       }
     }
     getProfiles();
@@ -39,6 +41,40 @@ export default function ProfilesList() {
       {profiles.map((profile, index) => {
         return (
           <div key={index} className="profile-container content-container">
+            <div className="d-grid place-items-center align-items-center text-center px-2 py-5">
+              <Avatar image={profile.avatar} class={"user-avatar profile-avatar"} alt={profile.name} />
+              <Heading size={3} title={profile.name} />
+              <span className="profile-email">{profile.email}</span>
+              <div className="d-flex justify-content-around text-center pt-2 profile-card-bottom">
+                <div>
+                  <span className="count-profile post-count">{profile._count.followers}</span>
+                  <span className="d-block count-follow-text count-profile-text">Followers</span>
+                </div>
+                <div>
+                  <span className="count-profile post-count">{profile._count.posts}</span>
+                  <span className="d-block count-follow-text count-profile-text">Posts</span>
+                </div>
+                <div>
+                  <span className="count-profile post-count">{profile._count.following}</span>
+                  <span className="d-block count-follow-text count-profile-text">Following</span>
+                </div>
+              </div>
+              <div className="mx-4">
+                <Link to={`/profile/${profile.name}`} className="cta post-cta">
+                  View profile
+                </Link>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/*      {profiles.map((profile, index) => {
+        return (
+          <div key={index} className="profile-container content-container">
             <Banner image={profile.banner} class={"profile-list-banner"}>
               <Avatar image={profile.avatar} class={"user-avatar profile-avatar"} alt={profile.name} />
             </Banner>
@@ -51,6 +87,10 @@ export default function ProfilesList() {
                   <span className="d-block count-follow-text">Followers</span>
                 </div>
                 <div>
+                  <span className="count-follow post-count">{profile._count.posts}</span>
+                  <span className="d-block count-follow-text">Following</span>
+                </div>
+                <div>
                   <span className="count-follow post-count">{profile._count.following}</span>
                   <span className="d-block count-follow-text">Following</span>
                 </div>
@@ -61,7 +101,4 @@ export default function ProfilesList() {
             </div>
           </div>
         );
-      })}
-    </div>
-  );
-}
+      })}*/

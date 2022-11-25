@@ -33,7 +33,10 @@ h3 {
   text-transform: uppercase;
 }
 
-p {
+p,
+h1,
+h2,
+span {
   overflow-wrap: break-word;
 }
 
