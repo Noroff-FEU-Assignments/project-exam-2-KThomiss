@@ -7,7 +7,7 @@ import Tabs from "react-bootstrap/Tabs";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
 
-export default function UserFollowing({ profile }) {
+export default function UserFollowing({ followers, following }) {
   const [key, setKey] = useState("followers");
   const [toggle, setToggle] = useState(true);
 
@@ -20,7 +20,7 @@ export default function UserFollowing({ profile }) {
       {toggle && (
         <Tabs activeKey={key} onSelect={(k) => setKey(k)} justify className="mt-4">
           <Tab eventKey="followers" title="Followers">
-            {profile.followers.map((follow, index) => {
+            {followers.map((follow, index) => {
               return (
                 <div key={index} className="follow-profile">
                   <Link to={`/profile/${follow.name}`} className="d-flex align-items-end gap-2">
@@ -32,7 +32,7 @@ export default function UserFollowing({ profile }) {
             })}
           </Tab>
           <Tab eventKey="following" title="Following">
-            {profile.following.map((following, index) => {
+            {following.map((following, index) => {
               return (
                 <div key={index} className="follow-profile">
                   <Link to={`/profile/${following.name}`} className="d-flex align-items-end gap-2">
@@ -50,5 +50,6 @@ export default function UserFollowing({ profile }) {
 }
 
 UserFollowing.propTypes = {
-  profile: PropTypes.object.isRequired,
+  followers: PropTypes.array.isRequired,
+  following: PropTypes.array.isRequired,
 };

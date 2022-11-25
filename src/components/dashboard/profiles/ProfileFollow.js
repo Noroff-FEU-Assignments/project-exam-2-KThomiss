@@ -1,11 +1,8 @@
 import { useParams } from "react-router-dom";
-/* import { useState } from "react"; */
 import useAxios from "../../../hooks/useAxios";
-/* import ErrorMessage from "../../common/ErrorMessage"; */
+import PropTypes from "prop-types";
 
-export default function ProfileFollow() {
-  /*   const [message, setMessage] = useState("");
-  const [error, setError] = useState(null); */
+export default function ProfileFollow({ follow, count }) {
   let { name } = useParams();
 
   const http = useAxios();
@@ -13,7 +10,11 @@ export default function ProfileFollow() {
   async function submitFollow() {
     try {
       const response = await http.put(`profiles/${name}/follow`);
-      console.log(response);
+      if (response.status === 200) {
+        console.log(response);
+        follow((curr) => [...curr, response.data]);
+        count((curr) => curr + 1);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -26,4 +27,7 @@ export default function ProfileFollow() {
   );
 }
 
-/*<div>{error ? <ErrorMessage>{error.response.data.errors[0].message}</ErrorMessage> : <span className="success">{message}</span>}</div>*/
+ProfileFollow.propTypes = {
+  follow: PropTypes.func.isRequired,
+  count: PropTypes.func.isRequired,
+};

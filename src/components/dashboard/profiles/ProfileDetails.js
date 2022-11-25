@@ -14,11 +14,17 @@ import Col from "react-bootstrap/Col";
 import moment from "moment";
 import { EyeIcon } from "@heroicons/react/20/solid";
 import Loading from "../../common/LoadingIndicator";
+import useLocalStorage from "../../../hooks/useLocalStorage";
 
 export default function ProfileDetails() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState([]);
+  const [followers, setFollowers] = useState([]);
+  const [countFollowers, setCountFollowers] = useState(0);
+  const [following, setFollowing] = useState([]);
+  const [countFollowing, setCountFollowing] = useState(0);
+  const [auth] = useLocalStorage("auth");
 
   let { name } = useParams();
 
@@ -29,7 +35,12 @@ export default function ProfileDetails() {
       try {
         const response = await http.get(`profiles/${name}?_posts=true&_following=true&_followers=true`);
         if (response.status === 200) {
+          console.log(response.data);
           setProfile(response.data);
+          setFollowers(response.data.followers);
+          setCountFollowers(response.data._count.followers);
+          setFollowing(response.data.following);
+          setCountFollowing(response.data._count.following);
         }
       } catch (error) {
         setError(error.toString());
@@ -49,35 +60,40 @@ export default function ProfileDetails() {
     return <ErrorMessage>{error}</ErrorMessage>;
   }
 
+  const isFollowing = followers.map((follow) => {
+    return follow.name;
+  });
+
+  const iFollow = isFollowing.includes(auth.name);
+
   return (
     <div className="user-profile-container">
       <div>
         <Banner image={profile.banner} class={"user-profile-banner"} />
-        <div className="user-info-container d-flex mt-4">
+        <div className="user-info-container align-items-end d-flex mt-4">
           <Avatar image={profile.avatar} class={"user-avatar"} alt={profile.name} />
           <div className="px-3 flex-grow-1">
             <Heading title={profile.name} />
             <span className="text-muted">{profile.email}</span>
           </div>
-          <div className="d-flex flex-grow-1 justify-content-center gap-4 text-center align-self-center">
-            <div className="follow-feed">
-              <span className="d-block count-follow-text">Followers</span>
-              <span className="count-follow post-count">{profile._count.followers}</span>
+          <div className="d-flex flex-grow-1 justify-content-center gap-4 text-center align-self-end flex-column">
+            <div className="d-flex justify-content-around">
+              <div className="follow-feed">
+                <span className="d-block count-follow-text">Followers</span>
+                <span className="count-follow post-count">{countFollowers}</span>
+              </div>
+              <div className="follow-feed">
+                <span className="d-block count-follow-text">Following</span>
+                <span className="count-follow post-count">{countFollowing}</span>
+              </div>
             </div>
-            <div className="follow-feed">
-              <span className="d-block count-follow-text">Following</span>
-              <span className="count-follow post-count">{profile._count.following}</span>
-            </div>
+            <div>{iFollow ? <Unfollow follow={setFollowers} followers={followers} count={setCountFollowers} /> : <Follow follow={setFollowers} count={setCountFollowers} />}</div>
           </div>
         </div>
       </div>
-      <div className="d-flex gap-5">
-        <Follow />
-        <Unfollow />
-      </div>
       <Row className="mt-4 gap-5 width">
         <Col>
-          <UserFollowing profile={profile} />
+          <UserFollowing followers={followers} following={following} />
         </Col>
         <Col sm={12} md={6}>
           <Heading size={2} title="Posts" />

@@ -19,6 +19,8 @@ export default function UserProfile() {
   const [profile, setProfile] = useState([]);
   const [avatar, setAvatar] = useState();
   const [banner, setBanner] = useState();
+  const [followers, setFollowers] = useState([]);
+  const [following, setFollowing] = useState([]);
   const { setUserPosts } = useStore();
   document.title = `${profile.name} | ToAd`;
 
@@ -35,6 +37,8 @@ export default function UserProfile() {
           setAvatar(response.data);
           setBanner(response.data);
           setUserPosts(response.data.posts);
+          setFollowers(response.data.followers);
+          setFollowing(response.data.following);
         }
       } catch (error) {
         console.log("error", error);
@@ -79,7 +83,7 @@ export default function UserProfile() {
         </div>
         <Row>
           <Col>
-            <UserFollowing profile={profile} />
+            <UserFollowing followers={followers} following={following} />
           </Col>
           <Col sm={12} md={7}>
             <UserPosts />
