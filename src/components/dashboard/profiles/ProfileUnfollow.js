@@ -7,8 +7,9 @@ export default function ProfileUnfollow({ follow, count, followers }) {
 
   const http = useAxios();
 
-  function unFollow(id) {
-    const newFollowers = followers.filter((f) => f.id !== id);
+  function unFollow(name) {
+    const newFollowers = followers.filter((f) => f.name !== name);
+    console.log(newFollowers);
     follow(newFollowers);
   }
 
@@ -17,7 +18,7 @@ export default function ProfileUnfollow({ follow, count, followers }) {
       const response = await http.put(`profiles/${name}/unfollow`);
       console.log(response);
       if (response.status === 200) {
-        unFollow();
+        unFollow(response.data.name);
         count((curr) => curr - 1);
       }
     } catch (error) {
