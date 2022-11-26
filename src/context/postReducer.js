@@ -1,4 +1,5 @@
 export const initialState = {
+  userAvatar: "",
   posts: [],
   loading: true,
   error: null,
@@ -12,6 +13,12 @@ const postReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case "SET_USER_AVATAR":
+      return {
+        ...state,
+        userAvatar: payload,
+      };
+
     case "SET_POSTS":
       return {
         ...state,

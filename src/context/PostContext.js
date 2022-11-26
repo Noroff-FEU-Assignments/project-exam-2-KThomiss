@@ -38,6 +38,13 @@ export const PostProvider = ({ children }) => {
     // eslint-disable-next-line
   }, []);
 
+  const setUserAvatar = (img) => {
+    dispatch({
+      type: "SET_USER_AVATAR",
+      payload: img,
+    });
+  };
+
   const setPosts = (posts) => {
     dispatch({
       type: "SET_POSTS",
@@ -108,7 +115,9 @@ export const PostProvider = ({ children }) => {
     });
   };
 
-  return <PostContext.Provider value={{ state, addPost, setUserPosts, removeUserPost, setDetails, setComments, addComment, setReactions, addReaction }}>{children}</PostContext.Provider>;
+  return (
+    <PostContext.Provider value={{ state, setUserAvatar, addPost, setUserPosts, removeUserPost, setDetails, setComments, addComment, setReactions, addReaction }}>{children}</PostContext.Provider>
+  );
 };
 
 export const useStore = () => useContext(PostContext);

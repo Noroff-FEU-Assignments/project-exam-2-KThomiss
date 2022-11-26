@@ -69,10 +69,10 @@ export default function PostDetails() {
         <p className="post-details-body">{state.details.body}</p>
         {state.reactions.map((react, index) => {
           return (
-            <div key={index}>
+            <span key={index}>
               <span>{react.symbol}</span>
               <span>{react.count === 1 ? null : react.count}</span>
-            </div>
+            </span>
           );
         })}
         <div className="comment-container">

@@ -6,6 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { BASE_URL } from "../../constants/api";
 import { useNavigate } from "react-router-dom";
 import ErrorMessage from "../common/ErrorMessage";
+import useStore from "../../context/PostContext";
 
 const url = BASE_URL + "auth/login";
 
@@ -17,6 +18,7 @@ const schema = yup.object().shape({
 export default function LoginForm() {
   const [submitting, setSubmitting] = useState(false);
   const [loginError, setLoginError] = useState(null);
+  const { setUserAvatar } = useStore();
 
   const navigate = useNavigate();
 
@@ -35,7 +37,6 @@ export default function LoginForm() {
     setLoginError(null);
 
     const formData = JSON.stringify(data);
-    console.log(formData);
 
     const options = {
       method: "POST",
@@ -49,7 +50,9 @@ export default function LoginForm() {
       const response = await fetch(url, options);
       const json = await response.json();
       if (response.ok) {
+        console.log(json);
         setAuth(json);
+        setUserAvatar(json.avatar);
         navigate("/");
       } else {
         setLoginError("wrong username or password");

@@ -75,7 +75,7 @@ export default function ProfileDetails() {
             <Heading title={profile.name} />
             <span className="text-muted">{profile.email}</span>
           </div>
-          <div className="d-flex flex-grow-1 justify-content-center gap-4 text-center align-self-end flex-column">
+          <div className="d-flex flex-grow-1 justify-content-center text-center align-self-end flex-column mt-3 follow-container">
             <div className="d-flex justify-content-around">
               <div className="follow-feed">
                 <span className="d-block count-follow-text">Followers</span>

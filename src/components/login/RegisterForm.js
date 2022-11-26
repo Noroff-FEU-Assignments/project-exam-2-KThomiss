@@ -53,7 +53,6 @@ export default function RegisterForm({ setLogShow, setRegShow }) {
         setRegisterError("Account already exists");
       }
     } catch (error) {
-      console.log("error", error);
       setRegisterError(error.toString());
     } finally {
       setSubmitting(false);

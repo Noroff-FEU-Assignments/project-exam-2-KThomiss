@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
+import useStore from "../../../context/PostContext";
 import PropTypes from "prop-types";
 
 const schema = yup.object().shape({
@@ -11,6 +12,7 @@ const schema = yup.object().shape({
 
 export default function UpdateAvatar({ name, avatar }) {
   const [message, setMessage] = useState();
+  const { setUserAvatar } = useStore();
   const {
     register,
     handleSubmit,
@@ -24,7 +26,9 @@ export default function UpdateAvatar({ name, avatar }) {
     try {
       const response = await http.put(`profiles/${name}/media`, data);
       if (response.status === 200) {
+        console.log(response.data);
         avatar(response.data);
+        setUserAvatar(response.data.avatar);
         setMessage("Avatar is updated");
       }
     } catch (error) {
