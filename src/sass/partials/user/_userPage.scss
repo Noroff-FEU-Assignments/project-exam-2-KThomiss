@@ -15,7 +15,7 @@
   flex-wrap: wrap;
 }
 .user-avatar {
-  align-self: flex-end;
+  /* align-self: flex-end; */
   width: 150px;
   height: 150px;
   object-fit: cover;
@@ -65,16 +65,34 @@
 
 @media (max-width: 486px) {
   .user-info-container {
+    justify-content: center;
+
     .heading {
-      padding-top: 10px;
+      font-size: 20px;
+    }
+
+    .user-email {
+      font-size: 13px;
     }
     .user-info {
-      margin-left: 0 !important;
+      margin-right: 0;
+    }
+
+    .user-avatar {
+      width: 80px;
+      height: 80px;
     }
   }
 
   .following-container {
     padding-top: 1rem;
+    padding-bottom: 0;
     flex-grow: 0 !important;
+  }
+
+  .follow-profile {
+    a {
+      font-size: 16px;
+    }
   }
 }

@@ -67,7 +67,7 @@ export default function UserProfile() {
           <Avatar image={avatar.avatar} class={"user-avatar"} alt={profile.name} />
           <div className="flex-grow-1 mx-2 user-info">
             <Heading title={profile.name} />
-            <span>{profile.email}</span>
+            <span className="user-email">{profile.email}</span>
             <Dropdown avatar={setAvatar} banner={setBanner} />
           </div>
           <div className="following-container d-flex flex-grow-1 justify-content-center gap-4 text-center align-self-center">

@@ -21,7 +21,7 @@ export default function ProfileFollow({ follow, count }) {
   }
 
   return (
-    <button onClick={submitFollow} className="cta">
+    <button onClick={submitFollow} className="cta follow">
       Follow
     </button>
   );
