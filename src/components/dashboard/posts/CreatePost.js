@@ -17,9 +17,8 @@ export default function CreatePost() {
   const [, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
   const [message, setMessage] = useState("");
-  const { state, addPost } = useStore();
-
-  console.log("posts", state);
+  const { addPost } = useStore();
+  const [characterCount, setCharacterCount] = useState(0);
 
   const {
     register,
@@ -73,8 +72,12 @@ export default function CreatePost() {
           {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
         </div>
         <div>
-          <label htmlFor="body">Message:</label>
-          <textarea id="body" {...register("body")} rows={6}></textarea>
+          <div className="d-flex justify-content-between align-items-end">
+            <label htmlFor="body">Message:</label>
+            <span className="message-length">Length: {characterCount}/280</span>
+          </div>
+          <textarea id="body" {...register("body")} rows={6} maxLength={280} onChange={(e) => setCharacterCount(e.target.value.length)}></textarea>
+
           {errors.body && <ErrorMessage>{errors.body.message}</ErrorMessage>}
         </div>
         <div>
