@@ -8,7 +8,6 @@ import ErrorMessage from "../../common/ErrorMessage";
 
 export default function PostsList() {
   const { state } = useStore();
-  console.log(state);
 
   if (state.loading) {
     return <Loading />;

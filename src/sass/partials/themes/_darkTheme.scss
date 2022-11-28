@@ -236,6 +236,11 @@
     color: $clr-success-dark;
   }
 
+  .error,
+  .required {
+    color: $clr-error-dark;
+  }
+
   .cta:hover {
     background-color: $clr-cta-dark-hover;
     color: white;

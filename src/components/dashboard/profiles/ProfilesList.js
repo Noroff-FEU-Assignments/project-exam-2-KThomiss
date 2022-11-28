@@ -42,7 +42,7 @@ export default function ProfilesList() {
           <div key={index} className="profile-container content-container">
             <div className="d-grid place-items-center align-items-center text-center px-2 py-5">
               <Avatar image={profile.avatar} class={"user-avatar profile-avatar"} alt={profile.name} />
-              <Heading size={3} title={profile.name} />
+              <Heading size={2} title={profile.name} />
               <span className="profile-email">{profile.email}</span>
               <div className="d-flex justify-content-around text-center pt-2 profile-card-bottom">
                 <div>

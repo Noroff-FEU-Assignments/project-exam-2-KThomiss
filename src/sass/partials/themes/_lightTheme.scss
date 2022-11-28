@@ -234,6 +234,11 @@
     font-weight: bold;
   }
 
+  .error,
+  .required {
+    color: $clr-error-light;
+  }
+
   .cta-secondary {
     border: 2px solid $clr-cta-light;
     background-color: unset;

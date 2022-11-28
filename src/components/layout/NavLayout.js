@@ -42,7 +42,7 @@ export default function NavLayout() {
             </div>
             <div className="user-container">
               <NavProfile />
-              <button onClick={logout} className="logout-btn">
+              <button onClick={logout} className="logout-btn" aria-label="logout button">
                 <ArrowRightOnRectangleIcon className="icon" />
               </button>
               <ThemeToggler />
@@ -81,7 +81,7 @@ export default function NavLayout() {
               </NavLink>
             </Navbar.Brand>
             <Navbar.Toggle>
-              <Bars3Icon className="icon" />
+              <Bars3Icon className="icon" aria-label="display side menu" />
             </Navbar.Toggle>
             <NavOffcanvas title="ToAd">
               <Nav className="justify-content-end flex-grow-1 pe-3">
@@ -97,7 +97,7 @@ export default function NavLayout() {
                     </div>
                     <div className="user-container offcanvas-container d-flex">
                       <NavProfile />
-                      <button onClick={logout} className="logout-btn">
+                      <button onClick={logout} className="logout-btn" aria-label="logout button">
                         <ArrowRightOnRectangleIcon className="icon" />
                       </button>
                       <ThemeToggler />

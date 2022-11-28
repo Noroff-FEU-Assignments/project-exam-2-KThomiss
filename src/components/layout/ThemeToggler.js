@@ -6,7 +6,7 @@ export default function ThemeToggler() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <button onClick={toggleTheme} className="theme-btn">
+    <button onClick={toggleTheme} className="theme-btn" aria-label="switch themes">
       {theme === "light" ? <MoonIcon className="icon theme-icon" /> : <SunIcon className="icon theme-icon" />}
     </button>
   );
