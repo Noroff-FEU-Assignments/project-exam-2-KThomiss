@@ -27,12 +27,6 @@ const postReducer = (state, action) => {
         error: null,
       };
 
-    case "LOAD_MORE_POSTS":
-      return {
-        ...state.posts,
-        posts: [...state.posts, ...payload],
-      };
-
     case "ADD_POST":
       return {
         ...state,

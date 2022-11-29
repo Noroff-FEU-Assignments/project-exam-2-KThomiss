@@ -27,7 +27,6 @@ export const PostProvider = ({ children }) => {
         if (response.ok) {
           const json = await response.json();
           setPosts(json);
-          loadMorePosts(json);
         } else {
           setError("There was an error during the API request");
         }
@@ -50,13 +49,6 @@ export const PostProvider = ({ children }) => {
     dispatch({
       type: "SET_POSTS",
       payload: posts,
-    });
-  };
-
-  const loadMorePosts = (morePosts) => {
-    dispatch({
-      type: "LOAD_MORE_POSTS",
-      payload: morePosts,
     });
   };
 
