@@ -24,7 +24,7 @@ export default function CreatePost() {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -66,27 +66,29 @@ export default function CreatePost() {
       <Heading title="Create a new post" />
       <form onSubmit={handleSubmit(postComment)} className="mt-5">
         {postError && <ErrorMessage>{postError}</ErrorMessage>}
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input type="text" id="title" {...register("title")} />
-          {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
-        </div>
-        <div>
-          <div className="d-flex justify-content-between align-items-end">
-            <label htmlFor="body">Message:</label>
-            <span className="message-length">Length: {characterCount}/280</span>
+        <fieldset disabled={isSubmitting}>
+          <div>
+            <label htmlFor="title">Title:</label>
+            <input type="text" id="title" {...register("title")} />
+            {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
           </div>
-          <textarea id="body" {...register("body")} rows={6} maxLength={280} onChange={(e) => setCharacterCount(e.target.value.length)}></textarea>
+          <div>
+            <div className="d-flex justify-content-between align-items-end">
+              <label htmlFor="body">Message:</label>
+              <span className="message-length">Length: {characterCount}/280</span>
+            </div>
+            <textarea id="body" {...register("body")} rows={6} maxLength={280} onChange={(e) => setCharacterCount(e.target.value.length)}></textarea>
 
-          {errors.body && <ErrorMessage>{errors.body.message}</ErrorMessage>}
-        </div>
-        <div>
-          <label htmlFor="media">Image Url:</label>
-          <input id="media" {...register("image")} />
-          {errors.image && <ErrorMessage>{errors.image.message}</ErrorMessage>}
-        </div>
-        <button className="cta">Post</button>
-        {isSubmitSuccessful && <span className="success">{message}</span>}
+            {errors.body && <ErrorMessage>{errors.body.message}</ErrorMessage>}
+          </div>
+          <div>
+            <label htmlFor="media">Image Url:</label>
+            <input id="media" {...register("image")} />
+            {errors.image && <ErrorMessage>{errors.image.message}</ErrorMessage>}
+          </div>
+          <button className="cta">Post</button>
+          {isSubmitSuccessful && <span className="success">{message}</span>}
+        </fieldset>
       </form>
     </>
   );
