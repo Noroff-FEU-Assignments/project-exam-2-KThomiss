@@ -1,89 +1,61 @@
-# Project Exam 2
-## Goal
-To take the skills learned over the last two years and take on an extensive project where the finished product should reflect the candidate's general development capabilities, in addition to visual and technical skills.
+# Code ToAd
+
+Code ToAd is a social media platform built with React and Bootstrap styled with Sass. The concept of the website is to have a platform for coders to connect and share their thoughts and ideas.
+
+visit site: https://codetoad.netlify.app/
 
 ## Brief
+
 An existing Social Media company has approached you to create a brand new front end for their application. While they have a list of required features, the design and user experience has not been specified. Working with the official API documentation, plan, design and build a modern front end social media application.
-
-## Requirements
-
-> All admin functionality is managed by an existing application. This project only covers the front-end application for the API.
 
 ## API
 
 The API you are using for this project can be found under Social EndPoints in the [Noroff API documentation](https://noroff-api-docs.netlify.app/).
 
-### Resources
+### Frameworks and Libaries used
 
-[API Guide](https://noroff-api-docs.netlify.app/social-endpoints/authentication)
-[API Documentation](https://nf-api.onrender.com/docs)
+- React-App
+- Bootstrap
+- Sass
+- Yup and react-hook-form
+- Axios
+- Moment
 
-### User Stories
+### Installation and Setup
 
-The client has specified the following requirements in the form of *User Stories*:
-1. A user with a `stud.noroff.no` email may register
-2. A registered user may login
-3. A registered user may update their avatar and banner
-4. A registered user may logout
-5. A registered user may view a list of `Posts`
-6. A registered user may view a list of `Profiles`
-7. A registered user may view a single `Post` by `id`
-8. A registered user may view a single `Profile` by `name`
-9. A registered user may create a `Post`
-10. A registered user may update a `Post` they own
-11. A registered user may delete a `Post` they own
-12. A registered user may create a `Comment` on any `Post`
-13. A registered user may `react` to any `Post` with an emoji
-14. A registered user may `follow` and `unfollow` another `Profile`
+To get started, clone this repository to your computer and make sure you have node and npm installed on your computer.
 
-### Technical Restrictions
+#### Installation:
 
-The company CTO has set the following technical restrictions:
-1. Must use an approved `JavaScript Framework`
-2. Must use an approved `CSS Framework`
-3. Must be hosted on an approved `Static Host`
-4. Must use an approved `Design Application`
-5. Must use an approved `Planning Application`
+1. npm install
 
-### Required Links
+#### Start live server
 
-The Product Owner has requested links to the following:
-1. A Gantt chart for project timing
-2. A design prototype
-3. A style guide
-4. A kanban project board
-5. A repository link
-6. A hosted application demo link
+2. Open up your command line or terminal
+3. Make sure you are in the correct folder.
+4. npm start
 
-## Approved Resources
-This list covers libraries and services that have been vetted by the company and approved for use.
+#### Localhost
 
-### JavaScript Frameworks
-- React (>16)
+The app will usually start up on port 3000,
+if port is in use, click Y to open in another port (see terminal).
 
-### CSS Frameworks
-- Bootstrap (>5)
-- Tailwind (>3)
-- MUI (>5)
-- Styled Components
-- CSS Modules
+#### Getting started
 
-### Hosting Services
-- GitHub Pages
-- Netlify
+To get started you need to register for an account or log in if you already have an account.
 
-### Design Applications
-- Adobe XD
-- Figma
-- Sketch
+- Registering for an account is free
+- An account must be created with @stud.noroff.no or @noroff.no
+- Any posts created must be user friendly.
 
-### Planning Applications
-- Trello
-- GitHub Projects
+### Project Reflection
 
-## Delivery
-Include the required links in the Moodle delivery window using [this template format](delivery-template.html).
+This project is my delivery as the final exam at Noroff. It was developed over a time span of 7 weeks, where we plan, design and code everything from scratch.
 
-All final changes must be merged into the default branch `main` or `master`. Other branches will not be checked.
+Code ToAd is a social media platform using the Noroff social API where you can create an account, create your own post, read other users posts, comment and react with emojis, see other profiles, get followers and follow other people. Customize your profile with a banner and a profile picture.
 
-Ensure that the `readme.md` file describes your project thoroughly, including how to setup and run the project locally and any special instructions for testers.
+All the planning and the cycle of the project development went very well. I think I have established a good way of working that suits me well. I decided to learn a little bit about the API before deciding any layout and design ideas because I wanted to get more inspiration before I created the prototype. By combining these two activities I ended up with time to spare and not much wasted, I think this was a good decition.
+The most challenging part of the development was to make everything update "automaticly" as requests to the server was made. By using useReducer and Context API I am able to update each state immidietly and it creates a very fast UI.
+I have learned a lot and been introduced to new ways of developing and gained much more knowledge about how everything works together when using React. This project has also led me to be more efficient using the developer tools and debugging my code.
+Overall the process has been fun and I am happy with the end result.
+Welcome to Code ToAd!
