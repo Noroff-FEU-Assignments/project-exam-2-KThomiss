@@ -14,9 +14,25 @@ body {
 }
 
 .intro-container {
+  background-color: inherit;
+  position: sticky;
+  top: 0;
   max-width: 1000px;
   margin: 0 auto;
   padding: 1rem;
+
+  h1 {
+    font-size: 50px;
+    text-align: start;
+  }
+
+  h2 {
+    max-width: 400px;
+    font-size: 25px;
+  }
+  .create-new-btn {
+    max-width: 200px;
+  }
 }
 
 .postlist-container,
@@ -102,7 +118,34 @@ a {
   width: 25px;
 }
 
-/* .row,
-.col {
-  padding: 0;
-} */
+@media (max-width: 767px) {
+  .intro-container {
+    padding: 10px;
+
+    h1 {
+      font-size: 40px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .create-new-btn {
+      max-width: 150px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .intro-container {
+    h1 {
+      font-size: 25px;
+    }
+
+    h2 {
+      display: none;
+    }
+  }
+}
