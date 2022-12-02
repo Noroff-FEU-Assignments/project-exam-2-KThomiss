@@ -1,17 +1,17 @@
 import Heading from "../../layout/Heading";
 import UserPosts from "./UserPosts";
 import UserFollowing from "./UserFollowing";
-import { useState, useEffect } from "react";
-import useAxios from "../../../hooks/useAxios";
-import ErrorMessage from "../../common/ErrorMessage";
-import { useParams } from "react-router-dom";
-import Avatar from "../../common/DefaultAvatar";
-import Banner from "../../common/DefaultBanner";
-import Dropdown from "./Dropdown";
-import { useStore } from "../../../context/PostContext";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Loading from "../../common/LoadingIndicator";
+import ErrorMessage from "../../common/ErrorMessage";
+import Avatar from "../../common/DefaultAvatar";
+import Banner from "../../common/DefaultBanner";
+import Dropdown from "./Dropdown";
+import useAxios from "../../../hooks/useAxios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useStore } from "../../../context/PostContext";
 
 export default function UserProfile() {
   const [error, setError] = useState(null);

@@ -1,14 +1,24 @@
-import { useState, useEffect } from "react";
-import useAxios from "../../../hooks/useAxios";
+/* import { useState  useEffect } from "react"; */
+/* import useAxios from "../../../hooks/useAxios"; */
 import PostMedia from "../../common/PostMeida";
 import { ChatBubbleBottomCenterTextIcon, FaceSmileIcon } from "@heroicons/react/20/solid";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import Loading from "../../common/LoadingIndicator";
 import ErrorMessage from "../../common/ErrorMessage";
+/* import useApi from "../../../hooks/useApi";
+import { BASE_URL } from "../../../constants/api"; */
+import useAxiosFetch from "../../../hooks/useAxiosFetch";
 
 export default function GetFollowers() {
-  const [followers, setFollowers] = useState();
+  const url = "posts/following?_author=true&_comments=true&_reactions=true";
+
+  const { data, loading, error } = useAxiosFetch({
+    method: "get",
+    url: url,
+  });
+
+  /*   const [followers, setFollowers] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -29,8 +39,7 @@ export default function GetFollowers() {
     }
     fetchFollowers();
     // eslint-disable-next-line
-  }, []);
-
+  }, []); */
   if (loading) {
     return <Loading />;
   }
@@ -39,13 +48,13 @@ export default function GetFollowers() {
     return <ErrorMessage>{error}</ErrorMessage>;
   }
 
-  if (followers.length === 0) {
+  if (data.length === 0) {
     return <div>No followers yet</div>; //update this with link and styling
   }
 
   return (
     <div className="posts-container following-container">
-      {followers.map((follow) => {
+      {data.map((follow) => {
         return (
           <div key={follow.id} className="posts-container content-container mt-5">
             <h2>{follow.title}</h2>

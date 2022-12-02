@@ -49,7 +49,7 @@ export default function ProfileDetails() {
     }
     getProfile();
     // eslint-disable-next-line
-  }, []);
+  }, [name]);
 
   if (loading) {
     return <Loading />;
@@ -102,7 +102,7 @@ export default function ProfileDetails() {
                 <div className="posts-container content-container">
                   <div className="d-flex justify-content-between align-items-center">
                     <Heading size={3} title={post.title} />
-                    <Link to={`/posts/${post.id}`}>
+                    <Link to={`/posts/${post.id}`} relative="path">
                       <EyeIcon className="icon-sm" />
                     </Link>
                   </div>

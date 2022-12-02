@@ -10,7 +10,7 @@ An existing Social Media company has approached you to create a brand new front 
 
 ## API
 
-The API you are using for this project can be found under Social EndPoints in the [Noroff API documentation](https://noroff-api-docs.netlify.app/).
+The API I am using for this project can be found under Social EndPoints in the [Noroff API documentation](https://noroff-api-docs.netlify.app/).
 
 ### Frameworks and Libaries used
 
