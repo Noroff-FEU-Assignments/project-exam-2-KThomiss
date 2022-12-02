@@ -26,6 +26,7 @@ export default function NavLayout() {
     setAuth(null);
     navigate("/");
   };
+
   return (
     <header id="top">
       <Nav className="desktop-nav d-none d-md-flex nav-lg">

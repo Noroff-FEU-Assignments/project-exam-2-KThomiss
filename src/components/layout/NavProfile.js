@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Avatar from "../common/DefaultAvatar";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import useStore from "../../context/PostContext";
@@ -32,9 +32,9 @@ export default function UserProfile() {
   }, []);
 
   return (
-    <Link to={`/user/${auth.name}`} className="user-link d-flex flex-column">
+    <NavLink to={`/user/${auth.name}`} className="user-link d-flex flex-column">
       <Avatar image={state.userAvatar} class={"avatar"} alt={auth.name} />
       <span className="username">{auth.name}</span>
-    </Link>
+    </NavLink>
   );
 }

@@ -20,7 +20,7 @@ export default function NavOffcanvas(props) {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>{props.title}</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>{props.children}</Offcanvas.Body>
+        <Offcanvas.Body onClick={() => setShow(false)}>{props.children}</Offcanvas.Body>
       </Offcanvas>
     </>
   );
