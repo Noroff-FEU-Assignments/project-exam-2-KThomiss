@@ -261,10 +261,6 @@
     color: $clr-links-light;
   }
 
-  a:hover {
-    color: $clr-cta-light-hover;
-  }
-
   .active {
     color: $clr-link-light-active;
   }
@@ -273,6 +269,15 @@
   .icon-sm,
   .btn-close {
     color: $clr-icon-light;
+  }
+
+  .icon:hover,
+  .icon-sm:hover,
+  .Link:hover,
+  .NavLink:hover,
+  a:hover {
+    color: $clr-cta-light-hover;
+    font-weight: bold;
   }
 
   .offcanvas-header {

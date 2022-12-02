@@ -67,13 +67,18 @@ header {
   .user-link {
     padding: 10px;
   }
+
+  .avatar {
+    align-self: center;
+  }
 }
 
 .username {
   font-size: 13px;
 }
 
-.nav-toggler {
+.nav-toggler,
+.offcanvas-close {
   border: none;
   background-color: inherit;
 }
