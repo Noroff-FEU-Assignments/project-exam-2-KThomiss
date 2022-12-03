@@ -30,7 +30,7 @@ const postReducer = (state, action) => {
     case "ADD_POST":
       return {
         ...state,
-        posts: [...state.posts, payload],
+        posts: [payload, ...state.posts],
       };
 
     case "SET_USER_POSTS":
