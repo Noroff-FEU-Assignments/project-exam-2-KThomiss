@@ -1,0 +1,17 @@
+.page-not-fount-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 4rem;
+
+  .bg-image {
+    @extend .background-image;
+    background-size: contain;
+    max-width: 500px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+  }
+}

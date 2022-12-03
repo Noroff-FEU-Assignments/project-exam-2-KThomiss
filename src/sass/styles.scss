@@ -4,18 +4,17 @@
 @import "partials/navlayout";
 @import "partials/modal";
 @import "partials/forms";
+@import "partials/pageNotFound.scss";
 //Themes
 @import "partials/themes/darkTheme";
 @import "partials/themes/lightTheme";
 //Landing page stylings
 @import "partials/home/homepage";
 @import "partials/home/carousel";
-
 //Post stylings
 @import "partials/posts/posts";
 @import "partials/posts/post";
 //User stylings
 @import "partials/user/userPage";
-
 //Profile stylings
 @import "partials/profiles/profiles";

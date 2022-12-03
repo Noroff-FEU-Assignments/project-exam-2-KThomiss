@@ -6,6 +6,7 @@ import PostDetailsPage from "./components/dashboard/posts/PostDetailsPage";
 import ProfilesPage from "./components/dashboard/profiles/ProfilesPage";
 import ProfileDetailsPage from "./components/dashboard/profiles/ProfileDetailsPage";
 import FollowingPage from "./components/dashboard/following/FollowingPage";
+import PageNotFound from "./components/layout/PageNotFound";
 import { PostProvider } from "./context/PostContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useContext } from "react";
@@ -28,7 +29,7 @@ function App() {
             <Route path="/profiles" element={<ProfilesPage />}></Route>
             <Route path="/profile/:name" element={<ProfileDetailsPage />}></Route>
             <Route path="/following" element={<FollowingPage />}></Route>
-            <Route path="*" element={<HomePage />}></Route>
+            <Route path="*" element={<PageNotFound />}></Route>
           </Routes>
         </Router>
       </div>
