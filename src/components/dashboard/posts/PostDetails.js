@@ -43,7 +43,6 @@ export default function PostDetails() {
         }
       } catch (error) {
         setError(error.toString());
-        console.log(error);
       } finally {
         setLoading(false);
       }

@@ -28,7 +28,6 @@ export default function UpdateForm({ id, title, body }) {
     try {
       const response = await http.put(`posts/${id}`, data);
       if (response.status === 200) {
-        console.log(response);
         setMessage("Post updated.");
       }
     } catch (error) {

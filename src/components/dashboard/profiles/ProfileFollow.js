@@ -11,7 +11,6 @@ export default function ProfileFollow({ follow, count }) {
     try {
       const response = await http.put(`profiles/${name}/follow`);
       if (response.status === 200) {
-        console.log(response);
         follow((curr) => [...curr, response.data]);
         count((curr) => curr + 1);
       }

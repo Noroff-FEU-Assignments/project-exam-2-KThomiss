@@ -26,7 +26,6 @@ export default function UpdateAvatar({ name, avatar }) {
     try {
       const response = await http.put(`profiles/${name}/media`, data);
       if (response.status === 200) {
-        console.log(response.data);
         avatar(response.data);
         setUserAvatar(response.data.avatar);
         setMessage("Avatar is updated");

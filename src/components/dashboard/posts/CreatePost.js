@@ -54,7 +54,6 @@ export default function CreatePost() {
         setMessage("Post submitted");
       }
     } catch (error) {
-      console.log("error", error);
       setPostError(error.toString());
     } finally {
       setSubmitting(false);

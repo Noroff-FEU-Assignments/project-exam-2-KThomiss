@@ -45,9 +45,9 @@ export default function RegisterForm({ setLogShow, setRegShow }) {
 
     try {
       const response = await fetch(url, options);
-      const json = await response.json();
-      console.log(json);
       if (response.ok) {
+        const json = await response.json();
+        console.log(json);
         setMessage("Account created");
       } else {
         setRegisterError("Account already exists");

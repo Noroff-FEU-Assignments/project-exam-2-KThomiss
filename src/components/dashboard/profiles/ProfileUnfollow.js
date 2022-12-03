@@ -9,14 +9,13 @@ export default function ProfileUnfollow({ follow, count, followers }) {
 
   function unFollow(name) {
     const newFollowers = followers.filter((f) => f.name !== name);
-    console.log(newFollowers);
     follow(newFollowers);
   }
 
   async function submitUnfollow() {
     try {
       const response = await http.put(`profiles/${name}/unfollow`);
-      console.log(response);
+
       if (response.status === 200) {
         unFollow(response.data.name);
         count((curr) => curr - 1);

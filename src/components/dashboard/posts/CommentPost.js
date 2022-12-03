@@ -29,8 +29,8 @@ export default function CommentOnPost() {
   const http = useAxios();
 
   async function postComment(data) {
-    setSubmitting(true); /////////////////////
-    setPostError(null); //do I need these?
+    setSubmitting(true);
+    setPostError(null);
     reset();
 
     const message = data.message;
@@ -45,7 +45,6 @@ export default function CommentOnPost() {
         addComment(response.data);
       }
     } catch (error) {
-      console.log("error", error);
       setPostError(error.toString());
     } finally {
       setSubmitting(false);

@@ -50,7 +50,6 @@ export default function LoginForm() {
       const response = await fetch(url, options);
       const json = await response.json();
       if (response.ok) {
-        console.log(json);
         setAuth(json);
         setUserAvatar(json.avatar);
         navigate("/");
