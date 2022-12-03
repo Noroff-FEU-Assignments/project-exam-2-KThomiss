@@ -1,24 +1,14 @@
-/* import { useState  useEffect } from "react"; */
-/* import useAxios from "../../../hooks/useAxios"; */
+import { useState, useEffect } from "react";
+import useAxios from "../../../hooks/useAxios";
 import PostMedia from "../../common/PostMeida";
 import { ChatBubbleBottomCenterTextIcon, FaceSmileIcon } from "@heroicons/react/20/solid";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import Loading from "../../common/LoadingIndicator";
 import ErrorMessage from "../../common/ErrorMessage";
-/* import useApi from "../../../hooks/useApi";
-import { BASE_URL } from "../../../constants/api"; */
-import useAxiosFetch from "../../../hooks/useAxiosFetch";
 
 export default function GetFollowers() {
-  const url = "posts/following?_author=true&_comments=true&_reactions=true";
-
-  const { data, loading, error } = useAxiosFetch({
-    method: "get",
-    url: url,
-  });
-
-  /*   const [followers, setFollowers] = useState();
+  const [followers, setFollowers] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -39,7 +29,8 @@ export default function GetFollowers() {
     }
     fetchFollowers();
     // eslint-disable-next-line
-  }, []); */
+  }, []);
+
   if (loading) {
     return <Loading />;
   }
@@ -48,13 +39,25 @@ export default function GetFollowers() {
     return <ErrorMessage>{error}</ErrorMessage>;
   }
 
-  if (data.length === 0) {
-    return <div>No followers yet</div>; //update this with link and styling
+  if (followers.length === 0) {
+    return (
+      <div className="no-followers-container">
+        <p className="no-followers-message">You dont follow anyone yet, visit profiles and click follow to see what they are posting here. Or take a look at the posts page.</p>
+        <div className="d-flex justify-content-between gap-3">
+          <Link to="posts" className="cta">
+            Profiles
+          </Link>
+          <Link to="posts" className="cta cta-secondary">
+            Posts
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div className="posts-container following-container">
-      {data.map((follow) => {
+      {followers.map((follow) => {
         return (
           <div key={follow.id} className="posts-container content-container mt-5">
             <h2>{follow.title}</h2>
