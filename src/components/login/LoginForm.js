@@ -52,7 +52,7 @@ export default function LoginForm() {
       if (response.ok) {
         setAuth(json);
         setUserAvatar(json.avatar);
-        navigate("/");
+        navigate("/posts");
       } else {
         setLoginError("wrong username or password");
       }
