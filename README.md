@@ -1,5 +1,6 @@
 # Code ToAd
 
+![image](codetoad_profilePage.jpg)
 Code ToAd is a social media platform built with React and Bootstrap styled with Sass. The concept of the website is to have a platform for coders to connect and share their thoughts and ideas.
 
 visit site: https://codetoad.netlify.app/
